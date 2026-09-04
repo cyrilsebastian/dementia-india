@@ -26,6 +26,19 @@ export const AppContent: React.FC = () => {
             <span>Project Dementia India — Open Health Data Platform</span>
           </div>
           <div className="flex items-center space-x-4">
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab('about');
+                setTimeout(() => {
+                  document.getElementById('disclaimer')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
+              className="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:underline transition-colors"
+            >
+              Disclaimer
+            </button>
+            <span>•</span>
             <a href="https://github.com/cyrilsebastian/dementia-india" target="_blank" rel="noreferrer" className="hover:underline">
               GitHub Repository
             </a>

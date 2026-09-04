@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, Database, ShieldCheck } from 'lucide-react';
+import { Disclaimer } from '../components/Disclaimer';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -111,6 +112,9 @@ export const AboutPage: React.FC = () => {
           The complete source code and data pipelines are open source under the MIT license.
         </p>
       </div>
+
+      {/* Legal & Clinical Disclaimer */}
+      <Disclaimer />
     </div>
   );
 };
