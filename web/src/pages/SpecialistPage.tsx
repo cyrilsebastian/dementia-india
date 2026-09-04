@@ -1,7 +1,15 @@
+/**
+ * @file SpecialistPage.tsx
+ * @description State-level neurological care deficit directory and specialist load table.
+ * Highlights acute neurologist deserts and specialist ratios using clinical threshold badge colors.
+ * Reads data from /data/neurologists.csv.
+ */
+
 import React from 'react';
 import { useCSV } from '../data/useCSV';
 import { NeurologistRecord } from '../types/data';
 import { Stethoscope, ShieldAlert } from 'lucide-react';
+import { SPECIALIST_THRESHOLDS } from '../constants/thresholds';
 
 export const SpecialistPage: React.FC = () => {
   const { data: neurologists, loading } = useCSV<NeurologistRecord>('/data/neurologists.csv');
@@ -11,6 +19,22 @@ export const SpecialistPage: React.FC = () => {
   }
 
   const sortedNeurologists = [...neurologists].sort((a, b) => a.neurologist_per_million - b.neurologist_per_million);
+
+  const getSpecialistBadgeClass = (ratio: number) => {
+    if (ratio < SPECIALIST_THRESHOLDS.CRITICAL_PER_MILLION) {
+      return 'bg-[#C0392B] text-white'; // Critical (< 0.5)
+    }
+    if (ratio < SPECIALIST_THRESHOLDS.SEVERE_PER_MILLION) {
+      return 'bg-[#E67E22] text-white'; // Severe (0.5 - 1.0)
+    }
+    if (ratio < SPECIALIST_THRESHOLDS.POOR_PER_MILLION) {
+      return 'bg-[#F1C40F] text-[#1a1a2e]'; // Poor (1.0 - 2.0)
+    }
+    if (ratio <= SPECIALIST_THRESHOLDS.ADEQUATE_PER_MILLION) {
+      return 'bg-[#27AE60] text-white'; // Adequate (2.0 - 5.0)
+    }
+    return 'bg-[#2980B9] text-white'; // Good (> 5.0)
+  };
 
   return (
     <div className="space-y-6">
@@ -61,29 +85,21 @@ export const SpecialistPage: React.FC = () => {
               {sortedNeurologists.map((row) => (
                 <tr key={row.state_code} className="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-medium flex items-center space-x-2">
-                    {row.neurologist_per_million < 0.5 && (
+                    {row.neurologist_per_million < SPECIALIST_THRESHOLDS.CRITICAL_PER_MILLION && (
                       <span title="Severe Neurologist Desert">
                         <ShieldAlert className="w-3.5 h-3.5 text-rose-500 shrink-0" />
                       </span>
                     )}
                     <span>{row.state_name}</span>
                   </td>
-                  <td className="py-3 px-4 text-right font-mono">{row.total_neurologists}</td>
-                  <td className="py-3 px-4 text-right font-mono text-indigo-600 dark:text-indigo-400">{row.cog_behav_neuro}</td>
+                  <td className="py-3 px-4 text-right font-mono tabular-nums">{row.total_neurologists}</td>
+                  <td className="py-3 px-4 text-right font-mono tabular-nums text-indigo-600 dark:text-indigo-400">{row.cog_behav_neuro}</td>
                   <td className="py-3 px-4 text-right font-mono font-semibold">
-                    <span
-                      className={`px-2 py-0.5 rounded-md ${
-                        row.neurologist_per_million < 0.5
-                          ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-400'
-                          : row.neurologist_per_million < 1.0
-                          ? 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400'
-                          : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400'
-                      }`}
-                    >
+                    <span className={`px-2 py-0.5 rounded-md text-xs font-semibold tabular-nums shadow-sm ${getSpecialistBadgeClass(row.neurologist_per_million)}`}>
                       {row.neurologist_per_million.toFixed(2)}
                     </span>
                   </td>
-                  <td className="py-3 px-4 text-right font-mono text-slate-500 dark:text-slate-400">
+                  <td className="py-3 px-4 text-right font-mono tabular-nums text-slate-500 dark:text-slate-400">
                     {row.total_neurologists === 0 ? 'No Specialist' : `1 : ${Number(row.patient_per_neurologist).toLocaleString()}`}
                   </td>
                 </tr>

@@ -1,9 +1,17 @@
+/**
+ * @file IndiaChoropleth.tsx
+ * @description Interactive choropleth map of India displaying state-level dementia prevalence.
+ * Uses GeoJSON boundaries and color scale from pale blue (low) to deep red (high).
+ * Clicking any state boundary filters demographic charts and synchronizes with FilterContext.
+ */
+
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts';
 import { useCSV } from '../data/useCSV';
 import { StateRecord } from '../types/data';
 import { useFilters } from '../context/FilterContext';
+import { getChoroplethOptions, MapDataPoint } from './options/choroplethOptions';
 import { Download } from 'lucide-react';
 
 export const IndiaChoropleth: React.FC = () => {
@@ -36,7 +44,7 @@ export const IndiaChoropleth: React.FC = () => {
   }, [statesData, sex, urban, ageGroup, education]);
 
   // Map values for ECharts series
-  const mapSeriesData = useMemo(() => {
+  const mapSeriesData: MapDataPoint[] = useMemo(() => {
     return filteredData.map((d) => ({
       name: d.state_name,
       value: d.prevalence_pct,
@@ -85,106 +93,7 @@ export const IndiaChoropleth: React.FC = () => {
     );
   }
 
-  const option = {
-    backgroundColor: 'transparent',
-    tooltip: {
-      trigger: 'item',
-      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
-      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
-      borderWidth: 1,
-      textStyle: {
-        color: isDarkMode ? '#f8fafc' : '#0f172a',
-        fontSize: 12,
-      },
-      formatter: (params: any) => {
-        if (!params.data) return `${params.name}: No data`;
-        const { name, value, lower, upper, est_cases, population } = params.data;
-        return `
-          <div style="font-family: Inter, sans-serif; min-width: 170px;">
-            <div style="font-weight: 700; font-size: 13px; margin-bottom: 4px; border-bottom: 1px solid ${isDarkMode ? '#334155' : '#e2e8f0'}; padding-bottom: 4px;">
-              ${name}
-            </div>
-            <div style="display: flex; justify-content: space-between; margin: 3px 0;">
-              <span style="color: ${isDarkMode ? '#94a3b8' : '#64748b'};">Prevalence:</span>
-              <strong style="color: #ef4444;">${value ? value.toFixed(2) : 0}%</strong>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin: 3px 0; font-size: 11px;">
-              <span style="color: ${isDarkMode ? '#94a3b8' : '#64748b'};">95% CI:</span>
-              <span>[${lower?.toFixed(1)}% – ${upper?.toFixed(1)}%]</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin: 3px 0;">
-              <span style="color: ${isDarkMode ? '#94a3b8' : '#64748b'};">Est. Patients:</span>
-              <strong style="color: #10b981;">${est_cases ? Number(est_cases).toLocaleString() : 'N/A'}</strong>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin: 3px 0; font-size: 11px;">
-              <span style="color: ${isDarkMode ? '#94a3b8' : '#64748b'};">Cohort Pop:</span>
-              <span>${population ? Number(population).toLocaleString() : 'N/A'}</span>
-            </div>
-            <div style="margin-top: 6px; font-size: 10px; color: ${isDarkMode ? '#64748b' : '#94a3b8'}; text-align: center;">
-              Click state to inspect sub-breakdown
-            </div>
-          </div>
-        `;
-      },
-    },
-    visualMap: {
-      min: 2,
-      max: 20,
-      left: 'left',
-      bottom: 'bottom',
-      text: ['High (20%)', 'Low (2%)'],
-      textStyle: {
-        color: isDarkMode ? '#94a3b8' : '#64748b',
-        fontSize: 11,
-      },
-      calculable: true,
-      inRange: {
-        color: ['#a7f3d0', '#fde047', '#fb923c', '#ef4444', '#991b1b'],
-      },
-    },
-    series: [
-      {
-        name: 'Dementia Prevalence',
-        type: 'map',
-        map: 'india',
-        roam: true,
-        scaleLimit: { min: 0.8, max: 4 },
-        zoom: 1.1,
-        emphasis: {
-          label: {
-            show: true,
-            color: isDarkMode ? '#f8fafc' : '#0f172a',
-            fontWeight: 'bold',
-          },
-          itemStyle: {
-            areaColor: '#38bdf8',
-            borderColor: '#0284c7',
-            borderWidth: 2,
-            shadowBlur: 10,
-            shadowColor: 'rgba(0, 0, 0, 0.3)',
-          },
-        },
-        select: {
-          label: {
-            show: true,
-            color: '#ffffff',
-            fontWeight: 'bold',
-          },
-          itemStyle: {
-            areaColor: '#6366f1',
-            borderColor: '#4f46e5',
-            borderWidth: 2.5,
-          },
-        },
-        itemStyle: {
-          borderColor: isDarkMode ? '#334155' : '#cbd5e1',
-          borderWidth: 0.8,
-          areaColor: isDarkMode ? '#1e293b' : '#f1f5f9',
-        },
-        data: mapSeriesData,
-      },
-    ],
-  };
+  const option = getChoroplethOptions({ data: mapSeriesData, isDarkMode });
 
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm relative flex flex-col h-full">

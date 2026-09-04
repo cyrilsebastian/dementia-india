@@ -1,3 +1,10 @@
+/**
+ * @file StatCards.tsx
+ * @description Renders headline dementia metrics (Total Cases, Specialist Ratio, Diagnosis Gap, Caregiver Hours).
+ * Formats values with tabular-nums to prevent layout jitter during dynamic updates.
+ * Reads data from /data/summary-stats.csv.
+ */
+
 import React from 'react';
 import { useCSV } from '../data/useCSV';
 import { SummaryStatRecord } from '../types/data';
@@ -51,7 +58,7 @@ export const StatCards: React.FC = () => {
             </div>
           </div>
           <div className="flex items-baseline space-x-2">
-            <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight tabular-nums">
               {stat.value}
             </span>
           </div>

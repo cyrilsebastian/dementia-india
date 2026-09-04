@@ -1,8 +1,15 @@
+/**
+ * @file AgeOnsetBar.tsx
+ * @description Renders age-onset gradient (60-64 through 85+) comparing male vs female dementia risk.
+ * Pulls from india-states.csv and automatically reacts to the selected state filter.
+ */
+
 import React, { useMemo } from 'react';
 import ReactECharts from 'echarts-for-react';
 import { useCSV } from '../data/useCSV';
 import { StateRecord } from '../types/data';
 import { useFilters } from '../context/FilterContext';
+import { getAgeOnsetOptions } from './options/ageOnsetOptions';
 
 export const AgeOnsetBar: React.FC = () => {
   const { urban, education, selectedState, isDarkMode } = useFilters();
@@ -37,64 +44,7 @@ export const AgeOnsetBar: React.FC = () => {
     return <div className="h-64 bg-slate-50 dark:bg-slate-800/40 rounded-xl animate-pulse" />;
   }
 
-  const option = {
-    backgroundColor: 'transparent',
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: { type: 'shadow' },
-      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
-      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
-      textStyle: { color: isDarkMode ? '#f8fafc' : '#0f172a', fontSize: 12 },
-    },
-    legend: {
-      data: ['Male', 'Female'],
-      top: 0,
-      right: 0,
-      textStyle: { color: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 11 },
-    },
-    grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      top: '18%',
-      containLabel: true,
-    },
-    xAxis: {
-      type: 'category',
-      data: ageBrackets,
-      axisLine: { lineStyle: { color: isDarkMode ? '#334155' : '#cbd5e1' } },
-      axisLabel: { color: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 11 },
-    },
-    yAxis: {
-      type: 'value',
-      name: 'Prevalence (%)',
-      nameTextStyle: { color: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 10 },
-      splitLine: { lineStyle: { color: isDarkMode ? '#1e293b' : '#f1f5f9' } },
-      axisLabel: { color: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 10 },
-    },
-    series: [
-      {
-        name: 'Male',
-        type: 'bar',
-        barMaxWidth: 20,
-        itemStyle: {
-          color: '#38bdf8',
-          borderRadius: [4, 4, 0, 0],
-        },
-        data: maleValues,
-      },
-      {
-        name: 'Female',
-        type: 'bar',
-        barMaxWidth: 20,
-        itemStyle: {
-          color: '#fb7185',
-          borderRadius: [4, 4, 0, 0],
-        },
-        data: femaleValues,
-      },
-    ],
-  };
+  const option = getAgeOnsetOptions({ ageBrackets, maleValues, femaleValues, isDarkMode });
 
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm flex flex-col h-full">

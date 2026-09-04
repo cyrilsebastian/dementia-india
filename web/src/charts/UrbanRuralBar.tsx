@@ -1,8 +1,15 @@
+/**
+ * @file UrbanRuralBar.tsx
+ * @description Horizontal comparison bar chart showing prevalence divergence between Rural and Urban demographics.
+ * Automatically lifts the user's selected state to the top row for instant comparison.
+ */
+
 import React, { useMemo } from 'react';
 import ReactECharts from 'echarts-for-react';
 import { useCSV } from '../data/useCSV';
 import { StateRecord } from '../types/data';
 import { useFilters } from '../context/FilterContext';
+import { getUrbanRuralOptions } from './options/urbanRuralOptions';
 
 export const UrbanRuralBar: React.FC = () => {
   const { sex, ageGroup, education, selectedState, isDarkMode } = useFilters();
@@ -43,64 +50,12 @@ export const UrbanRuralBar: React.FC = () => {
     return <div className="h-64 bg-slate-50 dark:bg-slate-800/40 rounded-xl animate-pulse" />;
   }
 
-  const option = {
-    backgroundColor: 'transparent',
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: { type: 'shadow' },
-      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
-      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
-      textStyle: { color: isDarkMode ? '#f8fafc' : '#0f172a', fontSize: 12 },
-    },
-    legend: {
-      data: ['Rural', 'Urban'],
-      top: 0,
-      right: 0,
-      textStyle: { color: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 11 },
-    },
-    grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      top: '18%',
-      containLabel: true,
-    },
-    xAxis: {
-      type: 'value',
-      name: 'Prevalence (%)',
-      nameTextStyle: { color: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 10 },
-      splitLine: { lineStyle: { color: isDarkMode ? '#1e293b' : '#f1f5f9' } },
-      axisLabel: { color: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 10 },
-    },
-    yAxis: {
-      type: 'category',
-      data: activeStates,
-      axisLine: { lineStyle: { color: isDarkMode ? '#334155' : '#cbd5e1' } },
-      axisLabel: { color: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 11 },
-    },
-    series: [
-      {
-        name: 'Rural',
-        type: 'bar',
-        barMaxWidth: 14,
-        itemStyle: {
-          color: '#f59e0b',
-          borderRadius: [0, 4, 4, 0],
-        },
-        data: ruralData,
-      },
-      {
-        name: 'Urban',
-        type: 'bar',
-        barMaxWidth: 14,
-        itemStyle: {
-          color: '#10b981',
-          borderRadius: [0, 4, 4, 0],
-        },
-        data: urbanData,
-      },
-    ],
-  };
+  const option = getUrbanRuralOptions({
+    states: activeStates,
+    urbanData,
+    ruralData,
+    isDarkMode,
+  });
 
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm flex flex-col h-full">
