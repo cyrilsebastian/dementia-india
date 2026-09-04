@@ -1,0 +1,37 @@
+state_code,state_name,total_neurologists,cog_behav_neuro,neurologist_per_million,patient_per_neurologist
+IN-JK,Jammu and Kashmir,12,1,1.00,11000
+IN-KL,Kerala,180,11,3.33,2760
+IN-TN,Tamil Nadu,260,16,2.83,3113
+IN-GA,Goa,8,0,3.64,2365
+IN-HP,Himachal Pradesh,10,1,1.18,6969
+IN-AP,Andhra Pradesh,140,8,2.15,3760
+IN-KA,Karnataka,210,13,3.09,2558
+IN-MH,Maharashtra,380,23,3.04,2500
+IN-WB,West Bengal,120,7,1.22,6043
+IN-PB,Punjab,45,3,1.32,5515
+IN-OD,Odisha,42,3,0.93,7714
+IN-TG,Telangana,160,10,4.10,1730
+IN-GJ,Gujarat,170,10,2.74,2480
+IN-MP,Madhya Pradesh,65,4,1.07,6100
+IN-RJ,Rajasthan,75,5,1.29,4794
+IN-UP,Uttar Pradesh,110,7,0.67,8850
+IN-JH,Jharkhand,22,1,0.92,6218
+IN-AS,Assam,30,2,1.30,4216
+IN-BR,Bihar,40,2,0.45,11570
+IN-HR,Haryana,50,3,1.92,2652
+IN-UT,Uttarakhand,18,1,1.64,3055
+IN-CT,Chhattisgarh,20,1,0.91,5280
+IN-DL,Delhi,190,11,11.18,402
+IN-CH,Chandigarh,25,2,22.73,228
+IN-PY,Puducherry,12,1,8.00,925
+IN-TR,Tripura,4,0,1.05,5510
+IN-ML,Meghalaya,3,0,1.43,3430
+IN-MN,Manipur,4,0,1.54,3380
+IN-NL,Nagaland,2,0,1.33,3450
+IN-MZ,Mizoram,2,0,2.11,2232
+IN-SK,Sikkim,2,0,3.45,1537
+IN-AR,Arunachal Pradesh,1,0,1.18,4080
+IN-AN,Andaman and Nicobar Islands,2,0,5.26,1102
+IN-LD,Lakshadweep,0,0,0.00,427
+IN-LA,Ladakh,1,0,3.57,2380
+IN-DN,Dadra and Nagar Haveli and Daman and Diu,2,0,4.76,1050

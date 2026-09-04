@@ -1,0 +1,16 @@
+# Raw data files (large / proprietary downloads)
+data/raw/*
+!data/raw/.gitkeep
+
+# Node / Vite
+web/node_modules/
+web/dist/
+web/.vite/
+
+# OS and IDE files
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+.obsidian/

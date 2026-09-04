@@ -1,0 +1,62 @@
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check if web directory has package.json
+        id: check_web
+        run: |
+          if [ -f "web/package.json" ]; then
+            echo "has_web=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_web=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install and Build Frontend
+        if: steps.check_web.outputs.has_web == 'true'
+        run: |
+          cd web
+          npm ci || npm install
+          npm run build
+
+      - name: Deploy to Cloudflare Pages (Production)
+        if: steps.check_web.outputs.has_web == 'true' && github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy web/dist --project-name=dementia-india-prod --branch=main
+
+      - name: Deploy to Cloudflare Pages (Staging)
+        if: steps.check_web.outputs.has_web == 'true' && github.ref == 'refs/heads/develop' && github.event_name == 'push'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy web/dist --project-name=dementia-india-staging --branch=develop
+
+      - name: Deploy Preview (PR)
+        if: steps.check_web.outputs.has_web == 'true' && github.event_name == 'pull_request'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy web/dist --project-name=dementia-india-staging

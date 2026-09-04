@@ -1,0 +1,47 @@
+name: Sync Wiki
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wiki/**'
+      - 'PLAN.md'
+      - 'PROGRESS.md'
+  workflow_dispatch:
+
+jobs:
+  sync-wiki:
+    name: Sync to GitHub Wiki
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sync to Wiki repository
+        env:
+          WIKI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "Cyril Sebastian"
+          git config --global user.email "cyrilsebastian@outlook.com"
+
+          WIKI_URL="https://x-access-token:${WIKI_TOKEN}@github.com/${{ github.repository }}.wiki.git"
+          
+          git clone "${WIKI_URL}" wiki_repo || {
+            echo "Wiki repo does not exist or first initialization needed. Please ensure Wiki is enabled in Repo Settings."
+            exit 0
+          }
+
+          # Copy wiki markdown files
+          cp -r wiki/* wiki_repo/ || true
+          cp PLAN.md wiki_repo/ || true
+          cp PROGRESS.md wiki_repo/ || true
+
+          cd wiki_repo
+          if [[ -n $(git status --porcelain) ]]; then
+            git add .
+            git commit -m "docs: automated wiki sync from main repo [skip ci]"
+            git push origin master || git push origin main
+            echo "✅ Wiki successfully synchronized!"
+          else
+            echo "No changes to sync to Wiki."
+          fi
