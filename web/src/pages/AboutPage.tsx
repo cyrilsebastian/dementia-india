@@ -1,3 +1,10 @@
+/**
+ * @file AboutPage.tsx
+ * @description About and Methodology documentation page.
+ * Details caregiver motivation, public data sources (LASI, GBD, WHO GDO, IAN),
+ * ethical standards under DPDP Act 2023, and embeds the official disclaimer.
+ */
+
 import React from 'react';
 import { Heart, Database, ShieldCheck } from 'lucide-react';
 import { Disclaimer } from '../components/Disclaimer';

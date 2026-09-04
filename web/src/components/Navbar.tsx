@@ -1,3 +1,10 @@
+/**
+ * @file Navbar.tsx
+ * @description Primary application navigation header.
+ * Provides tab switching (India Overview, Specialist Deserts, Health Spending, Care Network, About),
+ * theme toggling (dark/light), and GitHub repository navigation.
+ */
+
 import React from 'react';
 import { useFilters } from '../context/FilterContext';
 import { Moon, Sun, Github, Activity } from 'lucide-react';

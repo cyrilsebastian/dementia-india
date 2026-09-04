@@ -1,3 +1,10 @@
+/**
+ * @file IndiaPage.tsx
+ * @description Main dashboard overview for Project Dementia India.
+ * Assembles headline stat cards, national state choropleth, age-onset gradient,
+ * and urban-rural risk distribution charts with interactive demographic filtering.
+ */
+
 import React from 'react';
 import { StatCards } from '../components/StatCards';
 import { IndiaChoropleth } from '../charts/IndiaChoropleth';
