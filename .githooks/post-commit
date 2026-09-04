@@ -1,0 +1,40 @@
+#!/bin/bash
+# post-commit git hook — installed by mizpah's hooks/setup-project.sh.
+# Pushes an episodic memory entry for this commit (hash + full message),
+# then pushes the branch upstream. Generic/project-agnostic: dementia-india
+# and /Users/cyril/Documents/git/github/mizpah below are substituted at install time by setup-project.sh.
+#
+# Best-effort: a memory-push or git-push failure here prints a warning but
+# never fails the commit itself (the commit has already happened by the
+# time this hook runs).
+
+PROJECT_NAME="dementia-india"
+MIZPAH_ROOT="/Users/cyril/Documents/git/github/mizpah"
+MCP_CALL_LIB="$MIZPAH_ROOT/hooks/lib/mcp-call.sh"
+
+if [ ! -f "$MCP_CALL_LIB" ]; then
+  echo "WARN: post-commit: mcp-call.sh not found at $MCP_CALL_LIB, skipping memory push" >&2
+else
+  # shellcheck source=/dev/null
+  source "$MCP_CALL_LIB"
+
+  COMMIT_HASH=$(git rev-parse HEAD)
+  COMMIT_MSG=$(git log -1 --pretty=%B "$COMMIT_HASH")
+  TS=$(date -u +%FT%TZ)
+
+  ARGS=$(jq -n \
+    --arg apiKeyId "mizpah-hooks" \
+    --arg type "episodic" \
+    --arg key "${PROJECT_NAME}:commit" \
+    --arg content "$COMMIT_MSG" \
+    --arg project "$PROJECT_NAME" \
+    --arg hash "$COMMIT_HASH" \
+    --arg ts "$TS" \
+    '{apiKeyId: $apiKeyId, type: $type, key: $key, content: $content, metadata: {project: $project, commit: $hash, ts: $ts}}')
+
+  mcp_call "omniroute_memory_add" "$ARGS" > /dev/null \
+    || echo "WARN: post-commit: failed to push memory entry for $COMMIT_HASH" >&2
+fi
+
+git push origin HEAD \
+  || echo "WARN: post-commit: git push origin HEAD failed" >&2

@@ -1,0 +1,23 @@
+#!/bin/bash
+# commit-msg git hook — installed by mizpah's hooks/setup-project.sh.
+# Rejects commits whose message (excluding comment lines and trailing
+# whitespace) is under 20 characters. Generic/project-agnostic:
+# dementia-india below is substituted at install time by setup-project.sh
+# (used only for the error message).
+
+PROJECT_NAME="dementia-india"
+COMMIT_MSG_FILE="$1"
+
+# Strip comment lines (git includes these when --verbose / templates are used)
+# and leading/trailing whitespace before measuring length. Internal spacing
+# and newlines in the message body are preserved and counted.
+MSG=$(grep -v '^#' "$COMMIT_MSG_FILE")
+MSG="$(printf '%s' "$MSG" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+MSG_LEN=${#MSG}
+
+if [ "$MSG_LEN" -lt 20 ]; then
+  echo "ERROR [$PROJECT_NAME]: commit message must be at least 20 characters (got $MSG_LEN, comments/leading/trailing whitespace excluded)." >&2
+  exit 1
+fi
+
+exit 0
