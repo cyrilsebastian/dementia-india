@@ -5,10 +5,18 @@ import { StateRecord } from '../types/data';
 import { useFilters } from '../context/FilterContext';
 
 export const UrbanRuralBar: React.FC = () => {
-  const { sex, ageGroup, education, isDarkMode } = useFilters();
+  const { sex, ageGroup, education, selectedState, isDarkMode } = useFilters();
   const { data: statesData, loading } = useCSV<StateRecord>('/data/india-states.csv');
 
-  const topStates = ['Kerala', 'Jammu and Kashmir', 'Tamil Nadu', 'Goa', 'Karnataka', 'Maharashtra', 'West Bengal', 'Delhi'];
+  const baseStates = ['Kerala', 'Jammu and Kashmir', 'Tamil Nadu', 'Goa', 'Karnataka', 'Maharashtra', 'West Bengal', 'Delhi'];
+
+  // If a state is selected, ensure it is at the front of the list
+  const activeStates = useMemo(() => {
+    if (!selectedState || !statesData.length) return baseStates;
+    const match = statesData.find((d) => d.state_code === selectedState);
+    if (!match) return baseStates;
+    return [match.state_name, ...baseStates.filter((s) => s !== match.state_name)];
+  }, [selectedState, statesData]);
 
   const { urbanData, ruralData } = useMemo(() => {
     if (!statesData.length) return { urbanData: [], ruralData: [] };
@@ -26,10 +34,10 @@ export const UrbanRuralBar: React.FC = () => {
     };
 
     return {
-      urbanData: topStates.map((s) => getVal(s, 'Urban')),
-      ruralData: topStates.map((s) => getVal(s, 'Rural')),
+      urbanData: activeStates.map((s) => getVal(s, 'Urban')),
+      ruralData: activeStates.map((s) => getVal(s, 'Rural')),
     };
-  }, [statesData, sex, ageGroup, education]);
+  }, [statesData, activeStates, sex, ageGroup, education]);
 
   if (loading) {
     return <div className="h-64 bg-slate-50 dark:bg-slate-800/40 rounded-xl animate-pulse" />;
@@ -66,7 +74,7 @@ export const UrbanRuralBar: React.FC = () => {
     },
     yAxis: {
       type: 'category',
-      data: topStates,
+      data: activeStates,
       axisLine: { lineStyle: { color: isDarkMode ? '#334155' : '#cbd5e1' } },
       axisLabel: { color: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 11 },
     },

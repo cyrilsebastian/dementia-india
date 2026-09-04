@@ -1,13 +1,15 @@
 /**
  * @file FilterBar.tsx
  * @description Global filter control bar for the Dementia India dashboard.
- * Groups interactive controls into Population, Geography, and Age Cohort clusters.
+ * Groups interactive controls into Population, Geography, Age Cohort, and State selector.
  * Synchronizes with FilterContext to update all dashboard visualizations simultaneously.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useFilters } from '../context/FilterContext';
-import { Filter, RotateCcw, Info, X, SlidersHorizontal } from 'lucide-react';
+import { useCSV } from '../data/useCSV';
+import { StateRecord } from '../types/data';
+import { Filter, RotateCcw, Info, X, SlidersHorizontal, MapPin } from 'lucide-react';
 
 export const FilterBar: React.FC = () => {
   const {
@@ -18,10 +20,26 @@ export const FilterBar: React.FC = () => {
     ageGroup,
     setAgeGroup,
     selectedState,
+    setSelectedState,
     resetFilters,
   } = useFilters();
 
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const { data: statesData } = useCSV<StateRecord>('/data/india-states.csv');
+
+  // Extract unique state names & codes sorted alphabetically
+  const uniqueStates = useMemo(() => {
+    if (!statesData.length) return [];
+    const map = new Map<string, string>();
+    for (const row of statesData) {
+      if (row.state_code && row.state_name && !map.has(row.state_code)) {
+        map.set(row.state_code, row.state_name);
+      }
+    }
+    return Array.from(map.entries())
+      .map(([code, name]) => ({ code, name }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [statesData]);
 
   const isNonDefault =
     sex !== 'Both' ||
@@ -30,8 +48,39 @@ export const FilterBar: React.FC = () => {
     selectedState !== null;
 
   const filterControls = (
-    <div className="flex flex-col sm:flex-row flex-wrap sm:items-end gap-4 text-xs sm:text-sm">
-      {/* Group 1: Population */}
+    <div className="flex flex-col sm:flex-row flex-wrap sm:items-end gap-3.5 text-xs sm:text-sm">
+      {/* Group 1: State / Region Selector */}
+      <div className="flex flex-col space-y-1">
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center space-x-1">
+          <MapPin className="w-3 h-3 text-emerald-500" />
+          <span>Region</span>
+        </span>
+        <div className="flex items-center space-x-1.5">
+          <select
+            value={selectedState || ''}
+            onChange={(e) => setSelectedState(e.target.value ? e.target.value : null)}
+            className="h-[34px] px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-lg border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          >
+            <option value="">Viewing: All India ▾</option>
+            {uniqueStates.map((s) => (
+              <option key={s.code} value={s.code}>
+                {s.name}
+              </option>
+            ))}
+          </select>
+          {selectedState && (
+            <button
+              onClick={() => setSelectedState(null)}
+              className="h-[34px] px-2 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-200 text-xs font-semibold flex items-center space-x-1 border border-emerald-300 dark:border-emerald-800 transition-colors"
+              title="Clear state filter"
+            >
+              <span>× All India</span>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Group 2: Population */}
       <div className="flex flex-col space-y-1">
         <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
           Population
@@ -53,7 +102,7 @@ export const FilterBar: React.FC = () => {
         </div>
       </div>
 
-      {/* Group 2: Geography */}
+      {/* Group 3: Geography */}
       <div className="flex flex-col space-y-1">
         <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
           Geography
@@ -75,7 +124,7 @@ export const FilterBar: React.FC = () => {
         </div>
       </div>
 
-      {/* Group 3: Age Cohort */}
+      {/* Group 4: Age Cohort */}
       <div className="flex flex-col space-y-1">
         <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
           Age Cohort
@@ -128,7 +177,12 @@ export const FilterBar: React.FC = () => {
         </div>
 
         {/* Mobile Filter Toggle Button */}
-        <div className="sm:hidden flex items-center">
+        <div className="sm:hidden flex items-center space-x-2">
+          {selectedState && (
+            <span className="text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-semibold">
+              {selectedState}
+            </span>
+          )}
           <button
             onClick={() => setMobileDrawerOpen(true)}
             className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
