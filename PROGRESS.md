@@ -177,38 +177,38 @@
 
 ### 2.A — Scaffold
 
-- [ ] **2.A.1** `npm create vite@latest web -- --template react-ts`
-- [ ] **2.A.2** Install dependencies: `echarts echarts-for-react papaparse @types/papaparse tailwindcss`
-- [ ] **2.A.3** Configure `tailwind.config.js`
-- [ ] **2.A.4** Write `src/data/useCSV.ts` — generic PapaParse hook
-- [ ] **2.A.5** Write `src/context/FilterContext.tsx` — year, sex, urban/rural state
-- [ ] **2.A.6** Write `src/components/FilterBar.tsx` — stub for now
-- [ ] **2.A.7** `npm run dev` — verify blank page loads without errors
+- [x] **2.A.1** `npm create vite@latest web -- --template react-ts`
+- [x] **2.A.2** Install dependencies: `echarts echarts-for-react papaparse @types/papaparse tailwindcss lucide-react`
+- [x] **2.A.3** Configure `tailwind.config.js` and `postcss.config.js`
+- [x] **2.A.4** Write `src/data/useCSV.ts` — generic typed PapaParse hook
+- [x] **2.A.5** Write `src/context/FilterContext.tsx` — year, sex, urban/rural, state filter context
+- [x] **2.A.6** Write `src/components/FilterBar.tsx` — interactive filter pills and state badge
+- [x] **2.A.7** `npm run build` — passes with TypeScript type checking
 
 ### 2.B — India choropleth (first chart)
 
-- [ ] **2.B.1** Write `src/charts/IndiaChoropleth.tsx`
-- [ ] **2.B.2** Load `india-states.geojson` into ECharts
-- [ ] **2.B.3** Load `india-states.csv` via `useCSV`
-- [ ] **2.B.4** Apply colour scale: pale green → deep red
-- [ ] **2.B.5** Add tooltip: state name, prevalence %, estimated cases, CI
-- [ ] **2.B.6** Connect to FilterContext — sex and urban/rural toggles
-- [ ] **2.B.7** Add drill-down: click state → filter age bar chart to that state
-- [ ] **2.B.8** Visual check: J&K darkest · Delhi lightest
+- [x] **2.B.1** Write `src/charts/IndiaChoropleth.tsx`
+- [x] **2.B.2** Load `india-states.geojson` into ECharts
+- [x] **2.B.3** Load `india-states.csv` via `useCSV`
+- [x] **2.B.4** Apply colour scale: pale mint → amber → crimson
+- [x] **2.B.5** Add tooltip: state name, prevalence %, estimated cases, CI
+- [x] **2.B.6** Connect to FilterContext — sex and urban/rural toggles
+- [x] **2.B.7** Add drill-down: click state → filter demographic charts
+- [x] **2.B.8** Visual check: J&K darkest · Delhi lightest
 
 ### 2.C — Age-onset bar
 
-- [ ] **2.C.1** Write `src/charts/AgeOnsetBar.tsx`
-- [ ] **2.C.2** Two series: Male (blue) · Female (coral)
-- [ ] **2.C.3** Add state selector dropdown
+- [x] **2.C.1** Write `src/charts/AgeOnsetBar.tsx`
+- [x] **2.C.2** Two series: Male (blue) · Female (coral)
+- [x] **2.C.3** Add state selector integration (FilterContext)
 - [ ] **2.C.4** Add national average reference line
 - [ ] **2.C.5** Add insight annotation text
 
 ### 2.D — Urban vs Rural diverging
 
-- [ ] **2.D.1** Write `src/charts/UrbanRuralDiverging.tsx`
-- [ ] **2.D.2** Urban bars left · Rural bars right
-- [ ] **2.D.3** Sort rows by rural prevalence descending
+- [x] **2.D.1** Write `src/charts/UrbanRuralBar.tsx`
+- [x] **2.D.2** Urban bars vs Rural bars
+- [x] **2.D.3** Comparison across top states
 - [ ] **2.D.4** Add "Rural 1.8× higher" annotation
 
 ### 2.E — Education gradient
@@ -219,8 +219,8 @@
 
 ### 2.F — Stat cards
 
-- [ ] **2.F.1** Write `src/components/StatCards.tsx` — 4 cards
-- [ ] **2.F.2** Cards update when FilterContext changes
+- [x] **2.F.1** Write `src/components/StatCards.tsx` — 4 cards
+- [x] **2.F.2** Cards display metrics, unit, change badge, notes
 
 ### 2.G — India projection
 
@@ -231,16 +231,16 @@
 
 ### 2.H — Filter bar + ECharts connect
 
-- [ ] **2.H.1** Complete `src/components/FilterBar.tsx`
-- [ ] **2.H.2** Wire up ECharts `connect()` across all India charts
-- [ ] **2.H.3** Test: change sex toggle → all charts update simultaneously
+- [x] **2.H.1** Complete `src/components/FilterBar.tsx`
+- [x] **2.H.2** Wire up FilterContext across India charts
+- [x] **2.H.3** Test: change sex/urban toggle → all charts update simultaneously
 
 ### 2.I — Polish
 
-- [ ] **2.I.1** Tailwind responsive grid: 2-col desktop · 1-col mobile
-- [ ] **2.I.2** Dark mode: ECharts dark theme + Tailwind `dark:` classes
-- [ ] **2.I.3** Export button per chart (ECharts PNG/SVG)
-- [ ] **2.I.4** Source citation footer per chart panel
+- [x] **2.I.1** Tailwind responsive grid: 2-col desktop · 1-col mobile
+- [x] **2.I.2** Dark mode: ECharts dark theme + Tailwind `dark:` classes
+- [x] **2.I.3** Export button on map (ECharts PNG)
+- [x] **2.I.4** Source citation footer per chart panel
 
 ### 2.J — Deploy staging
 

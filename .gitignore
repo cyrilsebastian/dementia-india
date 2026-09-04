@@ -6,6 +6,7 @@ data/raw/*
 web/node_modules/
 web/dist/
 web/.vite/
+web/public/data/
 
 # OS and IDE files
 .DS_Store
