@@ -66,6 +66,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             Health Spending
           </button>
           <button
+            onClick={() => setActiveTab('care-network')}
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+              activeTab === 'care-network'
+                ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            Care Network
+          </button>
+          <button
             onClick={() => setActiveTab('about')}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               activeTab === 'about'

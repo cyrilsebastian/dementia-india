@@ -1,0 +1,10 @@
+name,city,state,state_code,type,dementia_speciality,website,source
+NIMHANS Memory Clinic,Bengaluru,Karnataka,KA,hospital,true,https://nimhans.ac.in,dementiacarenotes.in
+Manipal Hospitals Memory Clinic,Bengaluru,Karnataka,KA,hospital,true,https://manipalhospitals.com,manipalhospitals.com
+Kokilaben Hospital Alzheimer & Memory Clinic,Mumbai,Maharashtra,MH,hospital,true,https://kokilabenhospital.com,kokilabenhospital.com
+Aster CMI Hospitals,Bengaluru,Karnataka,KA,hospital,true,https://asterhospitals.in,asterhospitals.in
+AIIMS Memory & Aging Clinic,New Delhi,Delhi,DL,hospital,true,https://aiims.edu,dementiacarenotes.in
+IHBAS,New Delhi,Delhi,DL,hospital,true,https://ihbas.delhigovt.nic.in,dementiacarenotes.in
+Artemis Hospital Neurology,Gurugram,Haryana,HR,hospital,false,https://artemishospitals.com,bookimed.com
+Apollo Hospitals Memory Clinic,Multiple cities,Multiple,NA,hospital_chain,true,https://apollohospitals.com,apollohospitals.com
+Nightingales Centre for Ageing,Bengaluru,Karnataka,KA,daycare,true,https://nightingalesngo.org,ardsi.org

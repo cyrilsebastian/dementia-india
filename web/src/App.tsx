@@ -5,6 +5,7 @@ import { FilterBar } from './components/FilterBar';
 import { IndiaPage } from './pages/IndiaPage';
 import { SpecialistPage } from './pages/SpecialistPage';
 import { HealthSpending } from './pages/HealthSpending';
+import { CareNetwork } from './pages/CareNetwork';
 import { AboutPage } from './pages/AboutPage';
 
 export const AppContent: React.FC = () => {
@@ -19,6 +20,7 @@ export const AppContent: React.FC = () => {
         {activeTab === 'india' && <IndiaPage />}
         {activeTab === 'specialist' && <SpecialistPage />}
         {activeTab === 'health-spending' && <HealthSpending />}
+        {activeTab === 'care-network' && <CareNetwork />}
         {activeTab === 'about' && <AboutPage />}
       </main>
 
