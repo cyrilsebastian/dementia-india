@@ -1,7 +1,7 @@
 /**
  * @file UrbanRuralBar.tsx
  * @description Horizontal comparison bar chart showing prevalence divergence between Rural and Urban demographics.
- * Automatically lifts the user's selected state to the top row for instant comparison.
+ * Wrapped in ChartPanel for standardized citations and filter pills.
  */
 
 import React, { useMemo } from 'react';
@@ -10,6 +10,7 @@ import { useCSV } from '../data/useCSV';
 import { StateRecord } from '../types/data';
 import { useFilters } from '../context/FilterContext';
 import { getUrbanRuralOptions } from './options/urbanRuralOptions';
+import { ChartPanel } from '../components/ChartPanel';
 
 export const UrbanRuralBar: React.FC = () => {
   const { sex, ageGroup, education, selectedState, isDarkMode } = useFilters();
@@ -46,6 +47,12 @@ export const UrbanRuralBar: React.FC = () => {
     };
   }, [statesData, activeStates, sex, ageGroup, education]);
 
+  const activeBadges = [
+    `Sex: ${sex}`,
+    `Cohort: ${ageGroup}`,
+    selectedState ? `Focus: ${selectedState}` : 'Top States',
+  ];
+
   if (loading) {
     return <div className="h-64 bg-slate-50 dark:bg-slate-800/40 rounded-xl animate-pulse" />;
   }
@@ -58,18 +65,16 @@ export const UrbanRuralBar: React.FC = () => {
   });
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm flex flex-col h-full">
-      <div className="mb-2">
-        <h4 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white">
-          Urban vs. Rural Divergence
-        </h4>
-        <p className="text-xs text-slate-500 dark:text-slate-400">
-          Rural areas consistently exhibit 1.5–2× higher prevalence across major states.
-        </p>
-      </div>
-      <div className="flex-1 min-h-[220px]">
+    <ChartPanel
+      title="Urban vs. Rural Divergence"
+      subtitle="Rural areas consistently exhibit 1.5–2× higher prevalence across major states."
+      sourceLabel="LASI Wave 1, IIPS 2020"
+      sourceUrl="https://iipsindia.ac.in/lasi"
+      activeFilterBadges={activeBadges}
+    >
+      <div className="w-full h-[220px]">
         <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
       </div>
-    </div>
+    </ChartPanel>
   );
 };

@@ -1,8 +1,7 @@
 /**
  * @file IndiaChoropleth.tsx
  * @description Interactive choropleth map of India displaying state-level dementia prevalence.
- * Uses GeoJSON boundaries and color scale from pale blue (low) to deep red (high).
- * Clicking any state boundary filters demographic charts and synchronizes with FilterContext.
+ * Wrapped inside ChartPanel for uniform styling, active filter pills, and inline data attribution.
  */
 
 import React, { useEffect, useState, useMemo, useRef } from 'react';
@@ -12,7 +11,7 @@ import { useCSV } from '../data/useCSV';
 import { StateRecord } from '../types/data';
 import { useFilters } from '../context/FilterContext';
 import { getChoroplethOptions, MapDataPoint } from './options/choroplethOptions';
-import { Download } from 'lucide-react';
+import { ChartPanel } from '../components/ChartPanel';
 
 export const IndiaChoropleth: React.FC = () => {
   const { sex, urban, ageGroup, education, selectedState, setSelectedState, isDarkMode } = useFilters();
@@ -82,6 +81,13 @@ export const IndiaChoropleth: React.FC = () => {
     }
   };
 
+  const activeBadges = [
+    `Sex: ${sex}`,
+    `Sector: ${urban}`,
+    `Cohort: ${ageGroup}`,
+    selectedState ? `State: ${selectedState}` : 'All India',
+  ];
+
   if (!geoLoaded || loadingCSV) {
     return (
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex items-center justify-center h-[540px]">
@@ -96,32 +102,16 @@ export const IndiaChoropleth: React.FC = () => {
   const option = getChoroplethOptions({ data: mapSeriesData, isDarkMode });
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm relative flex flex-col h-full">
-      <div className="flex items-center justify-between mb-3">
-        <div>
-          <h3 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white flex items-center space-x-2">
-            <span>State-wise Dementia Prevalence Map</span>
-            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-              60+ Cohort
-            </span>
-          </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
-            Click any state boundary to filter demographic and specialist charts.
-          </p>
-        </div>
-        <div className="flex items-center space-x-2">
-          <button
-            onClick={handleExport}
-            className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 text-xs flex items-center space-x-1"
-            title="Export Map Image"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Export</span>
-          </button>
-        </div>
-      </div>
-
-      <div className="flex-1 w-full min-h-[460px]">
+    <ChartPanel
+      title="State-wise Dementia Prevalence Map"
+      subtitle="Interactive choropleth displaying senior prevalence rates across all 36 Indian states and UTs."
+      sourceLabel="LASI Wave 1, IIPS 2020"
+      sourceUrl="https://iipsindia.ac.in/lasi"
+      exportable={true}
+      onExport={handleExport}
+      activeFilterBadges={activeBadges}
+    >
+      <div className="w-full h-[460px]">
         <ReactECharts
           ref={chartRef}
           option={option}
@@ -129,6 +119,6 @@ export const IndiaChoropleth: React.FC = () => {
           onEvents={{ click: onChartClick }}
         />
       </div>
-    </div>
+    </ChartPanel>
   );
 };
