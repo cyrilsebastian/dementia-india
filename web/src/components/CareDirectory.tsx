@@ -53,10 +53,13 @@ export const CareDirectory: React.FC<CareDirectoryProps> = ({ activeSection }) =
 
   // Filtered Clinics
   const filteredClinics = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim();
     return clinics.filter((item) => {
       const matchSearch =
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.city.toLowerCase().includes(searchQuery.toLowerCase());
+        !q ||
+        (item.name || '').toLowerCase().includes(q) ||
+        (item.city || '').toLowerCase().includes(q) ||
+        (item.state || '').toLowerCase().includes(q);
       const matchState = selectedState ? item.state === selectedState : true;
       return matchSearch && matchState;
     });
@@ -64,13 +67,16 @@ export const CareDirectory: React.FC<CareDirectoryProps> = ({ activeSection }) =
 
   // Filtered NGOs
   const filteredNgos = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim();
     return ngos.filter((item) => {
       const matchSearch =
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.services.toLowerCase().includes(searchQuery.toLowerCase());
+        !q ||
+        (item.name || '').toLowerCase().includes(q) ||
+        (item.city || '').toLowerCase().includes(q) ||
+        (item.state || '').toLowerCase().includes(q) ||
+        (item.services || '').toLowerCase().includes(q);
       const matchState = selectedState ? item.state === selectedState : true;
-      const matchService = selectedService ? item.services.includes(selectedService) : true;
+      const matchService = selectedService ? (item.services || '').includes(selectedService) : true;
       return matchSearch && matchState && matchService;
     });
   }, [ngos, searchQuery, selectedState, selectedService]);
@@ -254,7 +260,7 @@ export const CareDirectory: React.FC<CareDirectoryProps> = ({ activeSection }) =
 
                   {/* Services tags */}
                   <div className="flex flex-wrap gap-1.5 pt-1">
-                    {ngo.services.split(',').map((srv, sIdx) => (
+                    {(ngo.services || '').split(',').filter(Boolean).map((srv, sIdx) => (
                       <span
                         key={sIdx}
                         className="text-[11px] px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium"
