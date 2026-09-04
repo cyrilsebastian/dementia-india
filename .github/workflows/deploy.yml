@@ -1,10 +1,8 @@
 name: Deploy Cloudflare Pages
 
+# Disabled automatic push/PR runs until Cloudflare Pages credentials & project are configured
 on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
