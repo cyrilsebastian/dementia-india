@@ -3,8 +3,8 @@ import { useFilters } from '../context/FilterContext';
 import { Moon, Sun, Github, Activity } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'india' | 'specialist' | 'about';
-  setActiveTab: (tab: 'india' | 'specialist' | 'about') => void;
+  activeTab: 'india' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global';
+  setActiveTab: (tab: 'india' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
@@ -34,10 +34,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
         </div>
 
         {/* Navigation Tabs */}
-        <nav className="flex items-center space-x-1 sm:space-x-2">
+        <nav className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto py-1">
           <button
             onClick={() => setActiveTab('india')}
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               activeTab === 'india'
                 ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
           </button>
           <button
             onClick={() => setActiveTab('specialist')}
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               activeTab === 'specialist'
                 ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -56,8 +56,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             Specialist Deserts
           </button>
           <button
+            onClick={() => setActiveTab('health-spending')}
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+              activeTab === 'health-spending'
+                ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            Health Spending
+          </button>
+          <button
             onClick={() => setActiveTab('about')}
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               activeTab === 'about'
                 ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'

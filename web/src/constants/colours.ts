@@ -43,6 +43,15 @@ export const SPECIALIST_RATIO_COLOURS = {
   GOOD: '#2980B9',     // > 5.0 per million
 } as const;
 
+export const SPENDING_COLOURS = {
+  TOTAL_HEALTH: '#3B82F6',
+  MENTAL_HEALTH: '#10B981',
+  TELE_MH: '#06B6D4',
+  DEMENTIA_GAP: '#E67E22',
+  GLOBAL_BAR: '#6366F1',
+  INDIA_BAR: '#F97316',
+} as const;
+
 export const THEME_COLOURS = {
   DARK_BG: '#0b0f19',
   DARK_CARD: '#151e2e',
@@ -50,3 +59,4 @@ export const THEME_COLOURS = {
   LIGHT_BORDER: '#e2e8f0',
   SELECTION_HIGHLIGHT: '#6366f1',
 } as const;
+

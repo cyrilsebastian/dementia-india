@@ -4,10 +4,11 @@ import { Navbar } from './components/Navbar';
 import { FilterBar } from './components/FilterBar';
 import { IndiaPage } from './pages/IndiaPage';
 import { SpecialistPage } from './pages/SpecialistPage';
+import { HealthSpending } from './pages/HealthSpending';
 import { AboutPage } from './pages/AboutPage';
 
 export const AppContent: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'india' | 'specialist' | 'about'>('india');
+  const [activeTab, setActiveTab] = useState<'india' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global'>('india');
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
@@ -17,6 +18,7 @@ export const AppContent: React.FC = () => {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {activeTab === 'india' && <IndiaPage />}
         {activeTab === 'specialist' && <SpecialistPage />}
+        {activeTab === 'health-spending' && <HealthSpending />}
         {activeTab === 'about' && <AboutPage />}
       </main>
 
