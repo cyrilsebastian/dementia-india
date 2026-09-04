@@ -83,6 +83,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             Care Network
           </button>
           <button
+            onClick={() => setActiveTab('global')}
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+              activeTab === 'global'
+                ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            <span>Global View</span>
+            <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400 border border-amber-300 dark:border-amber-800">
+              Beta
+            </span>
+          </button>
+          <button
             onClick={() => setActiveTab('about')}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               activeTab === 'about'
