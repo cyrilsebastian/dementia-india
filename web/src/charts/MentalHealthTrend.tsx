@@ -24,7 +24,7 @@ export const MentalHealthTrend: React.FC = () => {
 
   return (
     <ChartPanel
-      title="Mental Health Budget Trajectory (FY2021–2025)"
+      title="Mental Health Budget Trajectory (FY2015–2025)"
       subtitle="Annual central allocation in ₹ Crore and share of total health spending."
       sourceLabel="Centre for Mental Health Law & Policy (CMHLP) / MoHFW"
       sourceUrl="https://cmhlp.org"

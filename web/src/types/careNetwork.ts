@@ -23,8 +23,11 @@ export interface NgoRecord {
   type: 'national_ngo' | 'chapter' | 'resource_portal' | 'ngo' | string;
   services: string; // comma-separated service tags
   website?: string;
-  phone?: string;
+  phone?: string | number;
+  phone2?: string | number;
   email?: string;
+  address?: string;
+  note?: string;
 }
 
 export interface HelplineRecord {
@@ -35,4 +38,11 @@ export interface HelplineRecord {
   description: string;
   language?: string;
   isEmergency?: boolean;
+  isGovtTollFree?: boolean;
+  costBadge?: string;
+  note?: string;
+  badge?: {
+    text: string;
+    color: 'green' | 'amber';
+  };
 }

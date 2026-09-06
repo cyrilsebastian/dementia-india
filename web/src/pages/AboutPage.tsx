@@ -6,10 +6,49 @@
  */
 
 import React from 'react';
-import { Heart, Database, ShieldCheck } from 'lucide-react';
+import { Heart, Database, ShieldCheck, ExternalLink } from 'lucide-react';
 import { Disclaimer } from '../components/Disclaimer';
 
 export const AboutPage: React.FC = () => {
+  const sources = [
+    {
+      title: 'Longitudinal Aging Study in India (LASI Wave 1)',
+      institution: 'IIPS / MoHFW (2020)',
+      url: 'https://iipsindia.ac.in/lasi',
+      description: 'National survey of 72,250 older adults across all states/UTs. Includes comprehensive cognitive assessment modules and individual survey sampling weights.',
+    },
+    {
+      title: 'Global Burden of Disease (GBD 2021) & Lancet Projections',
+      institution: 'IHME / Lancet Public Health (2022)',
+      url: 'https://vizhub.healthdata.org/gbd-results',
+      description: 'Country-level prevalence, mortality, DALY rates, and future disease burden forecasts up to 2050 (GBD 2021 Dementia Collaborators).',
+    },
+    {
+      title: 'Global Dementia Observatory (GDO)',
+      institution: 'World Health Organization (WHO)',
+      url: 'https://www.who.int/data/gho/data/themes/global-dementia-observatory-gdo',
+      description: 'National policy status, awareness campaigns, diagnostic infrastructure, and caregiver support frameworks across member nations.',
+    },
+    {
+      title: 'Indian Academy of Neurology (IAN) & Workforce Studies',
+      institution: 'AIAN / Neurology India',
+      url: 'https://ianindia.org',
+      description: 'State-level distribution of registered clinical neurologists and subspecialists in cognitive and behavioural neurology.',
+    },
+    {
+      title: 'Alzheimer\'s and Related Disorders Society of India (ARDSI)',
+      institution: 'Dementia India Report 2010 & Strategy 2018',
+      url: 'https://ardsi.org',
+      description: 'National epidemiological baseline (2010) and policy strategy (2018). Family caregiver distress surveys and non-pharmacological care standards across 22 regional chapters.',
+    },
+    {
+      title: 'Union Health & Family Welfare Budgets',
+      institution: 'PRS Legislative Research / Open Budgets India',
+      url: 'https://prsindia.org/budgets',
+      description: 'Union budget demands for grants (2014–2025), National Mental Health Programme allocations, and Tele-MANAS expenditures.',
+    },
+  ];
+
   return (
     <div className="max-w-4xl mx-auto space-y-8 py-4">
       {/* Caregiver Motivation */}
@@ -23,18 +62,16 @@ export const AboutPage: React.FC = () => {
               Caregiver Context & Personal Motivation
             </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Built by Cyril Sebastian — engineer, Docker Captain & CNCF Ambassador.
+              Built by Cyril Sebastian, a DevOps and Platform Engineering consultant and a family caregiver.
             </p>
           </div>
         </div>
         <div className="prose dark:prose-invert text-sm text-slate-700 dark:text-slate-300 space-y-3 leading-relaxed">
           <p>
-            This project was born out of direct, first-hand caregiving experience for a family member living with advanced dementia in India.
-            Witnessing the agonizing delays in receiving a formal diagnosis, the acute dearth of cognitive neurologists, and the heavy, silent burden borne almost exclusively by family caregivers inspired this open-access data initiative.
+            This project came from a personal place. Cyril's mother lives with advanced dementia. The delays in getting a formal diagnosis, the near-impossibility of finding a cognitive neurologist outside a major city, and the weight of caregiving carried almost entirely by family with little to no institutional support are not statistics. They are daily life. This platform started as a way to put numbers to what so many families in India are quietly going through.
           </p>
           <p>
-            Dementia is not merely normal aging. Over <strong>8.8 million senior citizens</strong> in India suffer from Alzheimer's and related neurodegenerative disorders. Yet, fewer than 15% ever receive a clinical diagnosis.
-            By democratizing these figures through transparent, interactive visualisations, we hope to support researchers, advocacy groups, and policymakers in building compassionate, equitable care infrastructure.
+            Dementia is not a normal part of getting older. More than 8.8 million Indians aged 60 and above live with Alzheimer's or a related condition. Fewer than 15 in every 100 will ever receive a formal diagnosis. This platform brings those numbers together in one place for researchers, caregivers, advocacy groups and policymakers, sourced from published data and presented as clearly as possible.
           </p>
         </div>
       </div>
@@ -56,45 +93,27 @@ export const AboutPage: React.FC = () => {
         </div>
 
         <div className="divide-y divide-slate-100 dark:divide-slate-800 text-xs sm:text-sm">
-          <div className="py-3">
-            <div className="flex items-center justify-between font-semibold text-slate-900 dark:text-white">
-              <span>Longitudinal Aging Study in India (LASI Wave 1)</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">IIPS / MoHFW (2020)</span>
+          {sources.map((src, idx) => (
+            <div key={idx} className="py-3.5 group">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-semibold text-slate-900 dark:text-white">
+                <a
+                  href={src.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-1.5 text-emerald-600 dark:text-emerald-400 hover:underline"
+                >
+                  <span>{src.title}</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" />
+                </a>
+                <span className="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 w-fit">
+                  {src.institution}
+                </span>
+              </div>
+              <p className="text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                {src.description}
+              </p>
             </div>
-            <p className="text-slate-500 dark:text-slate-400 mt-1">
-              National survey of 72,250 older adults across all states/UTs. Includes comprehensive cognitive assessment modules and individual survey sampling weights.
-            </p>
-          </div>
-
-          <div className="py-3">
-            <div className="flex items-center justify-between font-semibold text-slate-900 dark:text-white">
-              <span>Global Burden of Disease (GBD 2021) & Lancet Projections</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">IHME / Lancet Public Health (2022)</span>
-            </div>
-            <p className="text-slate-500 dark:text-slate-400 mt-1">
-              Country-level prevalence, mortality, DALY rates, and future disease burden forecasts up to 2050 (GBD 2021 Dementia Collaborators).
-            </p>
-          </div>
-
-          <div className="py-3">
-            <div className="flex items-center justify-between font-semibold text-slate-900 dark:text-white">
-              <span>Global Dementia Observatory (GDO)</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">World Health Organization</span>
-            </div>
-            <p className="text-slate-500 dark:text-slate-400 mt-1">
-              National policy status, awareness campaigns, diagnostic infrastructure, and caregiver support frameworks across member nations.
-            </p>
-          </div>
-
-          <div className="py-3">
-            <div className="flex items-center justify-between font-semibold text-slate-900 dark:text-white">
-              <span>Indian Academy of Neurology (IAN) & Workforce Studies</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">AIAN / Neurology India</span>
-            </div>
-            <p className="text-slate-500 dark:text-slate-400 mt-1">
-              State-level distribution of registered clinical neurologists and subspecialists in cognitive and behavioural neurology.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -116,7 +135,7 @@ export const AboutPage: React.FC = () => {
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           All data hosted on this platform consists exclusively of aggregate statistical estimates and published epidemiological benchmarks.
           No personally identifiable information (PII) or protected health information (PHI) is ever collected, scraped, or stored.
-          The complete source code and data pipelines are open source under the MIT license.
+          The complete source code and data pipelines are open source under the MIT license. This platform does not use cookies, trackers, or analytics tools that collect personal data.
         </p>
       </div>
 

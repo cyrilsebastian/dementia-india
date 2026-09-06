@@ -58,7 +58,15 @@ export function getUrbanRuralOptions({
       {
         name: 'Rural',
         type: 'bar',
-        barMaxWidth: 14,
+        barMaxWidth: states.length <= 2 ? 22 : 14,
+        label: {
+          show: states.length <= 2,
+          position: 'right',
+          formatter: '{c}%',
+          color: isDarkMode ? '#e2e8f0' : '#1e293b',
+          fontSize: 11,
+          fontWeight: 600,
+        },
         itemStyle: {
           color: URBAN_RURAL_COLOURS.RURAL,
           borderRadius: [0, 4, 4, 0],
@@ -68,7 +76,15 @@ export function getUrbanRuralOptions({
       {
         name: 'Urban',
         type: 'bar',
-        barMaxWidth: 14,
+        barMaxWidth: states.length <= 2 ? 22 : 14,
+        label: {
+          show: states.length <= 2,
+          position: 'right',
+          formatter: '{c}%',
+          color: isDarkMode ? '#e2e8f0' : '#1e293b',
+          fontSize: 11,
+          fontWeight: 600,
+        },
         itemStyle: {
           color: URBAN_RURAL_COLOURS.URBAN,
           borderRadius: [0, 4, 4, 0],

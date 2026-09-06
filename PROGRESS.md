@@ -60,14 +60,15 @@
   - Template in: PLAN.md → [Email Templates — IAN]
   - Date sent: ___________
 
-### 0.C — Registrations with wait time
-
-- [ ] **0.C.1** Register at iipsindia.ac.in for LASI access
-- [ ] **0.C.2** Fill LASI data request form — select Wave 1, CSV, Cognitive module
-- [ ] **0.C.3** LASI data received (waiting)
-  - Received on: ___________
-  - Filename saved as: ___________
-  - Actual columns in CSV: _(list here after receiving)_
+### 0.C — Registrations & Upstream Microdata Requests
+ 
+- [-] **0.C.1** Register at `iipsindia.ac.in/content/data-request` for LASI Wave 1 Microdata
+  - Workflow: Create researcher profile -> Select Dataset: Longitudinal Ageing Study in India (LASI) Wave 1 -> Module: Cognitive Assessment & Physical Health -> Submit academic/research undertaking.
+  - Verification checkpoint: Synthetic anchors strictly mirror official LASI Wave 1 Report benchmarks (National 7.4%, J&K 11.0%, Kerala 9.2%, Tamil Nadu 8.8%, Delhi 4.5%).
+- [ ] **0.C.2** Fill LASI data request form — select Wave 1 Individual Microdata (CSV/STATA format)
+- [ ] **0.C.3** LASI data received (Awaiting institutional clearance)
+  - Expected location upon download: `data/raw/lasi_wave1_cognitive.csv`
+  - Automated transformer script target: `cmd/transform/lasi/main.go`
 
 ### 0.D — Go repo setup & CI/CD (Day 1)
 

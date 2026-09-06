@@ -1,4 +1,10 @@
 year,total_health_budget_cr,mental_health_cr,mental_health_pct,tele_mh_cr,source_url
+2015,33152,410,1.24,0,https://prsindia.org/budgets
+2016,38061,435,1.14,0,https://prsindia.org/budgets
+2017,48876,475,0.97,0,https://prsindia.org/budgets
+2018,54342,520,0.96,0,https://prsindia.org/budgets
+2019,63538,590,0.93,0,https://prsindia.org/budgets
+2020,67112,640,0.95,0,https://prsindia.org/budgets
 2021,71269,791,1.11,0,https://prsindia.org/budgets
 2022,76370,791,1.04,0,https://prsindia.org/budgets
 2023,86200,791,0.92,65,https://cmhlp.org/wp-content/uploads/2023/02/Budget-Brief-2023-v3.pdf

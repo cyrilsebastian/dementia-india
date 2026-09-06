@@ -62,7 +62,7 @@ export function getMentalHealthTrendOptions(
         type: 'value',
         name: '₹ Crore',
         nameTextStyle: { color: subtextColor, fontSize: 11 },
-        min: 600,
+        min: 300,
         max: 1100,
         axisLabel: { color: subtextColor, fontSize: 11, formatter: '₹{value} Cr' },
         splitLine: { lineStyle: { color: splitLineColor, type: 'dashed' } }
@@ -71,8 +71,8 @@ export function getMentalHealthTrendOptions(
         type: 'value',
         name: '% Share',
         nameTextStyle: { color: subtextColor, fontSize: 11 },
-        min: 0.8,
-        max: 1.4,
+        min: 0.7,
+        max: 1.5,
         axisLabel: { color: subtextColor, fontSize: 11, formatter: '{value}%' },
         splitLine: { show: false }
       }

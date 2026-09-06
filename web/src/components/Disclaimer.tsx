@@ -19,7 +19,7 @@ export const Disclaimer: React.FC = () => {
             Disclaimer & Legal Notice
           </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400">
-            Non-clinical public health intelligence & ethical standards
+            This is a data visualisation platform, not a clinical or medical service.
           </p>
         </div>
       </div>
@@ -42,8 +42,7 @@ export const Disclaimer: React.FC = () => {
           details and services before visiting.
         </p>
         <p className="text-slate-500 dark:text-slate-400 font-medium">
-          Compliance: Digital Personal Data Protection Act 2023 (India). Source code
-          available under the MIT License at{' '}
+          This platform collects no personal data. No cookies, no tracking, no user accounts. Source code is publicly available under the MIT License at{' '}
           <a
             href="https://github.com/cyrilsebastian/dementia-india"
             target="_blank"

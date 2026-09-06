@@ -10,6 +10,7 @@ import { StatCards } from '../components/StatCards';
 import { IndiaChoropleth } from '../charts/IndiaChoropleth';
 import { AgeOnsetBar } from '../charts/AgeOnsetBar';
 import { UrbanRuralBar } from '../charts/UrbanRuralBar';
+import { EtiologyBreakdown } from '../components/EtiologyBreakdown';
 import { AlertCircle } from 'lucide-react';
 
 export const IndiaPage: React.FC = () => {
@@ -35,6 +36,9 @@ export const IndiaPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Etiology Breakdown: Alzheimer's vs Other Dementias (Item 3) */}
+      <EtiologyBreakdown />
 
       {/* Analytical Callout Banner */}
       <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-slate-900 border border-emerald-200 dark:border-emerald-800/60 rounded-2xl p-5 shadow-sm">

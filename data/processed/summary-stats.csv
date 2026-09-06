@@ -2,4 +2,4 @@ metric_id,label,value,unit,change_pct,notes
 TOTAL_CASES_60PLUS,Indians Living with Dementia (60+),8.8 Million,people,+100% by 2050 (17.6M),Based on LASI Wave 1 survey weights (2020) and Lancet 2022 projections.
 NEUROLOGIST_RATIO,Neurologist Specialist Ratio,1 per 5 Million,ratio,Extreme rural deficit,Fewer than 100 cognitive/behavioral subspecialists across India.
 DIAGNOSIS_GAP,Dementia Diagnosis Rate,10 – 15%,percentage,~85% undiagnosed,85-90% of individuals never receive a formal clinical diagnosis.
-CAREGIVER_HOURS,Daily Unpaid Caregiver Hours,5.2 Hours / Day,hours/day,78% provided by female kin,Overwhelmingly borne by spouses and daughters without institutional aid.
+CAREGIVER_HOURS,Daily Unpaid Caregiver Hours,6.2 Hours / Day,hours/day,72% provided by female kin,"Surges to 9.5 hrs/day in advanced stages; estimated opportunity loss of ₹40,000–₹1,50,000/month."

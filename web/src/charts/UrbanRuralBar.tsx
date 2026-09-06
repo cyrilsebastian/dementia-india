@@ -18,18 +18,34 @@ export const UrbanRuralBar: React.FC = () => {
 
   const baseStates = ['Kerala', 'Jammu and Kashmir', 'Tamil Nadu', 'Goa', 'Karnataka', 'Maharashtra', 'West Bengal', 'Delhi'];
 
-  // If a state is selected, ensure it is at the front of the list
-  const activeStates = useMemo(() => {
-    if (!selectedState || !statesData.length) return baseStates;
-    const match = statesData.find((d) => d.state_code === selectedState);
-    if (!match) return baseStates;
-    return [match.state_name, ...baseStates.filter((s) => s !== match.state_name)];
+  const matchedState = useMemo(() => {
+    if (!selectedState || !statesData.length) return null;
+    return statesData.find((d) => d.state_code === selectedState);
   }, [selectedState, statesData]);
+
+  // If a state is selected, isolate it and compare with the National Benchmark
+  const activeStates = useMemo(() => {
+    if (!matchedState) return baseStates;
+    return [matchedState.state_name, 'All-India Avg'];
+  }, [matchedState, baseStates]);
 
   const { urbanData, ruralData } = useMemo(() => {
     if (!statesData.length) return { urbanData: [], ruralData: [] };
 
     const getVal = (stateName: string, urb: 'Urban' | 'Rural') => {
+      if (stateName === 'All-India Avg') {
+        const matches = statesData.filter(
+          (d) =>
+            d.urban === urb &&
+            d.sex === sex &&
+            d.age_group === ageGroup &&
+            d.education === education
+        );
+        if (!matches.length) return 0;
+        const sum = matches.reduce((acc, curr) => acc + curr.prevalence_pct, 0);
+        return Math.round((sum / matches.length) * 10) / 10;
+      }
+
       const match = statesData.find(
         (d) =>
           d.state_name === stateName &&
@@ -50,7 +66,7 @@ export const UrbanRuralBar: React.FC = () => {
   const activeBadges = [
     `Sex: ${sex}`,
     `Cohort: ${ageGroup}`,
-    selectedState ? `Focus: ${selectedState}` : 'Top States',
+    matchedState ? `State Focus: ${matchedState.state_name}` : 'Top Comparative States',
   ];
 
   if (loading) {
@@ -67,7 +83,11 @@ export const UrbanRuralBar: React.FC = () => {
   return (
     <ChartPanel
       title="Urban vs. Rural Divergence"
-      subtitle="Rural areas consistently exhibit 1.5–2× higher prevalence across major states."
+      subtitle={
+        matchedState
+          ? `Direct rural-urban comparison for ${matchedState.state_name} alongside National Benchmark.`
+          : 'Rural areas consistently exhibit 1.5–2× higher prevalence across major states.'
+      }
       sourceLabel="LASI Wave 1, IIPS 2020"
       sourceUrl="https://iipsindia.ac.in/lasi"
       activeFilterBadges={activeBadges}

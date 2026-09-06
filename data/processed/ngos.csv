@@ -1,12 +1,26 @@
-name,city,state,state_code,type,services,website,phone,email
-ARDSI National,Kochi,Kerala,KL,national_ngo,"advocacy,policy,reports",https://ardsi.org,,,
-ARDSI Bangalore,Bengaluru,Karnataka,KA,chapter,"memory_clinic,caregiver_training,daycare",,+91 9844037381,dementiabangalore@gmail.com
-ARDSI Calcutta,Kolkata,West Bengal,WB,chapter,"daycare,counselling,home_visits,training",https://ardsikolkata.org,,
-ARDSI Hyderabad Deccan,Hyderabad,Telangana,TS,chapter,"counselling,caregiver_support,awareness",https://ardsihyd.org,+91 91211 06681,ardsihyd@gmail.com
-ARDSI Mumbai,Mumbai,Maharashtra,MH,chapter,"daycare,caregiver_groups",,,,
-ARDSI Delhi,New Delhi,Delhi,DL,chapter,"support_groups,helpline",,,,
-ARDSI Chennai,Chennai,Tamil Nadu,TN,chapter,"awareness,caregiver_training",,098410 19910,sathianathen6@yahoo.com
-ARDSI Coimbatore,Coimbatore,Tamil Nadu,TN,chapter,"memory_clinic,caregiver_support",,098422 53053,vazhikatti@gmail.com
-Dementia Care Notes,,National,NA,resource_portal,"caregiver_resources,city_guides",https://dementiacarenotes.in,,
-Dignity Foundation,Multiple,Multiple,NA,ngo,"elder_care,support_groups",https://dignityfoundation.com,,
-HelpAge India,Multiple,Multiple,NA,ngo,"elder_care,helpline",https://helpageindia.org,,
+name,city,state,state_code,type,services,website,phone,phone2,email,address,note
+ARDSI National Secretariat,Kunnamkulam,Kerala,KL,national_ngo,"advocacy,policy,reports,training",https://ardsi.org,+91 4885 223801,,info@ardsi.org,"P.B. No. 53, Guruvayur Road, Kunnamkulam 680503, Kerala",
+ARDSI Cochin Chapter,Cochin,Kerala,KL,chapter,"daycare,home_care,counselling,respite",https://ardsi.org,+91 484 280 8088,,,"Madavana Temple Rd, Vennala P.O., Palarivattom, Cochin 680028",
+ARDSI Calicut Chapter,Calicut,Kerala,KL,chapter,"daycare,caregiver_support,memory_screening",https://ardsi.org,+91 889 327 0500,,,"Malabar Harmony Home, Pullangat, Kottamparamba, Calicut 673008",
+ARDSI Trivandrum Chapter,Trivandrum,Kerala,KL,chapter,"counselling,support_groups,advocacy",https://ardsi.org,+91 471 213 4151,,,"Snehasadanam, Lions Bhavan, NH Bypass Road, Thiruvallam, Trivandrum 695027",
+ARDSI Kottayam Chapter,Kottayam,Kerala,KL,chapter,"caregiver_support,counselling,awareness",,+91 944 730 6586,,,"Thundathil House, Maalam P.O., Manargadu, Kottayam 686031",
+ARDSI Pathanamthitta Chapter,Pathanamthitta,Kerala,KL,chapter,"counselling,home_visits,support_groups",,+91 468 236 1398,,,"Thazhayil Kudumba Yoga Mandiram, Elanthur P.O., Pathanamthitta 689643",
+ARDSI Bangalore Chapter,Bengaluru,Karnataka,KA,chapter,"memory_clinic,caregiver_training,daycare",https://dementiabangalore.in,+91 80 2354 8444,+91 80 2354 8555,,,
+ARDSI Mysore Chapter,Mysuru,Karnataka,KA,chapter,"caregiver_support,awareness,home_visits",https://ardsi.org,,,,,,
+ARDSI Mangalore Chapter,Mangaluru,Karnataka,KA,chapter,"daycare,counselling,training",https://ardsi.org,,,,,,
+ARDSI Chennai Chapter,Chennai,Tamil Nadu,TN,chapter,"awareness,caregiver_training,helpline",https://ardsichennai.org,+91 44 2620 1123,+91 44 2663 3143,,"The Memory Clinic, D-89 III Street, Anna Nagar East, Chennai 600102",
+ARDSI Coimbatore Chapter,Coimbatore,Tamil Nadu,TN,chapter,"memory_clinic,caregiver_support,counselling",https://ardsi.org,+91 984 225 9062,,,"Vazhikatti Mental Health Centre, 1562 Nalavind Medical Centre, Hope College Bus Stop, Avanasi Rd, Peelamedu, Coimbatore 641004",
+ARDSI Hyderabad Deccan Chapter,Hyderabad,Telangana,TS,chapter,"counselling,caregiver_support,awareness",https://ardsihyd.org,+91 40 6610 3413,,,"Room 3, Memory Clinic, Millennium Block, NIMS, Punjagutta, Hyderabad 500082",
+ARDSI Mumbai Chapter,Mumbai,Maharashtra,MH,chapter,"daycare,caregiver_groups,training,helpline",https://ardsimumbai.org,+91 22 2374 2479,,,"BMC School Bldg Room 27 (2nd Floor), JJ Hospital Complex, Byculla, Mumbai 400008",
+ARDSI Greater Mumbai Chapter,Mira Road (East),Maharashtra,MH,chapter,"caregiver_support,training,awareness",https://ardsigreatermumbai.blogspot.com,+91 981 981 9145,+91 998 710 4233,,"Flat 801/802 Arena 3, Poonam Garden, Mira Bhayandar Road, Mira Road East 401107",
+ARDSI Pune Chapter,Pune,Maharashtra,MH,chapter,"support_groups,home_visits,counselling",https://ardsipune.org,+91 98234 35045,+91 98223 08491,,"Chaitanya Mental Health Care Centre, BJ Park, Kondhwa BK, Pune 411048",
+ARDSI Kolkata (Calcutta) Chapter,Kolkata,West Bengal,WB,chapter,"daycare,counselling,home_visits,training",https://ardsikolkata.org,+91 33 2405 4959,,,"15/3 C Naskarpara Lane, Kolkata 700031",
+ARDSI Delhi Chapter,New Delhi,Delhi,DL,chapter,"support_groups,helpline,training,daycare",https://alzheimersdelhi.org,+91 11 2999 4940,,,"RZ-62/9, Tughlakabad Extension, New Delhi 110019",
+ARDSI Goa Chapter,Panaji,Goa,GA,chapter,"home_care,respite,caregiver_support",https://ardsi.org,+91 832 241 4027,,,"H. No. M1, Housing Board Colony, Alto Porvorim, Bardez, Goa 403521",
+ARDSI Manipur Chapter,Imphal,Manipur,MN,chapter,"caregiver_support,awareness",,+91 897 402 4889,,,"Room 146, Mass Building, Assembly Road, Imphal 795001","Only dementia-focused organisation in the Northeast"
+Silver Age Foundation,Bhubaneswar,Odisha,OD,ngo,"caregiver_support,awareness,home_visits",,+91 9090 222666,+91 9090 666222,ajmahapatra@gmail.com,"245 Lewis Road, Behind Shree Hospitals, Bhubaneswar 751014","ARDSI-affiliated organisation serving Odisha"
+Dementia Care Notes,National,National,NA,resource_portal,"caregiver_resources,city_guides,training",https://dementiacarenotes.in,,,swapna@dementiacarenotes.in,,
+Dignity Foundation,Multiple,Multiple,NA,ngo,"elder_care,support_groups,daycare",https://dignityfoundation.com,+91 22 6138 1100,,responsibilities@dignityfoundation.com,,
+HelpAge India,Multiple,Multiple,NA,ngo,"elder_care,helpline,mobile_healthcare",https://helpageindia.org,1800 180 1253,,headoffice@helpageindia.org,,
+Nightingales Medical Trust,Bengaluru,Karnataka,KA,ngo,"dementia_care,daycare,respite,helpline",https://nightingalesngo.org,+91 80 4242 6565,,info@nightingalesngo.org,,
+Silver Inning Foundation,Mumbai,Maharashtra,MH,ngo,"dementia_village,home_care,advocacy",https://silverinnings.com,+91 99871 08225,,info@silverinnings.com,,

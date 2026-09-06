@@ -1,10 +1,31 @@
 name,city,state,state_code,type,dementia_speciality,website,source
 NIMHANS Memory Clinic,Bengaluru,Karnataka,KA,hospital,true,https://nimhans.ac.in,dementiacarenotes.in
 Manipal Hospitals Memory Clinic,Bengaluru,Karnataka,KA,hospital,true,https://manipalhospitals.com,manipalhospitals.com
+Aster CMI Hospitals Cognitive Neurology,Bengaluru,Karnataka,KA,hospital,true,https://asterhospitals.in,asterhospitals.in
+Nightingales Centre for Ageing & Alzheimer's,Bengaluru,Karnataka,KA,daycare,true,https://nightingalesngo.org,ardsi.org
 Kokilaben Hospital Alzheimer & Memory Clinic,Mumbai,Maharashtra,MH,hospital,true,https://kokilabenhospital.com,kokilabenhospital.com
-Aster CMI Hospitals,Bengaluru,Karnataka,KA,hospital,true,https://asterhospitals.in,asterhospitals.in
+KEM Hospital Neuro-Geriatric Memory Clinic,Mumbai,Maharashtra,MH,hospital,true,https://kem.edu,dementiacarenotes.in
+Lilavati Hospital & Research Centre,Mumbai,Maharashtra,MH,hospital,true,https://lilavatihospital.com,dementiacarenotes.in
+Deenanath Mangeshkar Hospital Memory Clinic,Pune,Maharashtra,MH,hospital,true,https://dmhospital.org,dementiacarenotes.in
+Sahyadri Super Speciality Hospital Cognitive Care,Pune,Maharashtra,MH,hospital,true,https://sahyadrihospital.com,sahyadrihospital.com
 AIIMS Memory & Aging Clinic,New Delhi,Delhi,DL,hospital,true,https://aiims.edu,dementiacarenotes.in
-IHBAS,New Delhi,Delhi,DL,hospital,true,https://ihbas.delhigovt.nic.in,dementiacarenotes.in
-Artemis Hospital Neurology,Gurugram,Haryana,HR,hospital,false,https://artemishospitals.com,bookimed.com
-Apollo Hospitals Memory Clinic,Multiple cities,Multiple,NA,hospital_chain,true,https://apollohospitals.com,apollohospitals.com
-Nightingales Centre for Ageing,Bengaluru,Karnataka,KA,daycare,true,https://nightingalesngo.org,ardsi.org
+IHBAS Neuropsychiatry & Geriatric Clinic,New Delhi,Delhi,DL,hospital,true,https://ihbas.delhigovt.nic.in,dementiacarenotes.in
+Sir Ganga Ram Hospital Memory Clinic,New Delhi,Delhi,DL,hospital,true,https://sgrh.com,dementiacarenotes.in
+Medanta - The Medicity Neurology,Gurugram,Haryana,HR,hospital,true,https://medanta.org,medanta.org
+Artemis Hospital Memory Clinic,Gurugram,Haryana,HR,hospital,true,https://artemishospitals.com,bookimed.com
+PGIMER Memory Clinic,Chandigarh,Chandigarh,CH,hospital,true,https://pgimer.edu.in,dementiacarenotes.in
+CMC Vellore Cognitive Neurology & Geriatric Clinic,Vellore,Tamil Nadu,TN,hospital,true,https://cmch-vellore.edu,dementiacarenotes.in
+Apollo Hospitals Memory & Cognitive Clinic,Chennai,Tamil Nadu,TN,hospital,true,https://apollohospitals.com,apollohospitals.com
+Kauvery Hospital Memory & Dementia Clinic,Chennai,Tamil Nadu,TN,hospital,true,https://kauveryhospital.com,kauveryhospital.com
+Madras Medical College Geriatric OPD,Chennai,Tamil Nadu,TN,hospital,true,https://mmc.ac.in,dementiacarenotes.in
+Nizam's Institute of Medical Sciences (NIMS),Hyderabad,Telangana,TS,hospital,true,https://nims.edu.in,dementiacarenotes.in
+Yashoda Hospitals Memory Clinic,Hyderabad,Telangana,TS,hospital,true,https://yashodahospitals.com,yashodahospitals.com
+IPGMER & SSKM Hospital Neuro-Geriatric Clinic,Kolkata,West Bengal,WB,hospital,true,https://ipgmer.gov.in,dementiacarenotes.in
+AMRI Hospitals Memory Care,Kolkata,West Bengal,WB,hospital,true,https://amrihospitals.in,dementiacarenotes.in
+Amrita Hospital Memory & Dementia Clinic,Kochi,Kerala,KL,hospital,true,https://amritahospitals.org,dementiacarenotes.in
+Aster Medcity Memory Clinic,Kochi,Kerala,KL,hospital,true,https://astermedcity.com,dementiacarenotes.in
+Sree Chitra Tirunal Institute (SCTIMST),Thiruvananthapuram,Kerala,KL,hospital,true,https://sctimst.ac.in,dementiacarenotes.in
+Zydus Hospitals Neurosciences Clinic,Ahmedabad,Gujarat,GJ,hospital,true,https://zydushospitals.com,zydushospitals.com
+KGMU Geriatric Mental Health Department,Lucknow,Uttar Pradesh,UP,hospital,true,https://kgmu.org,dementiacarenotes.in
+SMS Medical College & Hospital Neurology,Jaipur,Rajasthan,RJ,hospital,true,https://medicaleducation.rajasthan.gov.in,dementiacarenotes.in
+Apollo Hospitals Memory Network,Multiple cities,Multiple,NA,hospital_chain,true,https://apollohospitals.com,apollohospitals.com

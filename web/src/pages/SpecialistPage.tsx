@@ -5,20 +5,69 @@
  * Reads data from /data/neurologists.csv.
  */
 
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { useCSV } from '../data/useCSV';
 import { NeurologistRecord } from '../types/data';
-import { Stethoscope, ShieldAlert } from 'lucide-react';
+import { Stethoscope, ShieldAlert, ArrowUpDown, ChevronUp, ChevronDown } from 'lucide-react';
 import { SPECIALIST_THRESHOLDS } from '../constants/thresholds';
+
+type SortKey = 'state' | 'total' | 'cog' | 'density' | 'ratio';
+type SortOrder = 'asc' | 'desc';
+
+const ESTIMATED_STATES = new Set(['IN-KA', 'IN-DL', 'IN-WB', 'IN-GJ', 'IN-AP']);
 
 export const SpecialistPage: React.FC = () => {
   const { data: neurologists, loading } = useCSV<NeurologistRecord>('/data/neurologists.csv');
+  const [sortKey, setSortKey] = useState<SortKey>('density');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
+
+  const handleSort = (key: SortKey) => {
+    if (sortKey === key) {
+      setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));
+    } else {
+      setSortKey(key);
+      setSortOrder('asc');
+    }
+  };
+
+  const sortedNeurologists = useMemo(() => {
+    return [...neurologists].sort((a, b) => {
+      let comparison = 0;
+      switch (sortKey) {
+        case 'state':
+          comparison = a.state_name.localeCompare(b.state_name);
+          break;
+        case 'total':
+          comparison = a.total_neurologists - b.total_neurologists;
+          break;
+        case 'cog':
+          comparison = a.cog_behav_neuro - b.cog_behav_neuro;
+          break;
+        case 'density':
+          comparison = a.neurologist_per_million - b.neurologist_per_million;
+          break;
+        case 'ratio':
+          comparison = Number(a.patient_per_neurologist) - Number(b.patient_per_neurologist);
+          break;
+      }
+      return sortOrder === 'asc' ? comparison : -comparison;
+    });
+  }, [neurologists, sortKey, sortOrder]);
+
+  const renderSortIcon = (key: SortKey) => {
+    if (sortKey !== key) {
+      return <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60 ml-1 inline" />;
+    }
+    return sortOrder === 'asc' ? (
+      <ChevronUp className="w-3 h-3 text-emerald-600 dark:text-emerald-400 ml-1 inline" />
+    ) : (
+      <ChevronDown className="w-3 h-3 text-emerald-600 dark:text-emerald-400 ml-1 inline" />
+    );
+  };
 
   if (loading) {
     return <div className="h-96 bg-slate-50 dark:bg-slate-800/40 rounded-2xl animate-pulse" />;
   }
-
-  const sortedNeurologists = [...neurologists].sort((a, b) => a.neurologist_per_million - b.neurologist_per_million);
 
   const getSpecialistBadgeClass = (ratio: number) => {
     if (ratio < SPECIALIST_THRESHOLDS.CRITICAL_PER_MILLION) {
@@ -61,24 +110,69 @@ export const SpecialistPage: React.FC = () => {
 
       {/* State Breakdown Table */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
-        <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-          <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white">
-            State-wise Neurologist Availability & Specialist Load
-          </h3>
-          <span className="text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-800">
-            Ordered by Care Deficit
+        <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+          <div>
+            <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white">
+              State-wise Neurologist Availability & Specialist Load
+            </h3>
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed max-w-2xl">
+              Neurologist counts: IAN membership directory ~3,000 members (<a href="https://ianindia.org" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 hover:underline">ianindia.org</a>) and NSI registry. Per-million figures calculated using Census 2011 projected population. Data year: 2023-24. Cognitive/behavioural specialist counts are estimates based on IAN subspecialty listings — not independently verified per state.
+            </p>
+          </div>
+          <span className="text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-800 shrink-0">
+            Sorted by {sortKey === 'density' ? 'Care Deficit / Density' : sortKey === 'ratio' ? 'Patient Load' : sortKey === 'state' ? 'State Name' : sortKey === 'total' ? 'Total Neurologists' : 'Cognitive Specialists'} ({sortOrder.toUpperCase()})
           </span>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-slate-50 dark:bg-slate-850 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800">
+            <thead className="bg-slate-50 dark:bg-slate-850 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 select-none">
               <tr>
-                <th className="py-3 px-4">State / UT</th>
-                <th className="py-3 px-4 text-right">Total Neurologists</th>
-                <th className="py-3 px-4 text-right">Cog/Behav Specialists</th>
-                <th className="py-3 px-4 text-right">Per Million Pop</th>
-                <th className="py-3 px-4 text-right">Patients per Specialist</th>
+                <th className="py-3 px-4">
+                  <button
+                    onClick={() => handleSort('state')}
+                    className="font-semibold text-left flex items-center hover:text-slate-900 dark:hover:text-white transition-colors"
+                  >
+                    <span>State / UT</span>
+                    {renderSortIcon('state')}
+                  </button>
+                </th>
+                <th className="py-3 px-4 text-right">
+                  <button
+                    onClick={() => handleSort('total')}
+                    className="font-semibold ml-auto flex items-center justify-end hover:text-slate-900 dark:hover:text-white transition-colors"
+                  >
+                    <span>Total Neurologists</span>
+                    {renderSortIcon('total')}
+                  </button>
+                </th>
+                <th className="py-3 px-4 text-right">
+                  <button
+                    onClick={() => handleSort('cog')}
+                    className="font-semibold ml-auto flex items-center justify-end hover:text-slate-900 dark:hover:text-white transition-colors"
+                  >
+                    <span>Cog/Behav Specialists *</span>
+                    {renderSortIcon('cog')}
+                  </button>
+                </th>
+                <th className="py-3 px-4 text-right">
+                  <button
+                    onClick={() => handleSort('density')}
+                    className="font-semibold ml-auto flex items-center justify-end hover:text-slate-900 dark:hover:text-white transition-colors"
+                  >
+                    <span>Per Million Pop</span>
+                    {renderSortIcon('density')}
+                  </button>
+                </th>
+                <th className="py-3 px-4 text-right">
+                  <button
+                    onClick={() => handleSort('ratio')}
+                    className="font-semibold ml-auto flex items-center justify-end hover:text-slate-900 dark:hover:text-white transition-colors"
+                  >
+                    <span>Patients per Specialist</span>
+                    {renderSortIcon('ratio')}
+                  </button>
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 text-slate-800 dark:text-slate-200">
@@ -92,8 +186,15 @@ export const SpecialistPage: React.FC = () => {
                     )}
                     <span>{row.state_name}</span>
                   </td>
-                  <td className="py-3 px-4 text-right font-mono tabular-nums">{row.total_neurologists}</td>
-                  <td className="py-3 px-4 text-right font-mono tabular-nums text-indigo-600 dark:text-indigo-400">{row.cog_behav_neuro}</td>
+                  <td className="py-3 px-4 text-right font-mono tabular-nums">
+                    {row.total_neurologists}
+                    {ESTIMATED_STATES.has(row.state_code) && (
+                      <span className="text-amber-600 dark:text-amber-400 font-bold ml-0.5" title="Estimated from partial registry data">*</span>
+                    )}
+                  </td>
+                  <td className="py-3 px-4 text-right font-mono tabular-nums text-slate-400 dark:text-slate-500">
+                    —
+                  </td>
                   <td className="py-3 px-4 text-right font-mono font-semibold">
                     <span className={`px-2 py-0.5 rounded-md text-xs font-semibold tabular-nums shadow-sm ${getSpecialistBadgeClass(row.neurologist_per_million)}`}>
                       {row.neurologist_per_million.toFixed(2)}
@@ -106,6 +207,18 @@ export const SpecialistPage: React.FC = () => {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Table Legend */}
+        <div className="p-3.5 sm:p-4 bg-slate-50/70 dark:bg-slate-850/50 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 space-y-1.5">
+          <div className="flex items-start space-x-1.5">
+            <span className="text-amber-500 font-bold shrink-0">*</span>
+            <span><strong>Total Neurologists:</strong> Estimated from partial registry data. Exact count unverified.</span>
+          </div>
+          <div className="flex items-start space-x-1.5">
+            <span className="text-amber-500 font-bold shrink-0">*</span>
+            <span><strong>Cog/Behav Specialists:</strong> State-level cognitive and behavioural neurologist breakdown is unavailable in public registries (nationwide total is estimated at &lt;100 by IAN).</span>
+          </div>
         </div>
       </div>
     </div>
