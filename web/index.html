@@ -4,13 +4,112 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dementia in India — Data & Visualisation Platform</title>
-    <meta name="description" content="Open-access data visualisation platform mapping dementia statistics, age-onset dynamics, and the neurologist shortage across India." />
-    <meta property="og:title" content="Dementia in India — Data & Visualisation" />
-    <meta property="og:description" content="8.8 million Indians live with dementia. Explore state-wise prevalence, demographic disparities, and healthcare gaps." />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Dementia in India — Epidemiological Intelligence & Health Systems Platform</title>
+    <meta name="title" content="Dementia in India — Epidemiological Intelligence & Health Systems Platform" />
+    <meta name="description" content="Open-access epidemiological data platform tracking dementia and Alzheimer's disease across 36 Indian states, specialist deficits, union health spending, care directories, and global benchmarks." />
+    <meta name="keywords" content="dementia in india, alzheimers disease india, lasi dementia prevalence, memory clinics india, neurologists in india, dementia statistics india, ardsi, geriatric mental health, ihme gbd dementia, early-onset dementia" />
+    <meta name="author" content="Cyril Sebastian" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://dementia.cyrilsebastian.com/" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dementia.cyrilsebastian.com/" />
+    <meta property="og:site_name" content="Project Dementia India" />
+    <meta property="og:title" content="Dementia in India — Data & Visualisation Platform" />
+    <meta property="og:description" content="8.8 million Indians live with dementia. Explore subnational prevalence, specialist deserts, union budgets, verified memory clinics, and cross-national surveillance." />
+    <meta property="og:image" content="https://dementia.cyrilsebastian.com/india-states.geojson" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://dementia.cyrilsebastian.com/" />
+    <meta name="twitter:title" content="Dementia in India — Data & Visualisation Platform" />
+    <meta name="twitter:description" content="Interactive open epidemiological intelligence mapping dementia statistics, age-onset dynamics, and the specialist shortage across India." />
+
+    <!-- Google Font Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema.org Linked Data (JSON-LD) for Search Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "MedicalWebPage",
+          "@id": "https://dementia.cyrilsebastian.com/#webpage",
+          "url": "https://dementia.cyrilsebastian.com/",
+          "name": "Dementia in India — Epidemiological Intelligence & Health Systems Platform",
+          "description": "Comprehensive subnational data platform mapping dementia prevalence, diagnostic voids, and neurologist shortages across Indian states and Union Territories.",
+          "about": [
+            {
+              "@type": "MedicalCondition",
+              "name": "Dementia",
+              "alternateName": "Neurocognitive Disorder",
+              "code": {
+                "@type": "MedicalCode",
+                "code": "F03",
+                "codingSystem": "ICD-10"
+              }
+            },
+            {
+              "@type": "MedicalCondition",
+              "name": "Alzheimer's Disease",
+              "code": {
+                "@type": "MedicalCode",
+                "code": "G30",
+                "codingSystem": "ICD-10"
+              }
+            }
+          ],
+          "audience": {
+            "@type": "MedicalAudience",
+            "audienceType": "Public, Caregivers, Neurologists, Health Economists, Policy Makers"
+          },
+          "inLanguage": "en-IN"
+        },
+        {
+          "@type": "Dataset",
+          "@id": "https://dementia.cyrilsebastian.com/#dataset",
+          "name": "India State-wise Dementia Prevalence and Neurologist Specialist Registry",
+          "description": "Cross-sectional dataset containing prevalence estimates across sex, urban/rural areas, age cohorts, education levels, neurologist densities, and verified memory clinics in India.",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "isAccessibleForFree": true,
+          "creator": {
+            "@type": "Organization",
+            "name": "Project Dementia India",
+            "url": "https://dementia.cyrilsebastian.com"
+          },
+          "distribution": [
+            {
+              "@type": "DataDownload",
+              "encodingFormat": "text/csv",
+              "contentUrl": "https://dementia.cyrilsebastian.com/data/india-states.csv"
+            },
+            {
+              "@type": "DataDownload",
+              "encodingFormat": "application/geo+json",
+              "contentUrl": "https://dementia.cyrilsebastian.com/india-states.geojson"
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://dementia.cyrilsebastian.com/#website",
+          "url": "https://dementia.cyrilsebastian.com/",
+          "name": "Dementia India",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Project Dementia India"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased min-h-screen">
     <div id="root"></div>

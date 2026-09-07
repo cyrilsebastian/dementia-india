@@ -1,0 +1,7 @@
+# robots.txt for Project Dementia India
+User-agent: *
+Allow: /
+Allow: /data/
+
+# Sitemap location
+Sitemap: https://dementia.cyrilsebastian.com/sitemap.xml
