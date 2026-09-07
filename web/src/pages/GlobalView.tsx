@@ -1,16 +1,20 @@
 /**
  * @file GlobalView.tsx
  * @description Global Dementia Intelligence Dashboard.
- * Integrates global macro statistics, Hans Rosling economic scatter bubbles,
- * 10-country comparative benchmarks, longitudinal 2050 forecast trajectories,
- * interactive world choropleth map, and country quick-inspector drawer.
+ * Integrates global macro statistics, young-onset dementia callout,
+ * Hans Rosling economic scatter bubbles, 10-country comparative benchmarks
+ * (including care infrastructure), dementia etiology/subtypes explainer donut,
+ * interactive world choropleth map, longitudinal 2050 forecast trajectories,
+ * and country quick-inspector drawer.
  */
 
 import React, { useState } from 'react';
 import { Globe, BookOpen, ExternalLink } from 'lucide-react';
 import { GlobalStatCards } from '../components/GlobalStatCards';
+import { YoungOnsetCallout } from '../components/YoungOnsetCallout';
 import { GlobalBubble } from '../charts/GlobalBubble';
 import { GlobalComparisonBar } from '../charts/GlobalComparisonBar';
+import { DementiaSubtypesDonut } from '../charts/DementiaSubtypesDonut';
 import { GlobalProjections } from '../charts/GlobalProjections';
 import { GlobalChoropleth } from '../charts/GlobalChoropleth';
 import { CountryDetailDrawer } from '../components/CountryDetailDrawer';
@@ -46,35 +50,43 @@ export const GlobalView: React.FC = () => {
         <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-3">
           Epidemiological synthesis combining the <strong>IHME Global Burden of Disease (GBD 2021)</strong>, the{' '}
           <strong>WHO Global Dementia Observatory (GDO)</strong>, <strong>World Bank Economic Indicators</strong>, and{' '}
-          <strong>Lancet Commission 2050 Projections</strong>. Analyze how longevity, healthcare expenditure, and policy
-          frameworks impact dementia trajectories worldwide.
+          <strong>Lancet Commission 2050 Projections</strong>. Analyze how longevity, healthcare expenditure, care
+          infrastructure, and policy frameworks impact dementia trajectories worldwide.
         </p>
       </div>
 
-      {/* 5 Macro Stat Cards */}
+      {/* 5 Macro Stat Cards with Tooltips */}
       <GlobalStatCards />
 
-      {/* 2x2 Interactive Visualization Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Chart 1: Hans Rosling Bubble Chart */}
+      {/* Young-Onset Dementia Callout Panel */}
+      <YoungOnsetCallout />
+
+      {/* Visualizations Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        {/* Left Column: Hans Rosling Bubble Chart */}
         <div className="w-full">
           <GlobalBubble onSelectCountry={setSelectedCountry} />
         </div>
 
-        {/* Chart 2: 10-Nation Benchmark Grouped Bar */}
+        {/* Right Column: 10-Nation Benchmark (with 5th Care Infra tab) */}
         <div className="w-full">
           <GlobalComparisonBar onSelectCountry={setSelectedCountry} />
         </div>
 
-        {/* Chart 3: World Choropleth Map */}
+        {/* Left Column: World Choropleth Map */}
         <div className="w-full">
           <GlobalChoropleth onSelectCountry={setSelectedCountry} />
         </div>
 
-        {/* Chart 4: Multi-Country 2050 Forecast Trajectories */}
+        {/* Right Column: Dementia Subtypes Explainer (Below 10-Nation Benchmark) */}
         <div className="w-full">
-          <GlobalProjections onSelectCountry={setSelectedCountry} />
+          <DementiaSubtypesDonut />
         </div>
+      </div>
+
+      {/* Full Width Section: Multi-Country 2050 Forecast Trajectories */}
+      <div className="w-full">
+        <GlobalProjections onSelectCountry={setSelectedCountry} />
       </div>
 
       {/* Methodology & Data Sources Footer */}
@@ -86,7 +98,8 @@ export const GlobalView: React.FC = () => {
         <p className="leading-relaxed">
           National prevalence estimates for the 60+ population are harmonized from the Institute for Health Metrics and
           Evaluation (IHME) GBD 2021 results using Bayesian geospatial regression (DISMOD-MR 2.1). GDP per capita is
-          sourced from the World Bank (constant 2017 PPP international dollars). Trajectory curves (2019–2050) utilize
+          sourced from the World Bank (constant 2017 PPP international dollars). Care infrastructure figures derive from
+          the WHO Mental Health Atlas 2020 and Indian Academy of Neurology (IAN). Trajectory curves (2019–2050) utilize
           multivariate forecasting models published by Nichols et al. (<em>The Lancet Public Health</em>, 2022). WHO
           governance metrics are extracted from the Global Dementia Observatory (GDO) monitoring framework.
         </p>
@@ -106,6 +119,14 @@ export const GlobalView: React.FC = () => {
             className="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1 font-medium"
           >
             WHO Global Dementia Observatory <ExternalLink className="w-2.5 h-2.5" />
+          </a>
+          <a
+            href="https://www.who.int/publications/i/item/9789240036703"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1 font-medium"
+          >
+            WHO Mental Health Atlas 2020 <ExternalLink className="w-2.5 h-2.5" />
           </a>
           <a
             href="https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD"

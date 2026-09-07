@@ -2,13 +2,14 @@
  * @file GlobalStatCards.tsx
  * @description Headline macro cards for Global Dementia Intelligence.
  * Displays Caseload (55.2M), Economic Cost ($1.3T), Gender Ratio (1.69x),
- * Diagnostic Gap (75%), and National Policy Readiness (39 of 194 countries).
+ * Diagnostic Gap (75%), and National Policy Readiness (39 of 194 countries) with explanatory tooltips.
  */
 
 import React from 'react';
 import { useCSV } from '../data/useCSV';
 import { SummaryStatRecord } from '../types/data';
 import { Globe, DollarSign, Scale, UserX, ShieldCheck, AlertCircle } from 'lucide-react';
+import { Tooltip } from './Tooltip';
 
 export const GlobalStatCards: React.FC = () => {
   const { data: stats, loading, error } = useCSV<SummaryStatRecord>('/data/global-summary-stats.csv');
@@ -27,6 +28,23 @@ export const GlobalStatCards: React.FC = () => {
         return <ShieldCheck className="w-5 h-5 text-sky-500" />;
       default:
         return <AlertCircle className="w-5 h-5 text-slate-500" />;
+    }
+  };
+
+  const getTooltipText = (metricId: string) => {
+    switch (metricId) {
+      case 'GLOBAL_CASES':
+        return 'Total number of people estimated to be living with dementia globally. Source: WHO / GBD 2021.';
+      case 'ECONOMIC_BURDEN':
+        return 'Annual global cost of dementia including medical care, social care, and unpaid family caregiving. Exceeds the market cap of most Fortune 500 companies.';
+      case 'GENDER_RATIO':
+        return 'Women are 1.69 times more likely to develop dementia than men — this is not fully explained by longer female lifespans. Women also provide over 70% of unpaid caregiving hours globally.';
+      case 'DIAGNOSIS_GAP':
+        return 'Percentage of dementia cases that are never formally diagnosed. In low and middle-income countries this reaches 85–90%. Source: WHO GDO 2021.';
+      case 'POLICY_READINESS':
+        return 'Number of WHO member states with a formal National Dementia Action Plan. Only 39 of 194 as of 2021. Source: WHO Global Dementia Observatory. Year: 2021.';
+      default:
+        return '';
     }
   };
 
@@ -70,9 +88,12 @@ export const GlobalStatCards: React.FC = () => {
         >
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                {stat.label}
-              </span>
+              <div className="flex items-center space-x-1.5">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  {stat.label}
+                </span>
+                <Tooltip text={getTooltipText(stat.metric_id)} size={12} />
+              </div>
               <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800 group-hover:scale-110 transition-transform shrink-0">
                 {getIcon(stat.metric_id)}
               </div>
@@ -93,6 +114,11 @@ export const GlobalStatCards: React.FC = () => {
             <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-snug line-clamp-2" title={stat.notes}>
               {stat.notes}
             </p>
+            {stat.metric_id === 'POLICY_READINESS' && (
+              <p className="mt-1 text-[10px] text-slate-400 dark:text-slate-500 font-medium">
+                Data year: 2021 (WHO GDO)
+              </p>
+            )}
           </div>
         </div>
       ))}

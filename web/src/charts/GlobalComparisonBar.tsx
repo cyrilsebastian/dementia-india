@@ -1,7 +1,8 @@
 /**
  * @file GlobalComparisonBar.tsx
  * @description 10-Country benchmark bar chart comparing India directly against
- * peer global economies across prevalence, caseload, DALYs, and diagnostic gaps.
+ * peer global economies across prevalence, caseload, DALYs, diagnostic gaps,
+ * and care infrastructure (neurologists, psychiatrists, and hospital beds).
  */
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
@@ -9,6 +10,7 @@ import ReactECharts from 'echarts-for-react';
 import { useCSV } from '../data/useCSV';
 import { CountryRecord } from '../types/data';
 import { ChartPanel } from '../components/ChartPanel';
+import { Tooltip } from '../components/Tooltip';
 import {
   buildGlobalComparisonOptions,
   MetricKey,
@@ -49,7 +51,6 @@ export const GlobalComparisonBar: React.FC<GlobalComparisonBarProps> = ({ onSele
   const items = useMemo<ComparisonCountryItem[]>(() => {
     if (!countries.length) return [];
 
-    // Filter to year 2021, age 60+, sex Both, measure Prevalence
     const map2021 = new Map<string, number>();
     countries.forEach((c) => {
       if (c.year === 2021 && c.age_group === '60+' && c.sex === 'Both' && c.measure === 'Prevalence') {
@@ -94,6 +95,15 @@ export const GlobalComparisonBar: React.FC<GlobalComparisonBarProps> = ({ onSele
   }, [items, metric, isDark]);
 
   const onChartClick = (params: any) => {
+    if (metric === 'care_infrastructure') {
+      const countryName = params.name;
+      const match = PEER_COUNTRIES.find((p) => p.name === countryName);
+      if (match && onSelectCountry) {
+        onSelectCountry(match.code);
+      }
+      return;
+    }
+
     const sorted = [...items].sort((a, b) => a.value - b.value);
     const clicked = sorted[params.dataIndex];
     if (clicked && onSelectCountry) {
@@ -111,16 +121,44 @@ export const GlobalComparisonBar: React.FC<GlobalComparisonBarProps> = ({ onSele
     link.click();
   };
 
-  const tabs: { key: MetricKey; label: string }[] = [
-    { key: 'prevalence', label: 'Prevalence %' },
-    { key: 'cases', label: 'Total Cases' },
-    { key: 'dalys', label: 'DALYs / 100k' },
-    { key: 'diagnosis_gap', label: 'Diagnosis Void' },
+  const tabs: { key: MetricKey; label: string; tooltip: string }[] = [
+    {
+      key: 'prevalence',
+      label: 'Prevalence %',
+      tooltip:
+        'The percentage of people aged 60 and above estimated to be living with dementia in that country. A higher % means a larger share of the elderly population is affected.',
+    },
+    {
+      key: 'cases',
+      label: 'Total Cases',
+      tooltip:
+        'The estimated total number of people currently living with dementia (all ages). This is an absolute count, not a rate — larger countries will naturally have higher numbers.',
+    },
+    {
+      key: 'dalys',
+      label: 'DALYs / 100k',
+      tooltip:
+        "Disability-Adjusted Life Years per 100,000 people. Combines years of life lost to early death and years lived with disability. Higher = greater overall disease burden in that country's population.",
+    },
+    {
+      key: 'diagnosis_gap',
+      label: 'Diagnosis Void',
+      tooltip:
+        'The percentage of people living with dementia who have never received a formal clinical diagnosis. 88% for India means that 88 in every 100 people with dementia in India never see a doctor for it. Lower is better.',
+    },
+    {
+      key: 'care_infrastructure',
+      label: 'Care Infrastructure / 100k',
+      tooltip:
+        'Neurologists, psychiatrists, and psychiatric hospital beds per 100,000 population. Reflects clinical diagnosis and acute care capacity.',
+    },
   ];
+
+  const isCareInfra = metric === 'care_infrastructure';
 
   if (loading) {
     return (
-      <div className="h-[420px] bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 flex items-center justify-center animate-pulse">
+      <div className="h-[440px] bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 flex items-center justify-center animate-pulse">
         <span className="text-xs text-slate-400">Loading 10-country comparative benchmark...</span>
       </div>
     );
@@ -128,34 +166,47 @@ export const GlobalComparisonBar: React.FC<GlobalComparisonBarProps> = ({ onSele
 
   return (
     <ChartPanel
-      title="10-Nation Dementia Benchmark"
-      subtitle="Cross-national comparison of India against peer developed and emerging economies (2021 benchmarks)."
-      sourceLabel="IHME GBD 2021 & WHO GDO"
-      sourceUrl="https://vizhub.healthdata.org/gbd-results/"
+      title={isCareInfra ? 'Care infrastructure per 100,000 population' : '10-Nation Dementia Benchmark'}
+      subtitle={
+        isCareInfra
+          ? 'Neurologists, psychiatrists, and psychiatric hospital beds. India sits at the bottom across all three metrics.'
+          : 'Cross-national comparison of India against peer developed and emerging economies (2021 benchmarks).'
+      }
+      sourceLabel={isCareInfra ? 'WHO Mental Health Atlas 2020 · IAN India 2024' : 'IHME GBD 2021 & WHO GDO'}
+      sourceUrl={
+        isCareInfra
+          ? 'https://www.who.int/publications/i/item/9789240036703'
+          : 'https://vizhub.healthdata.org/gbd-results/'
+      }
       exportable
       onExport={handleExport}
-      activeFilterBadges={['10 Benchmark Economies', 'Year: 2021']}
+      activeFilterBadges={
+        isCareInfra
+          ? ['10 Economies', '3 Care Infrastructure Tiers']
+          : ['10 Benchmark Economies', 'Year: 2021']
+      }
     >
       <div className="flex flex-col h-full justify-between">
-        {/* Metric Selector Pills */}
-        <div className="flex items-center space-x-1.5 mb-2 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl w-fit">
+        {/* Metric Selector Pills with Tooltips */}
+        <div className="flex flex-wrap items-center gap-1.5 mb-2 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl w-fit">
           {tabs.map((tab) => (
-            <button
+            <div
               key={tab.key}
               onClick={() => setMetric(tab.key)}
-              className={`px-3 py-1 text-xs font-semibold rounded-lg transition-all ${
+              className={`flex items-center space-x-1 px-3 py-1 text-xs font-semibold rounded-lg cursor-pointer transition-all ${
                 metric === tab.key
                   ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-xs'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              {tab.label}
-            </button>
+              <span>{tab.label}</span>
+              <Tooltip text={tab.tooltip} size={11} className="ml-1" />
+            </div>
           ))}
         </div>
 
         {/* ECharts Canvas */}
-        <div className="h-[320px] w-full">
+        <div className="h-[340px] w-full">
           <ReactECharts
             ref={chartRef}
             option={options}
