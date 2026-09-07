@@ -17,13 +17,13 @@ export const YoungOnsetCallout: React.FC = () => {
           Dementia is not only an elderly condition
         </h4>
         <p className="text-xs sm:text-sm text-amber-800/90 dark:text-amber-300/90 leading-relaxed">
-          In 2021, an estimated 7.75 million people aged 40 to 64 were living with early-onset Alzheimer's disease
-          globally — double the 3.67 million recorded in 1990. Women account for 4.28 million of these cases. In India,
-          early-onset dementia is systematically under-reported because diagnosis pathways are built around elderly
-          patients.
+          In 2021, an estimated 7.75 million people aged 40 to 64 were living with early-onset Alzheimer's and related
+          dementias globally — double the 3.67 million recorded in 1990. Women account for 4.28 million of these cases.
+          In India, early-onset dementia is systematically under-reported because diagnosis pathways are built around
+          elderly patients.
         </p>
         <div className="text-[11px] text-amber-700/80 dark:text-amber-400/80 pt-1 font-medium">
-          Source: GBD 2021 · Global Burden of Young-onset Dementia, PMC 2024 (DOI: 10.1186/s13195-024-01530-0)
+          Source: GBD 2021 · Zhang et al., European Journal of Neurology, 2025 (DOI: 10.1111/ene.70116)
         </div>
       </div>
     </div>
