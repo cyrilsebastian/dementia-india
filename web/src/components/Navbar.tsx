@@ -10,8 +10,8 @@ import { useFilters } from '../context/FilterContext';
 import { Moon, Sun, Github, Activity } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'india' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global';
-  setActiveTab: (tab: 'india' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global') => void;
+  activeTab: 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global';
+  setActiveTab: (tab: 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
@@ -50,6 +50,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             }`}
           >
             India Overview
+          </button>
+          <button
+            onClick={() => setActiveTab('family-guide')}
+            className={`px-2.5 py-1 rounded-lg text-xs lg:text-sm font-medium transition-all whitespace-nowrap ${
+              activeTab === 'family-guide'
+                ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 font-semibold'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            Family Guide
           </button>
           <button
             onClick={() => setActiveTab('specialist')}

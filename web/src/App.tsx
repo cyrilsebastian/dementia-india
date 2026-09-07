@@ -8,17 +8,55 @@ import { HealthSpending } from './pages/HealthSpending';
 import { CareNetwork } from './pages/CareNetwork';
 import { GlobalView } from './pages/GlobalView';
 import { AboutPage } from './pages/AboutPage';
+import { FamilyGuide } from './pages/FamilyGuide';
 
 export const AppContent: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'india' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global'>('india');
+  const getInitialTab = (): 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global' => {
+    const path = window.location.pathname.replace(/^\/+/, '');
+    const hash = window.location.hash.replace(/^#\/?/, '');
+    const target = hash || path;
+    if (target === 'family-guide') return 'family-guide';
+    if (target === 'specialist') return 'specialist';
+    if (target === 'health-spending') return 'health-spending';
+    if (target === 'care-network') return 'care-network';
+    if (target === 'global') return 'global';
+    if (target === 'about') return 'about';
+    return 'india';
+  };
+
+  const [activeTab, setActiveTab] = useState<'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global'>(getInitialTab);
+
+  React.useEffect(() => {
+    const handlePopState = () => {
+      setActiveTab(getInitialTab());
+    };
+    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handlePopState);
+    };
+  }, []);
+
+  const handleTabChange = (tab: 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global') => {
+    setActiveTab(tab);
+    if (tab === 'family-guide') {
+      window.history.pushState(null, '', '/family-guide');
+    } else if (tab === 'india') {
+      window.history.pushState(null, '', '/');
+    } else {
+      window.history.pushState(null, '', `/#${tab}`);
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Navbar activeTab={activeTab} setActiveTab={handleTabChange} />
       {activeTab === 'india' && <FilterBar />}
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {activeTab === 'india' && <IndiaPage />}
+        {activeTab === 'family-guide' && <FamilyGuide onNavigate={handleTabChange} />}
         {activeTab === 'specialist' && <SpecialistPage />}
         {activeTab === 'health-spending' && <HealthSpending />}
         {activeTab === 'care-network' && <CareNetwork />}
