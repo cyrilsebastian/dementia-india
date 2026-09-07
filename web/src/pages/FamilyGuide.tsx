@@ -113,8 +113,8 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
       a: 'Normal aging causes some slowing of memory and thinking. Dementia causes changes that interfere with daily life — getting lost at home, forgetting how to cook a familiar meal, or not recognising family members. If you are unsure, a formal cognitive assessment by a neurologist takes about 30 minutes and gives a clear answer.',
     },
     {
-      q: 'What medicines are used for dementia in India?',
-      a: 'Four medicines are approved and available in India: Donepezil, Rivastigmine, Galantamine (for mild to moderate Alzheimer’s), and Memantine (for moderate to severe). These are available in generic form and are on the National List of Essential Medicines. They do not cure dementia but may slow its progression. Always consult a neurologist before starting.',
+      q: 'Are there medicines for dementia?',
+      a: "Yes, there are approved medications for dementia in India. However, the right medicine, the right dose, and whether medication is appropriate at all depends entirely on the type of dementia, the stage, and the individual patient's health. This is not something any website should guide — including this one. Please consult a neurologist or geriatrician. If you do not have access to a specialist, call the ARDSI helpline (+91 98461 98471) or Dementia India Alliance (8585990990) for a referral.",
     },
     {
       q: 'Is dementia hereditary?',
