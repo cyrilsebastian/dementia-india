@@ -193,6 +193,43 @@ func validateNeurologists(path string) []validationError {
 	return errs
 }
 
+func validateSummaryStats(path string) []validationError {
+	var errs []validationError
+	f, err := os.Open(path)
+	if err != nil {
+		return []validationError{{file: path, msg: err.Error()}}
+	}
+	defer f.Close()
+
+	r := csv.NewReader(f)
+	header, err := r.Read()
+	if err != nil {
+		return []validationError{{file: path, msg: "failed to read header"}}
+	}
+
+	expectedHeaders := []string{"metric_id", "label", "value", "unit", "change_pct", "notes"}
+	if len(header) != len(expectedHeaders) {
+		errs = append(errs, validationError{file: path, row: 1, msg: fmt.Sprintf("header length %d != expected %d", len(header), len(expectedHeaders))})
+	}
+
+	rowNum := 1
+	for {
+		rowNum++
+		rec, err := r.Read()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			errs = append(errs, validationError{file: path, row: rowNum, msg: err.Error()})
+			break
+		}
+		if len(rec[0]) == 0 || len(rec[2]) == 0 {
+			errs = append(errs, validationError{file: path, row: rowNum, msg: "empty metric_id or value"})
+		}
+	}
+	return errs
+}
+
 func main() {
 	fmt.Println("🔍 Running automated validation suite on processed datasets...")
 
@@ -204,6 +241,7 @@ func main() {
 		"data/processed/global-who-policy.csv",
 		"data/processed/gdp-per-capita.csv",
 		"data/processed/summary-stats.csv",
+		"data/processed/global-summary-stats.csv",
 	}
 
 	var allErrors []validationError
@@ -221,6 +259,8 @@ func main() {
 	allErrors = append(allErrors, validateGlobalCountries("data/processed/global-countries.csv")...)
 	allErrors = append(allErrors, validateProjections("data/processed/projections.csv")...)
 	allErrors = append(allErrors, validateNeurologists("data/processed/neurologists.csv")...)
+	allErrors = append(allErrors, validateSummaryStats("data/processed/global-summary-stats.csv")...)
+	allErrors = append(allErrors, validateSummaryStats("data/processed/summary-stats.csv")...)
 
 	if len(allErrors) > 0 {
 		fmt.Printf("\n❌ Validation FAILED with %d error(s):\n", len(allErrors))

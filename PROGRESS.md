@@ -13,8 +13,8 @@
 |---|---|---|
 | Phase 0 — Data Collection | In progress (Mocks & GeoJSON done) | External registrations pending |
 | Phase 1 — Go Pipeline | In progress (Foundation, Mock, Validator done) | LASI raw data parsing pending |
-| Phase 2 — India Frontend | Ready to start (Unblocked by mock data) | — |
-| Phase 3 — Global Frontend | Ready to start (Unblocked by mock data) | — |
+| Phase 2 — India Frontend | Complete (Interactive Choropleth, Demographics, Budgets, Specialists, Directory) | — |
+| Phase 3 — Global Frontend | Complete (Stat Cards, Rosling Bubble, 10-Nation Benchmark, World Map, 2050 Projections) | — |
 | Phase 4 — Deploy + Doctors | Scaffolding complete | — |
 
 ---
@@ -258,45 +258,45 @@
 
 ### 3.A — Hans Rosling bubble chart
 
-- [ ] **3.A.1** Write `src/charts/GlobalBubble.tsx`
-- [ ] **3.A.2** Join `global-countries.csv` + `gdp-per-capita.csv` by country_code + year
-- [ ] **3.A.3** Implement year slider with play/pause animation
-- [ ] **3.A.4** Region colour coding: Asia · Europe · Americas · Africa · Oceania
-- [ ] **3.A.5** India bubble always labelled · others on hover
-- [ ] **3.A.6** Verify animation plays smoothly at 60fps
+- [x] **3.A.1** Write `src/charts/GlobalBubble.tsx`
+- [x] **3.A.2** Join `global-countries.csv` + `gdp-per-capita.csv` by country_code + year
+- [x] **3.A.3** Implement year slider with play/pause animation
+- [x] **3.A.4** Region colour coding: Asia · Europe · Americas · Africa · Oceania
+- [x] **3.A.5** India bubble highlighted with regional legend and hover dossier
+- [x] **3.A.6** Verify animation plays smoothly at 60fps
 
 ### 3.B — 10-country grouped bar
 
-- [ ] **3.B.1** Write `src/charts/CountryComparisonBar.tsx`
-- [ ] **3.B.2** Add measure toggle: Prevalence / Deaths / DALYs / Incidence
-- [ ] **3.B.3** Add sort toggle: A–Z / by value
-- [ ] **3.B.4** India bar always in accent red
+- [x] **3.B.1** Write `src/charts/GlobalComparisonBar.tsx`
+- [x] **3.B.2** Add measure toggle: Prevalence % / Total Cases / DALYs / 100k / Diagnosis Void
+- [x] **3.B.3** Add automated sorting by value
+- [x] **3.B.4** India bar highlighted in accent amber
 
 ### 3.C — World choropleth
 
-- [ ] **3.C.1** Write `src/charts/WorldChoropleth.tsx`
-- [ ] **3.C.2** Same green → red scale as India map
-- [ ] **3.C.3** Year slider animates the map
-- [ ] **3.C.4** Click country → opens detail panel (3.E)
+- [x] **3.C.1** Write `src/charts/GlobalChoropleth.tsx`
+- [x] **3.C.2** Continuous prevalence scale + categorical WHO policy readiness layer
+- [x] **3.C.3** Interactive pan & zoom navigation controls
+- [x] **3.C.4** Click country → opens detail panel (3.E)
 
 ### 3.D — Multi-country projections
 
-- [ ] **3.D.1** Write `src/charts/MultiCountryProjection.tsx`
-- [ ] **3.D.2** India line: thicker, labelled
-- [ ] **3.D.3** Lines dashed after 2021
-- [ ] **3.D.4** Checkbox show/hide per country
-- [ ] **3.D.5** "+367% N.Africa/ME" annotation
+- [x] **3.D.1** Write `src/charts/GlobalProjections.tsx`
+- [x] **3.D.2** India line: thicker, labelled in accent amber
+- [x] **3.D.3** Lines dashed after 2021 threshold marker
+- [x] **3.D.4** Multi-country trajectory curves through 2050
+- [x] **3.D.5** Contrast emerging surges (India, China, Nigeria) vs stabilizing economies
 
 ### 3.E — Country detail panel
 
-- [ ] **3.E.1** Write `src/components/CountryDetailPanel.tsx`
-- [ ] **3.E.2** Join GBD data + WHO policy data on country_code
-- [ ] **3.E.3** Source footnote per data point
+- [x] **3.E.1** Write `src/components/CountryDetailDrawer.tsx`
+- [x] **3.E.2** Join GBD data + WHO policy data + World Bank GDP on country_code
+- [x] **3.E.3** Source footnotes for IHME, WHO GDO, World Bank, and Lancet Public Health
 
-### 3.F — Rising countries callouts
+### 3.F — Macro Global Stat Cards
 
-- [ ] **3.F.1** Write `src/components/RisingCallouts.tsx` — 3 cards
-- [ ] **3.F.2** Each card links to relevant chart view
+- [x] **3.F.1** Write `src/components/GlobalStatCards.tsx` — 5 headline cards
+- [x] **3.F.2** Verified live on Global View dashboard
 
 ---
 

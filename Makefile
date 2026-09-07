@@ -18,12 +18,16 @@ setup: ## Initialize directories and verify tooling
 mock-data: ## Generate synthetic datasets matching published anchors (Day 1 unblocker)
 	@go run ./cmd/mock/main.go
 
-fetch: fetch-geojson ## Download raw external assets (GeoJSON)
+fetch: fetch-geojson fetch-world-geojson ## Download raw external assets (India and World GeoJSON)
 
 fetch-geojson: ## Download and normalize India state boundaries GeoJSON
 	@bash scripts/fetch_geojson.sh
 
-transform: mock-data ## Transform and synthesize normalized epidemiological datasets
+fetch-world-geojson: ## Download and normalize World boundaries GeoJSON
+	@bash scripts/fetch_world_geojson.sh
+
+transform: ## Transform and standardize processed datasets for web
+	@go run ./cmd/transform/main.go
 
 validate: ## Run automated sanity checks on processed datasets
 	@go run ./cmd/validate/main.go
