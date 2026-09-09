@@ -8,6 +8,11 @@ web/dist/
 web/.vite/
 web/public/data/
 
+# Environment and secrets
+.env
+.env.*
+*.local
+
 # OS and IDE files
 .DS_Store
 *.swp

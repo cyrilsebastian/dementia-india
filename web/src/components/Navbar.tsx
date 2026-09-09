@@ -10,8 +10,8 @@ import { useFilters } from '../context/FilterContext';
 import { Moon, Sun, Github, Activity } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global';
-  setActiveTab: (tab: 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global') => void;
+  activeTab: 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global' | 'reach-out';
+  setActiveTab: (tab: 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global' | 'reach-out') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
@@ -103,6 +103,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             <span className="ml-1.5 text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800">
               Live
             </span>
+          </button>
+          <button
+            onClick={() => setActiveTab('reach-out')}
+            className={`px-2.5 py-1 rounded-lg text-xs lg:text-sm font-medium transition-all whitespace-nowrap ${
+              activeTab === 'reach-out'
+                ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 font-semibold'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+            }`}
+          >
+            Reach Out
           </button>
           <button
             onClick={() => setActiveTab('about')}

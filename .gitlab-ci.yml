@@ -1,0 +1,33 @@
+# Project Dementia India — GitLab CI/CD Pipeline
+#
+# Required GitLab CI/CD Variables (Settings → CI/CD → Variables):
+#
+# VITE_WEB3FORMS_KEY — Web3Forms access key for Reach Out contact form
+# Get from: web3forms.com → Enter dementia@cyrilsebastian.com
+#
+# VITE_BREVO_API_KEY — Brevo newsletter API key
+# Get from: brevo.com → Settings → API Keys → your key name
+# Sending subdomain: maildementia.cyrilsebastian.com
+# Reply-to: dementia@cyrilsebastian.com
+
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  image: golang:1.22
+  script:
+    - go test -v ./...
+    - go run ./cmd/validate/main.go
+
+build-web:
+  stage: build
+  image: node:20
+  script:
+    - cd web
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - web/dist/

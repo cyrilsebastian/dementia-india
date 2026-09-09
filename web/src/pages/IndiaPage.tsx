@@ -12,6 +12,7 @@ import { AgeOnsetBar } from '../charts/AgeOnsetBar';
 import { UrbanRuralBar } from '../charts/UrbanRuralBar';
 import { EtiologyBreakdown } from '../components/EtiologyBreakdown';
 import { AlertCircle } from 'lucide-react';
+import { SubscribeForm } from '../components/SubscribeForm';
 
 export const IndiaPage: React.FC = () => {
   return (
@@ -58,6 +59,9 @@ export const IndiaPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Monthly Newsletter Subscription */}
+      <SubscribeForm />
     </div>
   );
 };

@@ -18,6 +18,7 @@ import {
   Clock,
   HeartHandshake,
 } from 'lucide-react';
+import { SubscribeForm } from '../components/SubscribeForm';
 
 interface FamilyGuideProps {
   onNavigate?: (tab: 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global') => void;
@@ -477,6 +478,12 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
           ))}
         </div>
       </section>
+
+      {/* Caregiver Newsletter Subscription */}
+      <SubscribeForm
+        title="Get Monthly Caregiver Resources & Updates"
+        subtitle="Practical caregiving tips, support group schedules, and public health updates delivered straight to your inbox."
+      />
 
       {/* Footer Disclaimer */}
       <div className="text-center pt-2">

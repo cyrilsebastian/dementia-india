@@ -9,9 +9,10 @@ import { CareNetwork } from './pages/CareNetwork';
 import { GlobalView } from './pages/GlobalView';
 import { AboutPage } from './pages/AboutPage';
 import { FamilyGuide } from './pages/FamilyGuide';
+import { ReachOut, NavTabType } from './pages/ReachOut';
 
 export const AppContent: React.FC = () => {
-  const getInitialTab = (): 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global' => {
+  const getInitialTab = (): NavTabType => {
     const path = window.location.pathname.replace(/^\/+/, '');
     const hash = window.location.hash.replace(/^#\/?/, '');
     const target = hash || path;
@@ -20,11 +21,12 @@ export const AppContent: React.FC = () => {
     if (target === 'health-spending') return 'health-spending';
     if (target === 'care-network') return 'care-network';
     if (target === 'global') return 'global';
+    if (target === 'reach-out') return 'reach-out';
     if (target === 'about') return 'about';
     return 'india';
   };
 
-  const [activeTab, setActiveTab] = useState<'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global'>(getInitialTab);
+  const [activeTab, setActiveTab] = useState<NavTabType>(getInitialTab);
 
   React.useEffect(() => {
     const handlePopState = () => {
@@ -38,10 +40,16 @@ export const AppContent: React.FC = () => {
     };
   }, []);
 
-  const handleTabChange = (tab: 'india' | 'family-guide' | 'specialist' | 'health-spending' | 'care-network' | 'about' | 'global') => {
+  const handleTabChange = (tab: NavTabType) => {
     setActiveTab(tab);
     if (tab === 'family-guide') {
       window.history.pushState(null, '', '/family-guide');
+    } else if (tab === 'reach-out') {
+      window.history.pushState(null, '', '/reach-out');
+    } else if (tab === 'care-network') {
+      window.history.pushState(null, '', '/care-network');
+    } else if (tab === 'about') {
+      window.history.pushState(null, '', '/about');
     } else if (tab === 'india') {
       window.history.pushState(null, '', '/');
     } else {
@@ -61,6 +69,7 @@ export const AppContent: React.FC = () => {
         {activeTab === 'health-spending' && <HealthSpending />}
         {activeTab === 'care-network' && <CareNetwork />}
         {activeTab === 'global' && <GlobalView />}
+        {activeTab === 'reach-out' && <ReachOut onNavigate={handleTabChange} />}
         {activeTab === 'about' && <AboutPage />}
       </main>
 

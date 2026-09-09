@@ -8,6 +8,7 @@
 import React from 'react';
 import { Heart, Database, ShieldCheck, ExternalLink } from 'lucide-react';
 import { Disclaimer } from '../components/Disclaimer';
+import { SubscribeForm } from '../components/SubscribeForm';
 
 export const AboutPage: React.FC = () => {
   const sources = [
@@ -135,9 +136,15 @@ export const AboutPage: React.FC = () => {
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           All data hosted on this platform consists exclusively of aggregate statistical estimates and published epidemiological benchmarks.
           No personally identifiable information (PII) or protected health information (PHI) is ever collected, scraped, or stored.
-          The complete source code and data pipelines are open source under the MIT license. This platform does not use cookies, trackers, or analytics tools that collect personal data.
+          The complete source code and data pipelines are open source under the MIT license. This site uses Cloudflare Web Analytics, a cookieless and
+          privacy-first analytics tool. No personal data is collected or stored. If you choose to subscribe to the newsletter,
+          your email address is stored securely in Brevo (brevo.com) and used only to send the monthly Dementia India update.
+          We do not share your email with anyone. Unsubscribe any time from any email.
         </p>
       </div>
+
+      {/* Monthly Newsletter Subscription */}
+      <SubscribeForm />
 
       {/* Legal & Clinical Disclaimer */}
       <Disclaimer />
