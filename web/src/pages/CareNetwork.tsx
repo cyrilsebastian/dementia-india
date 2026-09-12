@@ -123,9 +123,9 @@ export const CareNetwork: React.FC = () => {
       </div>
 
       {/* Emergency Helpline Highlight Bar */}
-      <div className="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-2xl p-4 sm:p-5 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center space-x-3">
-          <div className="p-2.5 rounded-xl bg-white/10 text-white shrink-0">
+      <div className="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-2xl p-4 sm:p-5 text-white shadow-md flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+        <div className="flex items-start sm:items-center space-x-3">
+          <div className="p-2.5 rounded-xl bg-white/10 text-white shrink-0 mt-0.5 sm:mt-0">
             <PhoneCall className="w-5 h-5 animate-bounce" />
           </div>
           <div>
@@ -135,16 +135,16 @@ export const CareNetwork: React.FC = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center space-x-2 shrink-0">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto shrink-0">
           <a
             href="tel:14416"
-            className="px-4 py-2 rounded-xl bg-white text-emerald-800 font-mono font-bold text-sm sm:text-base shadow hover:bg-emerald-50 transition-colors flex items-center space-x-1.5"
+            className="w-full sm:w-auto justify-center px-4 py-2.5 rounded-xl bg-white text-emerald-800 font-mono font-bold text-xs sm:text-sm shadow hover:bg-emerald-50 transition-colors flex items-center space-x-1.5 min-h-[42px]"
           >
             <span>Tele-MANAS: 14416</span>
           </a>
           <a
             href="tel:14567"
-            className="px-4 py-2 rounded-xl bg-emerald-800/80 hover:bg-emerald-800 text-white font-mono font-bold text-sm sm:text-base border border-emerald-400/40 transition-colors"
+            className="w-full sm:w-auto justify-center px-4 py-2.5 rounded-xl bg-emerald-800/80 hover:bg-emerald-800 text-white font-mono font-bold text-xs sm:text-sm border border-emerald-400/40 transition-colors flex items-center space-x-1.5 min-h-[42px]"
             title="Elderline National Senior Citizens Helpline"
           >
             <span>Elderline: 14567</span>
@@ -229,10 +229,10 @@ export const CareNetwork: React.FC = () => {
       </div>
 
       {/* Navigation Sub-tabs */}
-      <div className="flex items-center space-x-2 border-b border-slate-200 dark:border-slate-800 pb-2">
+      <div className="flex items-center space-x-2 border-b border-slate-200 dark:border-slate-800 pb-2 overflow-x-auto no-scrollbar py-1">
         <button
           onClick={() => setActiveTab('clinics')}
-          className={`flex items-center space-x-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+          className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 whitespace-nowrap ${
             activeTab === 'clinics'
               ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/20'
               : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
@@ -244,7 +244,7 @@ export const CareNetwork: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('ngos')}
-          className={`flex items-center space-x-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+          className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 whitespace-nowrap ${
             activeTab === 'ngos'
               ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/20'
               : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
@@ -256,7 +256,7 @@ export const CareNetwork: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('helplines')}
-          className={`flex items-center space-x-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+          className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 whitespace-nowrap ${
             activeTab === 'helplines'
               ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/20'
               : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'

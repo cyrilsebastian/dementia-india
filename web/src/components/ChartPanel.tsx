@@ -29,15 +29,15 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
   children,
 }) => {
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm flex flex-col h-full transition-colors">
+    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 shadow-sm flex flex-col h-full transition-colors overflow-hidden">
       {/* Header */}
       <div className="flex items-start justify-between gap-3 mb-3">
-        <div>
+        <div className="min-w-0">
           <h3 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight">
             {title}
           </h3>
           {subtitle && (
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
               {subtitle}
             </p>
           )}
@@ -71,12 +71,12 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
       </div>
 
       {/* Chart Canvas */}
-      <div className="flex-1 w-full min-h-[260px] flex flex-col justify-center">
+      <div className="flex-1 w-full min-h-[240px] sm:min-h-[260px] flex flex-col justify-center overflow-hidden">
         {children}
       </div>
 
       {/* Footer Citation */}
-      <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
+      <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400">
         <div className="flex items-center space-x-1">
           <span>Source:</span>
           <a

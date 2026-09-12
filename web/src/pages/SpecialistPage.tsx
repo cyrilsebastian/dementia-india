@@ -108,7 +108,7 @@ export const SpecialistPage: React.FC = () => {
         </p>
       </div>
 
-      {/* State Breakdown Table */}
+      {/* State Breakdown Table & Mobile Cards */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
         <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
           <div>
@@ -119,12 +119,84 @@ export const SpecialistPage: React.FC = () => {
               Neurologist counts: IAN membership directory ~3,000 members (<a href="https://ianindia.org" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 hover:underline">ianindia.org</a>) and NSI registry. Per-million figures calculated using Census 2011 projected population. Data year: 2023-24. Cognitive/behavioural specialist counts are estimates based on IAN subspecialty listings — not independently verified per state.
             </p>
           </div>
-          <span className="text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-800 shrink-0">
+          <span className="hidden sm:inline-flex text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-800 shrink-0">
             Sorted by {sortKey === 'density' ? 'Care Deficit / Density' : sortKey === 'ratio' ? 'Patient Load' : sortKey === 'state' ? 'State Name' : sortKey === 'total' ? 'Total Neurologists' : 'Cognitive Specialists'} ({sortOrder.toUpperCase()})
           </span>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Mobile-Only Sort Control Bar */}
+        <div className="sm:hidden p-3 bg-slate-50 dark:bg-slate-850/60 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
+          <div className="flex items-center space-x-1.5 flex-1 min-w-0">
+            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 shrink-0">Sort:</span>
+            <select
+              value={sortKey}
+              onChange={(e) => handleSort(e.target.value as SortKey)}
+              className="text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-lg border border-slate-200 dark:border-slate-700 py-1.5 px-2 font-medium focus:outline-none focus:ring-1 focus:ring-emerald-500 w-full truncate"
+            >
+              <option value="density">Density (Per Million)</option>
+              <option value="ratio">Patient Load (Ratio)</option>
+              <option value="total">Total Neurologists</option>
+              <option value="state">State Name (A-Z)</option>
+            </select>
+          </div>
+          <button
+            onClick={() => setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'))}
+            className="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 shrink-0"
+            title="Toggle sort direction"
+          >
+            <span>{sortOrder.toUpperCase()}</span>
+            {sortOrder === 'asc' ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+          </button>
+        </div>
+
+        {/* Mobile Cards View (sm:hidden) */}
+        <div className="sm:hidden divide-y divide-slate-100 dark:divide-slate-800/80">
+          {sortedNeurologists.map((row) => (
+            <div key={row.state_code} className="p-3.5 space-y-2 hover:bg-slate-50 dark:hover:bg-slate-850/40 transition-colors">
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center space-x-1.5 min-w-0">
+                  {row.neurologist_per_million < SPECIALIST_THRESHOLDS.CRITICAL_PER_MILLION && (
+                    <span title="Critical Specialist Deficit (<0.5/million)">
+                      <ShieldAlert className="w-4 h-4 text-rose-500 shrink-0" />
+                    </span>
+                  )}
+                  <span className="font-bold text-sm text-slate-900 dark:text-white truncate">
+                    {row.state_name}
+                  </span>
+                </div>
+                <span className={`px-2 py-0.5 rounded-md text-xs font-bold font-mono tabular-nums shrink-0 shadow-xs ${getSpecialistBadgeClass(row.neurologist_per_million)}`}>
+                  {row.neurologist_per_million.toFixed(2)} /M
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 text-xs pt-1">
+                <div className="bg-slate-50 dark:bg-slate-800/60 rounded-lg p-2 border border-slate-200/60 dark:border-slate-800">
+                  <span className="text-[10px] uppercase font-semibold text-slate-400 dark:text-slate-500 block">
+                    Total Neurologists
+                  </span>
+                  <span className="font-mono font-bold text-slate-800 dark:text-slate-200 tabular-nums">
+                    {row.total_neurologists}
+                    {ESTIMATED_STATES.has(row.state_code) && (
+                      <span className="text-amber-600 dark:text-amber-400 ml-0.5" title="Estimated">*</span>
+                    )}
+                  </span>
+                </div>
+
+                <div className="bg-slate-50 dark:bg-slate-800/60 rounded-lg p-2 border border-slate-200/60 dark:border-slate-800">
+                  <span className="text-[10px] uppercase font-semibold text-slate-400 dark:text-slate-500 block">
+                    Patient Load
+                  </span>
+                  <span className="font-mono font-semibold text-slate-700 dark:text-slate-300 tabular-nums truncate block">
+                    {row.total_neurologists === 0 ? 'No Specialist' : `1 : ${Number(row.patient_per_neurologist).toLocaleString()}`}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Table View (hidden sm:block) */}
+        <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
             <thead className="bg-slate-50 dark:bg-slate-850 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 select-none">
               <tr>

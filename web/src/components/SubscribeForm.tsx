@@ -5,6 +5,7 @@
  */
 
 import React, { useState } from 'react';
+import { Turnstile } from '@marsidev/react-turnstile';
 import { Mail, CheckCircle2, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 
 interface SubscribeFormProps {
@@ -21,12 +22,25 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
   const [formData, setFormData] = useState({ email: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'duplicate' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileStatus, setTurnstileStatus] =
+    useState<'idle' | 'solved' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const emailTrimmed = formData.email.trim();
     if (!emailTrimmed) return;
+
+    if (!turnstileToken) {
+      setStatus('error');
+      setErrorMessage(
+        turnstileStatus === 'error'
+          ? 'Verification failed. Please refresh and try again.'
+          : 'Please wait a moment and try again.'
+      );
+      return;
+    }
 
     setStatus('loading');
     setErrorMessage('');
@@ -98,11 +112,17 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
         </div>
 
         {status === 'success' ? (
-          <div className="p-4 rounded-xl bg-emerald-100/70 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 text-sm flex items-center justify-center space-x-2 animate-fadeIn">
-            <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-            <span>
-              Thank you for subscribing! You’ll receive our monthly Dementia India update.
-            </span>
+          <div className="p-5 rounded-xl bg-emerald-100/70 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 text-sm space-y-2 animate-fadeIn text-center">
+            <div className="flex items-center justify-center space-x-2 font-medium">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span>
+                Almost there. Check your inbox for a confirmation email and click the link inside to complete your subscription.
+              </span>
+            </div>
+            <p className="text-xs text-emerald-700/80 dark:text-emerald-300/80 leading-relaxed">
+              If you don't see it within 2 minutes, check your spam folder. The email comes from{' '}
+              <span className="font-mono">hello@maildementia.cyrilsebastian.com</span>
+            </p>
           </div>
         ) : status === 'duplicate' ? (
           <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-200 text-sm flex items-center justify-center space-x-2 animate-fadeIn">
@@ -119,6 +139,26 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
                 onChange={(e) => setFormData({ email: e.target.value })}
                 placeholder="Enter your email address"
                 className="flex-1 px-4 py-2.5 text-sm rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm"
+              />
+              <Turnstile
+                siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                onSuccess={(token) => {
+                  setTurnstileToken(token);
+                  setTurnstileStatus('solved');
+                }}
+                onError={() => {
+                  setTurnstileStatus('error');
+                }}
+                onExpire={() => {
+                  setTurnstileToken('');
+                  setTurnstileStatus('idle');
+                }}
+                options={{
+                  theme: 'dark',
+                  size: 'compact',
+                  appearance: 'interaction-only',
+                }}
+                style={{ display: 'none' }}
               />
               <button
                 type="submit"

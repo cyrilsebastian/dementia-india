@@ -9,6 +9,10 @@
 # Get from: brevo.com → Settings → API Keys → your key name
 # Sending subdomain: maildementia.cyrilsebastian.com
 # Reply-to: dementia@cyrilsebastian.com
+#
+# VITE_TURNSTILE_SITE_KEY — Cloudflare Turnstile site key
+# Get from: dash.cloudflare.com → Turnstile → Dementia India site
+# Secret key validation handled by Web3Forms natively
 
 stages:
   - test

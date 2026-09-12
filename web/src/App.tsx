@@ -58,11 +58,11 @@ export const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+    <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
       <Navbar activeTab={activeTab} setActiveTab={handleTabChange} />
       {activeTab === 'india' && <FilterBar />}
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-4 sm:py-6">
         {activeTab === 'india' && <IndiaPage />}
         {activeTab === 'family-guide' && <FamilyGuide onNavigate={handleTabChange} />}
         {activeTab === 'specialist' && <SpecialistPage />}
@@ -74,28 +74,28 @@ export const AppContent: React.FC = () => {
       </main>
 
       <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div>
             <span>Project Dementia India, Open Health Data Platform</span>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
             <button
               type="button"
               onClick={() => {
-                setActiveTab('about');
+                handleTabChange('about');
                 setTimeout(() => {
                   document.getElementById('disclaimer')?.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
               }}
-              className="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:underline transition-colors"
+              className="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:underline transition-colors cursor-pointer"
             >
               Disclaimer
             </button>
-            <span>•</span>
+            <span className="text-slate-300 dark:text-slate-700">•</span>
             <a href="https://github.com/cyrilsebastian/dementia-india" target="_blank" rel="noreferrer" className="hover:underline">
               GitHub Repository
             </a>
-            <span>•</span>
+            <span className="text-slate-300 dark:text-slate-700">•</span>
             <a href="https://cyrilsebastian.com" target="_blank" rel="noreferrer" className="hover:underline">
               cyrilsebastian.com
             </a>

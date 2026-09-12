@@ -362,16 +362,29 @@ export const FilterBar: React.FC = () => {
 
       {/* Mobile Drawer (Slide-up) */}
       {mobileDrawerOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm sm:hidden flex flex-col justify-end animate-fadeIn">
-          <div className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 rounded-t-2xl p-5 space-y-5 max-h-[80vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm sm:hidden flex flex-col justify-end animate-fadeIn">
+          {/* Backdrop Click Dismiss */}
+          <div
+            className="fixed inset-0"
+            onClick={() => setMobileDrawerOpen(false)}
+            aria-hidden="true"
+          />
+
+          <div className="relative z-10 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 rounded-t-3xl p-5 pb-8 space-y-5 max-h-[85vh] overflow-y-auto shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
               <div className="flex items-center space-x-2">
-                <Filter className="w-4 h-4 text-emerald-500" />
-                <h3 className="font-bold text-sm text-slate-900 dark:text-white">Active Filters</h3>
+                <div className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-500">
+                  <Filter className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-sm text-slate-900 dark:text-white">Dashboard Filters</h3>
+                  <p className="text-[10px] text-slate-400">Affects all maps & analytics simultaneously</p>
+                </div>
               </div>
               <button
                 onClick={() => setMobileDrawerOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+                aria-label="Close filters"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -380,14 +393,14 @@ export const FilterBar: React.FC = () => {
             <div className="space-y-4 text-xs">
               {/* Region */}
               <div className="flex flex-col gap-1.5">
-                <span style={labelStyle}>Region</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-300">State / Region</span>
                 <div className="relative flex items-center">
                   <select
                     value={selectedState || ''}
                     onChange={(e) => setSelectedState(e.target.value ? e.target.value : null)}
-                    className="w-full h-[32px] px-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    className="w-full h-[38px] px-3 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   >
-                    <option value="">All India</option>
+                    <option value="">All India (National Overview)</option>
                     {uniqueStates.map((s) => (
                       <option key={s.code} value={s.code}>
                         {s.name}
@@ -399,27 +412,19 @@ export const FilterBar: React.FC = () => {
 
               {/* Sex */}
               <div className="flex flex-col gap-1.5">
-                <span style={labelStyle}>Sex</span>
-                <div className="flex items-center gap-2">
+                <span className="font-semibold text-slate-700 dark:text-slate-300">Sex Demographic</span>
+                <div className="grid grid-cols-3 gap-2">
                   {(['Both', 'Male', 'Female'] as const).map((s) => {
                     const isActive = sex === s;
                     return (
                       <button
                         key={s}
                         onClick={() => setSex(s)}
-                        style={{
-                          height: '28px',
-                          fontSize: '12px',
-                          padding: '0 10px',
-                          borderRadius: '14px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          cursor: 'pointer',
-                          background: isActive ? 'var(--surface-2)' : 'transparent',
-                          color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
-                          border: isActive ? '0.5px solid var(--border-strong)' : '0.5px solid var(--border)',
-                          fontWeight: isActive ? 600 : 400,
-                        }}
+                        className={`h-[36px] rounded-xl text-xs font-semibold flex items-center justify-center transition-all ${
+                          isActive
+                            ? 'bg-emerald-600 text-white shadow-xs'
+                            : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700'
+                        }`}
                       >
                         {s}
                       </button>
@@ -430,27 +435,19 @@ export const FilterBar: React.FC = () => {
 
               {/* Area */}
               <div className="flex flex-col gap-1.5">
-                <span style={labelStyle}>Area</span>
-                <div className="flex items-center gap-2">
+                <span className="font-semibold text-slate-700 dark:text-slate-300">Sector (Urban / Rural)</span>
+                <div className="grid grid-cols-3 gap-2">
                   {(['All', 'Rural', 'Urban'] as const).map((u) => {
                     const isActive = urban === u;
                     return (
                       <button
                         key={u}
                         onClick={() => setUrban(u)}
-                        style={{
-                          height: '28px',
-                          fontSize: '12px',
-                          padding: '0 10px',
-                          borderRadius: '14px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          cursor: 'pointer',
-                          background: isActive ? 'var(--surface-2)' : 'transparent',
-                          color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
-                          border: isActive ? '0.5px solid var(--border-strong)' : '0.5px solid var(--border)',
-                          fontWeight: isActive ? 600 : 400,
-                        }}
+                        className={`h-[36px] rounded-xl text-xs font-semibold flex items-center justify-center transition-all ${
+                          isActive
+                            ? 'bg-emerald-600 text-white shadow-xs'
+                            : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700'
+                        }`}
                       >
                         {u}
                       </button>
@@ -461,19 +458,19 @@ export const FilterBar: React.FC = () => {
 
               {/* Cohort */}
               <div className="flex flex-col gap-1.5">
-                <span style={labelStyle}>Cohort</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-300">Age Cohort</span>
                 <select
                   value={ageGroup}
                   onChange={(e) => setAgeGroup(e.target.value as any)}
-                  className="w-full h-[32px] px-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  className="w-full h-[38px] px-3 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
-                  <option value="60+">All 60+ (Default)</option>
-                  <option value="60-64">60–64</option>
-                  <option value="65-69">65–69</option>
-                  <option value="70-74">70–74</option>
-                  <option value="75-79">75–79</option>
-                  <option value="80-84">80–84</option>
-                  <option value="85+">85+</option>
+                  <option value="60+">All 60+ (National Baseline)</option>
+                  <option value="60-64">60–64 Years</option>
+                  <option value="65-69">65–69 Years</option>
+                  <option value="70-74">70–74 Years</option>
+                  <option value="75-79">75–79 Years</option>
+                  <option value="80-84">80–84 Years</option>
+                  <option value="85+">85+ Years (Late-Onset)</option>
                 </select>
               </div>
             </div>
@@ -481,13 +478,13 @@ export const FilterBar: React.FC = () => {
             <div className="pt-2 flex items-center justify-between gap-3">
               <button
                 onClick={resetFilters}
-                className="flex-1 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-600 dark:text-slate-400"
+                className="flex-1 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
               >
-                Reset
+                Reset All
               </button>
               <button
                 onClick={() => setMobileDrawerOpen(false)}
-                className="flex-1 py-2 rounded-lg bg-emerald-600 text-white text-xs font-semibold"
+                className="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-sm"
               >
                 Apply Filters
               </button>

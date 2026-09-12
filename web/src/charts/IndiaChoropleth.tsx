@@ -90,7 +90,7 @@ export const IndiaChoropleth: React.FC = () => {
 
   if (!geoLoaded || loadingCSV) {
     return (
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex items-center justify-center h-[540px]">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex items-center justify-center h-[380px] sm:h-[460px]">
         <div className="text-center">
           <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
           <p className="text-sm text-slate-500 dark:text-slate-400">Loading India State Choropleth...</p>
@@ -111,7 +111,7 @@ export const IndiaChoropleth: React.FC = () => {
       onExport={handleExport}
       activeFilterBadges={activeBadges}
     >
-      <div className="w-full h-[460px]">
+      <div className="w-full h-[380px] sm:h-[460px]">
         <ReactECharts
           ref={chartRef}
           option={option}

@@ -1,3 +1,16 @@
+// SETUP REQUIRED: Cloudflare Turnstile
+// 1. Go to dash.cloudflare.com → Turnstile → Add site
+// 2. Site name: Dementia India Contact Form
+// 3. Domain: dementia.cyrilsebastian.com
+// 4. Widget mode: Managed (invisible by default, shows
+//    challenge only if bot suspected)
+// 5. Copy the Site Key and add to .env.local:
+//    VITE_TURNSTILE_SITE_KEY=your_site_key_here
+// 6. Copy the Secret Key and add to .env.local:
+//    VITE_TURNSTILE_SECRET_KEY=your_secret_key_here
+//    (secret key is for server-side validation —
+//     see Task 4 for how we handle this without a server)
+
 /**
  * @file ReachOut.tsx
  * @description Dedicated reach out and inquiry page for Project Dementia India.
@@ -7,7 +20,8 @@
  * Note: actual email delivery requires the VITE_WEB3FORMS_KEY environment variable to be set.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { Turnstile } from '@marsidev/react-turnstile';
 import {
   Heart,
   Database,
@@ -94,6 +108,11 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
   const [submittedEmail, setSubmittedEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileStatus, setTurnstileStatus] =
+    useState<'idle' | 'solved' | 'error'>('idle');
+  const turnstileRef = useRef<any>(null);
+
   const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
   const handleCategorySelect = (category: CategoryOption) => {
@@ -122,6 +141,9 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
     setIsSuccess(false);
     setSubmittedEmail('');
     setErrorMessage(null);
+    turnstileRef.current?.reset();
+    setTurnstileToken('');
+    setTurnstileStatus('idle');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -146,6 +168,9 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
       setSubmittedEmail(formData.email.trim());
       setIsSuccess(true);
       setIsSubmitting(false);
+      turnstileRef.current?.reset();
+      setTurnstileToken('');
+      setTurnstileStatus('idle');
       return;
     }
 
@@ -157,6 +182,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
       message: formData.message.trim(),
       category: selectedCategory.label,
       redirect: false,
+      'cf-turnstile-response': turnstileToken,
     };
 
     try {
@@ -174,6 +200,9 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
       if (response.ok && result && result.success) {
         setSubmittedEmail(formData.email.trim());
         setIsSuccess(true);
+        turnstileRef.current?.reset();
+        setTurnstileToken('');
+        setTurnstileStatus('idle');
       } else {
         // Handle mock or missing access key during development gracefully if needed, but per spec report failure
         throw new Error(result?.message || 'Submission failed');
@@ -436,11 +465,41 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
                   />
                 </div>
 
+                {/* Turnstile Widget */}
+                <div className="pt-2">
+                  <Turnstile
+                    ref={turnstileRef}
+                    siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                    onSuccess={(token) => {
+                      setTurnstileToken(token);
+                      setTurnstileStatus('solved');
+                    }}
+                    onError={() => {
+                      setTurnstileStatus('error');
+                    }}
+                    onExpire={() => {
+                      setTurnstileToken('');
+                      setTurnstileStatus('idle');
+                    }}
+                    options={{
+                      theme: 'dark',
+                      size: 'normal',
+                    }}
+                  />
+
+                  {turnstileStatus === 'error' && (
+                    <p className="text-red-400 text-sm mt-1">
+                      Verification failed. Please refresh and try again.
+                    </p>
+                  )}
+                </div>
+
                 {/* Submit Button & Inline Error */}
                 <div className="space-y-3 pt-2">
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !turnstileToken}
+                    aria-label={!turnstileToken ? 'Complete verification to send' : 'Send message'}
                     className="w-full sm:w-auto px-7 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                   >
                     {isSubmitting ? (
