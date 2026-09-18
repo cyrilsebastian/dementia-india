@@ -290,7 +290,7 @@ export const HealthSpending: React.FC = () => {
               </span>
             </div>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-              Under the District Mental Health Programme, district general hospitals host designated psychiatric/geriatric OPD days each month. Clinical consultations, blood tests, and subsidized acetylcholinesterase inhibitors (Donepezil) are provided.
+              Under the District Mental Health Programme, district general hospitals host designated psychiatric/geriatric OPD days each month. Clinical consultations, blood tests, and subsidized essential neurological medications prescribed by specialists are provided.
             </p>
           </div>
 

@@ -23,17 +23,23 @@ import {
   BookOpen,
   PhoneCall,
   ExternalLink,
+  Brain,
+  Microscope,
+  Scale,
 } from 'lucide-react';
 
 export type NavTabId =
-  | 'india'
   | 'family-guide'
+  | 'india'
+  | 'brain-health'
+  | 'research'
   | 'specialist'
   | 'health-spending'
   | 'care-network'
-  | 'about'
   | 'global'
-  | 'reach-out';
+  | 'advance-planning'
+  | 'reach-out'
+  | 'about';
 
 interface NavbarProps {
   activeTab: NavTabId;
@@ -51,16 +57,28 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   {
+    id: 'family-guide',
+    label: 'Family Guide',
+    icon: Compass,
+    description: 'Compassionate roadmap, early signs & daily care',
+  },
+  {
     id: 'india',
     label: 'India Overview',
     icon: Activity,
     description: 'Epidemiological prevalence & demographic breakdown',
   },
   {
-    id: 'family-guide',
-    label: 'Family Guide',
-    icon: Compass,
-    description: 'Compassionate roadmap & FAQs for caregivers',
+    id: 'brain-health',
+    label: 'Brain Health',
+    icon: Brain,
+    description: 'Evidence-based prevention, lifestyle & screening',
+  },
+  {
+    id: 'research',
+    label: 'Research',
+    icon: Microscope,
+    description: 'Indian studies & global clinical science milestones',
   },
   {
     id: 'specialist',
@@ -86,6 +104,12 @@ const NAV_ITEMS: NavItem[] = [
     icon: Globe,
     badge: 'Live',
     description: 'Cross-national benchmarks & 2050 forecasts',
+  },
+  {
+    id: 'advance-planning',
+    label: 'Advance Planning',
+    icon: Scale,
+    description: 'Advance Medical Directives & legal preparation',
   },
   {
     id: 'reach-out',
@@ -139,7 +163,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
           {/* Brand Logo & Name */}
           <div
             className="flex items-center space-x-2 sm:space-x-2.5 cursor-pointer shrink-0"
-            onClick={() => handleSelectTab('india')}
+            onClick={() => handleSelectTab('family-guide')}
             title="Open Epidemiological & Health Systems Intelligence"
           >
             <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white shadow-sm shadow-emerald-500/20 shrink-0">
@@ -231,7 +255,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             <div className="h-14 px-4 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 shrink-0">
               <div
                 className="flex items-center space-x-2 cursor-pointer"
-                onClick={() => handleSelectTab('india')}
+                onClick={() => handleSelectTab('family-guide')}
               >
                 <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white shadow-xs">
                   <Activity className="w-4 h-4" />
@@ -266,7 +290,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                   Navigation Directory
                 </span>
                 <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">
-                  8 Sections
+                  {NAV_ITEMS.length} Sections
                 </span>
               </div>
 

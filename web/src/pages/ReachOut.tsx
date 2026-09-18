@@ -38,14 +38,17 @@ import {
 } from 'lucide-react';
 
 export type NavTabType =
-  | 'india'
   | 'family-guide'
+  | 'india'
+  | 'brain-health'
+  | 'research'
   | 'specialist'
   | 'health-spending'
   | 'care-network'
-  | 'about'
   | 'global'
-  | 'reach-out';
+  | 'advance-planning'
+  | 'reach-out'
+  | 'about';
 
 interface ReachOutProps {
   onNavigate?: (tab: NavTabType) => void;
