@@ -55,75 +55,103 @@ interface NavItem {
   description?: string;
 }
 
-const NAV_ITEMS: NavItem[] = [
+interface NavGroup {
+  name: string;
+  items: NavItem[];
+}
+
+export const NAV_GROUPS: NavGroup[] = [
   {
-    id: 'family-guide',
-    label: 'Family Guide',
-    icon: Compass,
-    description: 'Compassionate roadmap, early signs & daily care',
+    name: 'Care & Family',
+    items: [
+      {
+        id: 'family-guide',
+        label: 'Family Guide',
+        icon: Compass,
+        description: 'Compassionate roadmap, early signs and daily care',
+      },
+      {
+        id: 'care-network',
+        label: 'Care Network',
+        icon: Building2,
+        description: 'Memory clinics, ARDSI chapters and verified helplines',
+      },
+      {
+        id: 'advance-planning',
+        label: 'Advance Planning',
+        icon: Scale,
+        description: 'Advance Medical Directives and legal preparation',
+      },
+    ],
   },
   {
-    id: 'india',
-    label: 'India Overview',
-    icon: Activity,
-    description: 'Epidemiological prevalence & demographic breakdown',
+    name: 'Epidemiology & Systems',
+    items: [
+      {
+        id: 'india',
+        label: 'India Overview',
+        icon: Activity,
+        description: 'Epidemiological prevalence and demographic breakdown',
+      },
+      {
+        id: 'specialist',
+        label: 'Specialist Deserts',
+        icon: Stethoscope,
+        description: 'Neurologist deficits and state clinical ratios',
+      },
+      {
+        id: 'health-spending',
+        label: 'Health Spending',
+        icon: IndianRupee,
+        description: 'Union budget outlays and mental health allocations',
+      },
+      {
+        id: 'global',
+        label: 'Global View',
+        icon: Globe,
+        // Live badge removed per requirements
+        description: 'Cross-national benchmarks and 2050 forecasts',
+      },
+    ],
   },
   {
-    id: 'brain-health',
-    label: 'Brain Health',
-    icon: Brain,
-    description: 'Evidence-based prevention, lifestyle & screening',
+    name: 'Brain Health & Science',
+    items: [
+      {
+        id: 'brain-health',
+        label: 'Brain Health',
+        icon: Brain,
+        description: 'Evidence-based prevention, lifestyle and screening',
+      },
+      {
+        id: 'research',
+        label: 'Research',
+        icon: Microscope,
+        description: 'Indian studies and global clinical science milestones',
+      },
+    ],
   },
   {
-    id: 'research',
-    label: 'Research',
-    icon: Microscope,
-    description: 'Indian studies & global clinical science milestones',
-  },
-  {
-    id: 'specialist',
-    label: 'Specialist Deserts',
-    icon: Stethoscope,
-    description: 'Neurologist deficits & state clinical ratios',
-  },
-  {
-    id: 'health-spending',
-    label: 'Health Spending',
-    icon: IndianRupee,
-    description: 'Union budget outlays & mental health allocations',
-  },
-  {
-    id: 'care-network',
-    label: 'Care Network',
-    icon: Building2,
-    description: 'Memory clinics, ARDSI chapters & verified helplines',
-  },
-  {
-    id: 'global',
-    label: 'Global View',
-    icon: Globe,
-    badge: 'Live',
-    description: 'Cross-national benchmarks & 2050 forecasts',
-  },
-  {
-    id: 'advance-planning',
-    label: 'Advance Planning',
-    icon: Scale,
-    description: 'Advance Medical Directives & legal preparation',
-  },
-  {
-    id: 'reach-out',
-    label: 'Reach Out',
-    icon: MessageSquareHeart,
-    description: 'Contact & inquiry routing for families & researchers',
-  },
-  {
-    id: 'about',
-    label: 'About & Methodology',
-    icon: BookOpen,
-    description: 'Data sources, ethics, citations & disclaimer',
+    name: 'Platform',
+    items: [
+      {
+        id: 'reach-out',
+        label: 'Reach Out',
+        icon: MessageSquareHeart,
+        description: 'Contact and inquiry routing for families and researchers',
+      },
+      {
+        id: 'about',
+        label: 'About & Methodology',
+        shortLabel: 'About',
+        icon: BookOpen,
+        description: 'Data sources, ethics, citations and disclaimer',
+      },
+    ],
   },
 ];
+
+export const NAV_ITEMS: NavItem[] = NAV_GROUPS.flatMap((group) => group.items);
 
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
   const { isDarkMode, toggleDarkMode } = useFilters();
@@ -158,13 +186,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
 
   return (
     <>
-      <header className="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
-        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-2">
+      <header className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors shadow-2xs">
+        {/* Tier 1: Brand, Helpline Badge, Quick Controls */}
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 h-13 flex items-center justify-between gap-3">
           {/* Brand Logo & Name */}
           <div
             className="flex items-center space-x-2 sm:space-x-2.5 cursor-pointer shrink-0"
             onClick={() => handleSelectTab('family-guide')}
-            title="Open Epidemiological & Health Systems Intelligence"
+            title="Dementia India Open Intelligence Platform"
           >
             <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white shadow-sm shadow-emerald-500/20 shrink-0">
               <Activity className="w-4.5 h-4.5 animate-pulse" />
@@ -179,30 +208,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             </div>
           </div>
 
-          {/* Desktop Navigation Tabs (visible on lg and wider screens) */}
-          <nav className="hidden lg:flex items-center space-x-1 shrink-0 overflow-x-auto no-scrollbar py-1">
-            {NAV_ITEMS.map((item) => {
-              const isActive = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => handleSelectTab(item.id)}
-                  className={`flex items-center px-2.5 py-1 rounded-lg text-xs xl:text-sm font-medium transition-all whitespace-nowrap ${
-                    isActive
-                      ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 font-semibold shadow-xs'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  {item.badge && (
-                    <span className="ml-1.5 text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800">
-                      {item.badge}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-          </nav>
+          {/* Supportive Helpline Pill on Desktop */}
+          <div className="hidden md:flex items-center space-x-2 text-xs text-slate-500 dark:text-slate-400">
+            <a
+              href="tel:14567"
+              className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/80 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors shadow-2xs"
+              title="National Helpline for Senior Citizens (Elderline: 14567)"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <span className="font-medium">Elderly support line:</span>
+              <span className="font-mono font-bold">14567</span>
+            </a>
+          </div>
 
           {/* Action Controls & Mobile Hamburger Toggle */}
           <div className="flex items-center space-x-1 sm:space-x-2 shrink-0">
@@ -237,9 +254,47 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             </button>
           </div>
         </div>
+
+        {/* Tier 2: Desktop Navigation Bar - Sorted, Balanced, Always Within Screen */}
+        <nav
+          className="hidden lg:block border-t border-slate-100 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-900/50 backdrop-blur-xs"
+          aria-label="Primary site navigation"
+        >
+          <div className="max-w-[1440px] mx-auto px-4 py-1.5 flex items-center justify-center gap-2 xl:gap-3 overflow-x-auto no-scrollbar">
+            {NAV_GROUPS.map((group, groupIdx) => (
+              <React.Fragment key={group.name}>
+                {groupIdx > 0 && (
+                  <div
+                    className="h-4 w-px bg-slate-300 dark:bg-slate-700 mx-0.5 shrink-0"
+                    aria-hidden="true"
+                  />
+                )}
+                <div className="flex items-center space-x-1 shrink-0">
+                  {group.items.map((item) => {
+                    const isActive = activeTab === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => handleSelectTab(item.id)}
+                        className={`flex items-center px-2.5 py-1 rounded-lg text-xs xl:text-[13px] font-medium transition-all whitespace-nowrap ${
+                          isActive
+                            ? 'bg-emerald-600 text-white font-semibold shadow-xs'
+                            : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
+                        }`}
+                        title={item.description}
+                      >
+                        <span>{item.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
+        </nav>
       </header>
 
-      {/* Mobile Slide-down Navigation Modal (Outside header to prevent backdrop-filter stacking trapping) */}
+      {/* Mobile Slide-down Navigation Modal */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-[100] lg:hidden flex flex-col justify-start">
           {/* Backdrop */}
@@ -283,8 +338,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
               </div>
             </div>
 
-            {/* Navigation Tab Links */}
-            <div className="p-4 space-y-3">
+            {/* Navigation Tab Links Grouped by Category */}
+            <div className="p-4 space-y-4">
               <div className="flex items-center justify-between px-1">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                   Navigation Directory
@@ -294,63 +349,65 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 gap-1.5">
-                {NAV_ITEMS.map((item) => {
-                  const Icon = item.icon;
-                  const isActive = activeTab === item.id;
-                  return (
-                    <button
-                      key={item.id}
-                      onClick={() => handleSelectTab(item.id)}
-                      className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition-all ${
-                        isActive
-                          ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-semibold shadow-xs'
-                          : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 border border-transparent'
-                      }`}
-                    >
-                      <div className="flex items-center space-x-3 min-w-0">
-                        <div
-                          className={`p-2 rounded-lg shrink-0 ${
-                            isActive
-                              ? 'bg-emerald-500 text-white shadow-xs'
-                              : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                          }`}
-                        >
-                          <Icon className="w-4 h-4" />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="flex items-center space-x-2">
-                            <span className="text-sm font-semibold truncate">{item.label}</span>
-                            {item.badge && (
-                              <span className="text-[9px] font-bold uppercase px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800 shrink-0">
-                                {item.badge}
-                              </span>
-                            )}
-                          </div>
-                          {item.description && (
-                            <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
-                              {item.description}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })}
+              <div className="space-y-4">
+                {NAV_GROUPS.map((group) => (
+                  <div key={group.name} className="space-y-1.5">
+                    <div className="px-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                      {group.name}
+                    </div>
+                    <div className="grid grid-cols-1 gap-1.5">
+                      {group.items.map((item) => {
+                        const Icon = item.icon;
+                        const isActive = activeTab === item.id;
+                        return (
+                          <button
+                            key={item.id}
+                            onClick={() => handleSelectTab(item.id)}
+                            className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition-all ${
+                              isActive
+                                ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-semibold shadow-xs'
+                                : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 border border-transparent'
+                            }`}
+                          >
+                            <div className="flex items-center space-x-3 min-w-0">
+                              <div
+                                className={`p-2 rounded-lg shrink-0 ${
+                                  isActive
+                                    ? 'bg-emerald-500 text-white shadow-xs'
+                                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                                }`}
+                              >
+                                <Icon className="w-4 h-4" />
+                              </div>
+                              <div className="min-w-0">
+                                <span className="text-sm font-semibold truncate block">{item.label}</span>
+                                {item.description && (
+                                  <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                                    {item.description}
+                                  </p>
+                                )}
+                              </div>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Quick Emergency & External Shortcuts */}
               <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
                 <a
-                  href="tel:14416"
+                  href="tel:14567"
                   className="flex items-center justify-between p-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-sm font-medium text-xs"
                 >
                   <div className="flex items-center space-x-2">
                     <PhoneCall className="w-4 h-4 animate-bounce" />
-                    <span>24×7 Tele-MANAS Mental Health Helpline</span>
+                    <span>Elderly Support Line (Elderline)</span>
                   </div>
                   <span className="font-mono font-bold px-2 py-0.5 rounded bg-white/20">
-                    14416
+                    14567
                   </span>
                 </a>
 

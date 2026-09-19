@@ -132,7 +132,7 @@ export const GlobalComparisonBar: React.FC<GlobalComparisonBarProps> = ({ onSele
       key: 'cases',
       label: 'Total Cases',
       tooltip:
-        'The estimated total number of people currently living with dementia (all ages). This is an absolute count, not a rate — larger countries will naturally have higher numbers.',
+        'The estimated total number of people currently living with dementia (all ages). This is an absolute count, not a rate: larger countries will naturally have higher numbers.',
     },
     {
       key: 'dalys',

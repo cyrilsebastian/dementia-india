@@ -30,11 +30,11 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-            What Science Says — and Where India Stands
+            What Science Says: Where India Stands
           </h1>
 
           <p className="text-base sm:text-lg font-medium text-slate-700 dark:text-slate-200 leading-relaxed">
-            Research on dementia, Alzheimer&apos;s, and brain health — with priority given to Indian studies.
+            Research on dementia, Alzheimer&apos;s, and brain health, with priority given to Indian studies.
           </p>
 
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 pt-2 border-t border-indigo-200/60 dark:border-indigo-900/60">
@@ -43,7 +43,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* SUBSECTION 3A — R&D in India */}
+      {/* SUBSECTION 3A: R&D in India */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
@@ -77,7 +77,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
                 Institution: NIMHANS + IIPS
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Clinical diagnostic assessment of a subset of LASI Wave 1 participants — the most rigorous dementia prevalence study in India.
+                Clinical diagnostic assessment of a subset of LASI Wave 1 participants, the most rigorous dementia prevalence study in India.
               </p>
             </div>
             <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60">
@@ -184,7 +184,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* SUBSECTION 3B — Global research highlights */}
+      {/* SUBSECTION 3B: Global research highlights */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
@@ -215,12 +215,12 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
             </div>
             <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px]">
               <a
-                href="https://doi.org/10.1016/S0140-6736(24)01061-5"
+                href="https://doi.org/10.1016/S0140-6736(24)01296-0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold inline-flex items-center gap-1"
               >
-                <span>Lancet 2024, DOI: 10.1016/S0140-6736(24)01061-5</span>
+                <span>Lancet 2024, DOI: 10.1016/S0140-6736(24)01296-0</span>
                 <ExternalLink className="w-2.5 h-2.5" />
               </a>
             </div>
@@ -242,12 +242,12 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
             <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] space-y-1">
               <div>
                 <a
-                  href="https://doi.org/10.1016/j.arr.2026.102704"
+                  href="https://doi.org/10.1001/jama.2024.13855"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold inline-flex items-center gap-1"
                 >
-                  <span>AAIC 2024 / ScienceDirect 2026. DOI: 10.1016/j.arr.2026.102704</span>
+                  <span>AAIC 2024 / JAMA 2024. DOI: 10.1001/jama.2024.13855</span>
                   <ExternalLink className="w-2.5 h-2.5" />
                 </a>
               </div>

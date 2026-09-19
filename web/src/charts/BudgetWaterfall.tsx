@@ -86,7 +86,7 @@ export const BudgetWaterfall: React.FC = () => {
   return (
     <ChartPanel
       title="Union Health Budget Allocation Cascade (FY2025–26)"
-      subtitle="Each step shows how the ₹99,859 Cr health budget narrows — ending in zero dedicated allocation for elderly cognitive care."
+      subtitle="Each step shows how the ₹99,859 Cr health budget narrows, ending in zero dedicated allocation for elderly cognitive care."
       sourceLabel="MoHFW Demand for Grants 2025-26, PRS India"
       sourceUrl="https://prsindia.org/budgets"
       exportable={true}
@@ -143,7 +143,7 @@ export const BudgetWaterfall: React.FC = () => {
                         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                           {/* Dashed red outlined rectangle (no fill) with text inside */}
                           <div className="border-2 border-dashed border-rose-500 dark:border-rose-400 rounded-md px-3 py-1 text-xs font-semibold text-rose-600 dark:text-rose-400 inline-flex items-center">
-                            ₹0 — No line item
+                            ₹0: No line item
                           </div>
 
                           {/* Red badge */}

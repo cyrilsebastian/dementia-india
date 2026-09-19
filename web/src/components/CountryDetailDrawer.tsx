@@ -38,13 +38,13 @@ export const CountryDetailDrawer: React.FC<CountryDetailDrawerProps> = ({ countr
 
   const countryName = country2021 ? country2021.country_name : countryCode;
   const region = country2021 ? country2021.region : 'Global';
-  const prevalence = country2021 ? Number(country2021.value).toFixed(2) : '—';
-  const lowerCI = country2021 ? Number(country2021.lower).toFixed(2) : '—';
-  const upperCI = country2021 ? Number(country2021.upper).toFixed(2) : '—';
+  const prevalence = country2021 ? Number(country2021.value).toFixed(2) : '-';
+  const lowerCI = country2021 ? Number(country2021.lower).toFixed(2) : '-';
+  const upperCI = country2021 ? Number(country2021.upper).toFixed(2) : '-';
 
   // GDP 2021
   const gdpRec = gdps.find((g) => g.country_code === countryCode && Number(g.year) === 2021);
-  const gdpUSD = gdpRec ? `$${Number(gdpRec.gdp_usd).toLocaleString('en-US')}` : '—';
+  const gdpUSD = gdpRec ? `$${Number(gdpRec.gdp_usd).toLocaleString('en-US')}` : '-';
 
   // WHO Policy
   const policyRec = policies.find((p) => p.country_code === countryCode);
@@ -54,12 +54,12 @@ export const CountryDetailDrawer: React.FC<CountryDetailDrawerProps> = ({ countr
   const proj2019 = projections.find((p) => p.country_code === countryCode && Number(p.year) === 2019);
   const proj2050 = projections.find((p) => p.country_code === countryCode && Number(p.year) === 2050);
 
-  const cases2019 = proj2019 ? `${(Number(proj2019.cases) / 1000000).toFixed(2)}M` : '—';
-  const cases2050 = proj2050 ? `${(Number(proj2050.cases) / 1000000).toFixed(2)}M` : '—';
+  const cases2019 = proj2019 ? `${(Number(proj2019.cases) / 1000000).toFixed(2)}M` : '-';
+  const cases2050 = proj2050 ? `${(Number(proj2050.cases) / 1000000).toFixed(2)}M` : '-';
   const growthMultiplier =
     proj2019 && proj2050 && Number(proj2019.cases) > 0
       ? `+${(((Number(proj2050.cases) - Number(proj2019.cases)) / Number(proj2019.cases)) * 100).toFixed(0)}%`
-      : '—';
+      : '-';
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">

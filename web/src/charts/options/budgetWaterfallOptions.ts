@@ -46,7 +46,7 @@ export function getBudgetWaterfallOptions(isDarkMode: boolean): EChartsOption {
         return `<div class="p-1 font-sans">
           <div class="font-bold mb-1">${item.name.replace('\n', ' ')}</div>
           <div class="text-xs text-slate-400">Budget Allocation: <span class="font-semibold text-emerald-400">${valFormatted}</span></div>
-          ${item.dataIndex === 4 ? '<div class="text-[11px] text-amber-400 mt-1">Folded into general disability & mental health — untracked</div>' : ''}
+          ${item.dataIndex === 4 ? '<div class="text-[11px] text-amber-400 mt-1">Folded into general disability & mental health (untracked)</div>' : ''}
         </div>`;
       }
     },

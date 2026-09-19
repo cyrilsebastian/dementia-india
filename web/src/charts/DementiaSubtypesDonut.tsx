@@ -146,12 +146,12 @@ export const DementiaSubtypesDonut: React.FC = () => {
           </div>
           <div className="flex items-start space-x-2 text-xs text-slate-700 dark:text-slate-300">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0" />
-            <span>All forms of dementia are progressive — currently no cure exists for any subtype.</span>
+            <span>All forms of dementia are progressive: currently no cure exists for any subtype.</span>
           </div>
           <div className="flex items-start space-x-2 text-xs text-slate-700 dark:text-slate-300">
             <span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-1.5 shrink-0" />
             <span>
-              Vascular dementia (from strokes or mini-strokes) is the most preventable form — blood pressure control
+              Vascular dementia (from strokes or mini-strokes) is the most preventable form, where blood pressure control
               reduces risk.
             </span>
           </div>

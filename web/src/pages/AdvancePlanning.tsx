@@ -30,11 +30,11 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-            Planning Ahead — While You Still Can
+            Planning Ahead: While You Still Can
           </h1>
 
           <p className="text-base sm:text-lg font-medium text-slate-700 dark:text-slate-200 leading-relaxed">
-            An Advance Medical Directive lets you make medical decisions in advance, before you lose the ability to communicate them. In India, this is a legal right — and planning early is an act of love for your family.
+            An Advance Medical Directive lets you make medical decisions in advance, before you lose the ability to communicate them. In India, this is a legal right, and planning early is an act of love for your family.
           </p>
 
           {/* Prominent Legal Disclaimer */}
@@ -48,7 +48,7 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
         </div>
       </section>
 
-      {/* SUBSECTION 4A — What is an Advance Medical Directive */}
+      {/* SUBSECTION 4A: What is an Advance Medical Directive */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
@@ -61,7 +61,7 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
 
         <div className="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-4 text-sm sm:text-base leading-relaxed">
           <p>
-            An Advance Medical Directive (AMD) — also called a Living Will — is a written legal document that specifies the medical treatment you want or do not want if you become unable to communicate your wishes.
+            An Advance Medical Directive (AMD), also called a Living Will, is a written legal document that specifies the medical treatment you want or do not want if you become unable to communicate your wishes.
           </p>
           <p>
             In India, the Supreme Court recognised AMDs as legally valid in its landmark 2018 Common Cause judgment. This means any mentally competent adult in India can execute a Living Will today.
@@ -71,12 +71,12 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
         <div className="pt-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
           Legal Landmark:{' '}
           <a
-            href="https://main.sci.gov.in/supremecourt/2005/215/215_2005_Judgement_09-Mar-2018.pdf"
+            href="https://indiankanoon.org/doc/184449972/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1"
+            className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 font-semibold"
           >
-            <span>Supreme Court of India, Common Cause v. Union of India, 2018</span>
+            <span>Supreme Court of India, Common Cause v. Union of India, (2018) 5 SCC 1</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
@@ -106,18 +106,18 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
           </div>
         </div>
 
-        {/* Why this matters specifically for dementia */}
+        {/* Why this matters specifically for Alzheimer's and Dementia */}
         <div className="p-5 rounded-2xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/60 space-y-2">
           <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white">
-            Why this matters specifically for dementia:
+            Why this matters specifically for Alzheimer&apos;s and Dementia:
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            Dementia progressively removes the ability to make and communicate decisions. A person in late-stage dementia cannot consent to or refuse treatment. An AMD made early — ideally at or soon after diagnosis — ensures your wishes are followed and removes an impossible burden from your family.
+            Alzheimer&apos;s disease and other progressive dementias gradually reduce the capacity to make and express healthcare decisions. In advanced stages, an individual cannot consent to or refuse interventions. Executing an Advance Medical Directive early, ideally at or shortly after diagnosis, ensures your wishes are honored and removes an agonizing burden from your family.
           </p>
         </div>
       </section>
 
-      {/* SUBSECTION 4B — How to execute an AMD in India */}
+      {/* SUBSECTION 4B: How to execute an AMD in India */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
@@ -136,7 +136,7 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
             {
               step: 1,
               title: 'Write the document',
-              desc: 'Specify clearly what treatments you want and do not want. You can use a template — GetYellow.in and PalliumIndia.org both provide free templates in plain English.',
+              desc: 'Specify clearly what treatments you want and do not want. You can use a template: GetYellow.in and PalliumIndia.org both provide free templates in plain English.',
               links: [
                 { name: 'getyellow.in', url: 'https://getyellow.in' },
                 { name: 'palliumindia.org', url: 'https://palliumindia.org' },
@@ -199,7 +199,7 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
         </div>
       </section>
 
-      {/* SUBSECTION 4C — Financial and legal planning for families */}
+      {/* SUBSECTION 4C: Financial and legal planning for families */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
@@ -235,7 +235,7 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
             },
             {
               title: 'Disability certificate',
-              desc: 'Apply under RPwD Act 2016 — dementia qualifies. Enables tax benefits and priority access to government services.',
+              desc: 'Apply under RPwD Act 2016 (dementia qualifies). Enables tax benefits and priority access to government services.',
             },
           ].map((item, idx) => (
             <div
@@ -254,7 +254,7 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
         </div>
 
         <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
-          &ldquo;These conversations are uncomfortable. Having them early — while the person with dementia can still participate — is far better than having them in crisis. A compassionate conversation now prevents painful disputes later.&rdquo;
+          &ldquo;These conversations are uncomfortable. Having them early, while the person with dementia can still participate, is far better than having them in crisis. A compassionate conversation now prevents painful disputes later.&rdquo;
         </div>
 
         <div className="pt-2">

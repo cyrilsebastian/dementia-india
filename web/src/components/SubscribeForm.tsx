@@ -50,10 +50,10 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
 
       const payload = {
         email: emailTrimmed,
-        // Brevo list ID — verify this matches your actual list ID
+        // Brevo list ID: verify this matches your actual list ID
         // Brevo dashboard → Contacts → Lists → your list → check URL
         // URL format: brevo.com/contact/list/details/ID
-        // Default assumption is 2 — updated to list ID 3 per Brevo dashboard (list-listing/id/3)
+        // Default assumption is 2: updated to list ID 3 per Brevo dashboard (list-listing/id/3)
         listIds: [3],
         updateEnabled: false,
         attributes: {

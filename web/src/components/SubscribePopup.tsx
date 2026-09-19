@@ -15,6 +15,8 @@ interface SubscribePopupProps {
   delayMs?: number;
 }
 
+const MAX_SHOW_COUNT = 2;
+
 export const SubscribePopup: React.FC<SubscribePopupProps> = ({ delayMs }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState('');
@@ -26,19 +28,21 @@ export const SubscribePopup: React.FC<SubscribePopupProps> = ({ delayMs }) => {
     const alreadySubscribed = localStorage.getItem('dementia_subscribed') === 'true';
     if (alreadySubscribed) return;
 
-    // Check if user dismissed popup in this session
-    const sessionDismissed = sessionStorage.getItem('popup_dismissed') === 'true';
-    if (sessionDismissed) return;
+    // Check how many times the popup has already been shown
+    const currentCount = parseInt(sessionStorage.getItem('popup_shown_count') || '0', 10);
+    if (currentCount >= MAX_SHOW_COUNT) return;
 
     // Check for quick test query param or use prop/default
     const hasTestParam = typeof window !== 'undefined' && window.location.search.includes('test_popup');
-    const timerDelay = delayMs ?? (hasTestParam ? 10000 : 7 * 60 * 1000); // 7 minutes default
+    // First display: 45s (or 4s for testing); Second display: 90s (or 8s for testing)
+    const defaultDelay = currentCount === 0 ? 45000 : 90000;
+    const timerDelay = delayMs ?? (hasTestParam ? (currentCount === 0 ? 4000 : 8000) : defaultDelay);
 
     const timer = setTimeout(() => {
-      // Re-check before displaying
       const checkSub = localStorage.getItem('dementia_subscribed') === 'true';
-      const checkDismiss = sessionStorage.getItem('popup_dismissed') === 'true';
-      if (!checkSub && !checkDismiss) {
+      const countNow = parseInt(sessionStorage.getItem('popup_shown_count') || '0', 10);
+      if (!checkSub && countNow < MAX_SHOW_COUNT) {
+        sessionStorage.setItem('popup_shown_count', String(countNow + 1));
         setIsOpen(true);
       }
     }, timerDelay);
@@ -47,8 +51,21 @@ export const SubscribePopup: React.FC<SubscribePopupProps> = ({ delayMs }) => {
   }, [delayMs]);
 
   const handleDismiss = () => {
-    sessionStorage.setItem('popup_dismissed', 'true');
     setIsOpen(false);
+    const hasTestParam = typeof window !== 'undefined' && window.location.search.includes('test_popup');
+    const currentCount = parseInt(sessionStorage.getItem('popup_shown_count') || '0', 10);
+
+    // If shown fewer than 2 times, schedule the 2nd appearance
+    if (currentCount < MAX_SHOW_COUNT) {
+      const secondDelay = hasTestParam ? 8000 : 90000; // 90 seconds later
+      setTimeout(() => {
+        const checkSub = localStorage.getItem('dementia_subscribed') === 'true';
+        if (!checkSub) {
+          sessionStorage.setItem('popup_shown_count', String(currentCount + 1));
+          setIsOpen(true);
+        }
+      }, secondDelay);
+    }
   };
 
   const handleSubscribe = async (e: React.FormEvent) => {
@@ -56,9 +73,10 @@ export const SubscribePopup: React.FC<SubscribePopupProps> = ({ delayMs }) => {
     if (!email || !email.includes('@')) return;
 
     setLoading(true);
-    // Simulate brief submission delay (or optionally connect to Web3Forms/Brevo endpoint if configured)
+    // Simulate brief submission delay
     setTimeout(() => {
       localStorage.setItem('dementia_subscribed', 'true');
+      sessionStorage.setItem('popup_shown_count', String(MAX_SHOW_COUNT));
       setLoading(false);
       setIsSubmitted(true);
       setTimeout(() => {
@@ -122,7 +140,7 @@ export const SubscribePopup: React.FC<SubscribePopupProps> = ({ delayMs }) => {
                 Stay informed
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
-                We send one monthly update — new data, research findings, and resources for caregivers. No spam. Unsubscribe any time.
+                We send one monthly update: new data, research findings, and resources for caregivers. No spam. Unsubscribe any time.
               </p>
             </div>
 

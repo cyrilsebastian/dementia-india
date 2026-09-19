@@ -18,7 +18,7 @@ export const YoungOnsetCallout: React.FC = () => {
         </h4>
         <p className="text-xs sm:text-sm text-amber-800/90 dark:text-amber-300/90 leading-relaxed">
           In 2021, an estimated 7.75 million people aged 40 to 64 were living with early-onset Alzheimer's and related
-          dementias globally — double the 3.67 million recorded in 1990. Women account for 4.28 million of these cases.
+          dementias globally, double the 3.67 million recorded in 1990. Women account for 4.28 million of these cases.
           In India, early-onset dementia is systematically under-reported because diagnosis pathways are built around
           elderly patients.
         </p>

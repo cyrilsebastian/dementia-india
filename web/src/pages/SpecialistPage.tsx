@@ -116,7 +116,7 @@ export const SpecialistPage: React.FC = () => {
               State-wise Neurologist Availability & Specialist Load
             </h3>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed max-w-2xl">
-              Neurologist counts: IAN membership directory ~3,000 members (<a href="https://ianindia.org" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 hover:underline">ianindia.org</a>) and NSI registry. Per-million figures calculated using Census 2011 projected population. Data year: 2023-24. Cognitive/behavioural specialist counts are estimates based on IAN subspecialty listings — not independently verified per state.
+              Neurologist counts: IAN membership directory ~3,000 members (<a href="https://ianindia.org" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 hover:underline">ianindia.org</a>) and NSI registry. Per-million figures calculated using Census 2011 projected population. Data year: 2023-24. Cognitive/behavioural specialist counts are estimates based on IAN subspecialty listings; not independently verified per state.
             </p>
           </div>
           <span className="hidden sm:inline-flex text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-800 shrink-0">
@@ -265,7 +265,7 @@ export const SpecialistPage: React.FC = () => {
                     )}
                   </td>
                   <td className="py-3 px-4 text-right font-mono tabular-nums text-slate-400 dark:text-slate-500">
-                    —
+                    -
                   </td>
                   <td className="py-3 px-4 text-right font-mono font-semibold">
                     <span className={`px-2 py-0.5 rounded-md text-xs font-semibold tabular-nums shadow-sm ${getSpecialistBadgeClass(row.neurologist_per_million)}`}>

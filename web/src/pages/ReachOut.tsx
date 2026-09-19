@@ -8,7 +8,7 @@
 //    VITE_TURNSTILE_SITE_KEY=your_site_key_here
 // 6. Copy the Secret Key and add to .env.local:
 //    VITE_TURNSTILE_SECRET_KEY=your_secret_key_here
-//    (secret key is for server-side validation —
+//    (secret key is for server-side validation:
 //     see Task 4 for how we handle this without a server)
 
 /**
@@ -254,7 +254,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
           >
             Care Network page
           </a>{' '}
-          — they are staffed 24x7 and can help immediately.
+          (staffed 24x7 for immediate support).
         </p>
       </div>
 
@@ -301,7 +301,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
         </div>
       ) : (
         <>
-          {/* SECTION A — Category Selector */}
+          {/* SECTION A: Category Selector */}
           <div className="space-y-4">
             <div className="px-1">
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
@@ -359,7 +359,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* SECTION B — The Form (Hidden until a card is selected) */}
+          {/* SECTION B: The Form (Hidden until a card is selected) */}
           {selectedCategory && (
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 animate-fadeIn">
               <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
@@ -539,7 +539,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
         </>
       )}
 
-      {/* SECTION E — Direct Contact (Always visible below the form) */}
+      {/* SECTION E: Direct Contact (Always visible below the form) */}
       <div className="space-y-3">
         <div className="px-1">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
@@ -597,13 +597,13 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
               </div>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
-              For factual errors, outdated information, or missing data — tracked publicly
+              For factual errors, outdated information, or missing data (tracked publicly)
             </p>
           </div>
         </div>
       </div>
 
-      {/* SECTION F — Privacy Note */}
+      {/* SECTION F: Privacy Note */}
       <div className="text-center pt-2 pb-6 px-4 space-y-2">
         <p className="text-xs text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
           Messages submitted through this form are sent to{' '}

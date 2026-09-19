@@ -38,7 +38,7 @@ export const GlobalStatCards: React.FC = () => {
       case 'ECONOMIC_BURDEN':
         return 'Annual global cost of dementia including medical care, social care, and unpaid family caregiving. Exceeds the market cap of most Fortune 500 companies.';
       case 'GENDER_RATIO':
-        return 'Women are 1.69 times more likely to develop dementia than men — this is not fully explained by longer female lifespans. Women also provide over 70% of unpaid caregiving hours globally.';
+        return 'Women are 1.69 times more likely to develop dementia than men: this is not fully explained by longer female lifespans. Women also provide over 70% of unpaid caregiving hours globally.';
       case 'DIAGNOSIS_GAP':
         return 'Percentage of dementia cases that are never formally diagnosed. In low and middle-income countries this reaches 85–90%. Source: WHO GDO 2021.';
       case 'POLICY_READINESS':

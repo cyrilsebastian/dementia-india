@@ -355,7 +355,7 @@ export const CareDirectory: React.FC<CareDirectoryProps> = ({ activeSection }) =
                           <ExternalLink className="w-3 h-3" />
                         </a>
                       ) : (
-                        <span className="text-xs text-slate-400">—</span>
+                        <span className="text-xs text-slate-400">-</span>
                       )}
                     </td>
                   </tr>

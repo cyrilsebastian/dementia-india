@@ -86,6 +86,12 @@ approach, a common failure mode). Never create or overwrite a directive
 without asking, unless explicitly told to — directives are the instruction
 set and must be preserved and improved deliberately, not silently rewritten.
 
+**5. No em-dashes (—) in UI copy or documentation**
+Never use em-dashes (—) in user-facing website copy, headers, or documentation
+(e.g., avoid "how to care — one step at a time"). It feels artificial and
+AI-generated. Instead, use natural punctuation: colons (:), hyphens (-),
+commas, parentheses, or clear separate sentences.
+
 ## Self-annealing loop
 
 1. Fix the script.

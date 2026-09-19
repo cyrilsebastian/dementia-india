@@ -17,6 +17,8 @@ import {
   Dumbbell,
   Stethoscope,
   ArrowRight,
+  Utensils,
+  AlertTriangle,
 } from 'lucide-react';
 import { NavTabType } from './ReachOut';
 
@@ -46,19 +48,19 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
           <div className="pt-2 border-t border-teal-200/60 dark:border-teal-900/60 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
             Source:{' '}
             <a
-              href="https://doi.org/10.1016/S0140-6736(24)01061-5"
+              href="https://doi.org/10.1016/S0140-6736(24)01296-0"
               target="_blank"
               rel="noopener noreferrer"
               className="text-teal-700 dark:text-teal-400 hover:underline font-semibold inline-flex items-center gap-1"
             >
-              <span>Lancet Commission on Dementia Prevention, Intervention and Care, 2024. DOI: 10.1016/S0140-6736(24)01061-5</span>
+              <span>Lancet Commission on Dementia Prevention, Intervention and Care, 2024. DOI: 10.1016/S0140-6736(24)01296-0</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* SUBSECTION 2A — Exercise */}
+      {/* SUBSECTION 2A: Exercise */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
@@ -79,7 +81,16 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
             Walking 30 minutes daily is linked to a 24% lower dementia risk. A 2026 analysis of 49 studies with nearly 3 million participants found regular physical activity reduces dementia risk by 25%.
           </p>
           <div className="pl-7 pt-1 text-[11px] text-teal-800 dark:text-teal-300 font-medium">
-            Source: Lancet 2026 / JAMA systematic review pooled RR 0.75 across 49 studies
+            Source:{' '}
+            <a
+              href="https://doi.org/10.1371/journal.pone.0343621"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-semibold inline-flex items-center gap-1"
+            >
+              <span>PLOS ONE 2026 / Systematic review and meta-analysis (49 studies, 2.85M participants, pooled RR 0.75). DOI: 10.1371/journal.pone.0343621</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
         </div>
 
@@ -96,7 +107,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
                 <p><strong className="text-slate-800 dark:text-slate-200">What:</strong> Walking, swimming, cycling</p>
                 <p><strong className="text-slate-800 dark:text-slate-200">Evidence:</strong> Strongest evidence for cognitive benefit. Increases BDNF (brain-derived neurotrophic factor), improves cerebral blood flow, reduces inflammation.</p>
                 <p><strong className="text-slate-800 dark:text-slate-200">How much:</strong> 150 minutes per week minimum</p>
-                <p><strong className="text-slate-800 dark:text-slate-200">India context:</strong> Morning walks are culturally established — this is one prevention tool that fits naturally.</p>
+                <p><strong className="text-slate-800 dark:text-slate-200">India context:</strong> Morning walks are culturally established: this is one prevention tool that fits naturally.</p>
               </div>
             </div>
             <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-500 dark:text-slate-400">
@@ -138,14 +149,14 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
               <div className="space-y-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                 <p><strong className="text-slate-800 dark:text-slate-200">What:</strong> Yoga, tai chi, dance</p>
                 <p><strong className="text-slate-800 dark:text-slate-200">Evidence:</strong> Dual-task exercises (moving + thinking simultaneously) show the strongest cognitive benefits in older adults.</p>
-                <p><strong className="text-slate-800 dark:text-slate-200">India context:</strong> Classical dance forms, traditional yoga, Bharatanatyam, folk dance — all qualify</p>
+                <p><strong className="text-slate-800 dark:text-slate-200">India context:</strong> Classical dance forms, traditional yoga, Bharatanatyam, folk dance: all qualify</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SUBSECTION 2B — Diet */}
+      {/* SUBSECTION 2B: Diet */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
@@ -158,7 +169,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
 
         {/* Prominent Disclaimer */}
         <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800/80 text-xs sm:text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
-          <strong className="font-bold">Important disclaimer:</strong> Diet research shows associations, not guarantees. No food prevents dementia. These are patterns associated with lower risk across large populations — not prescriptions.
+          <strong className="font-bold">Important disclaimer:</strong> Diet research shows associations, not guarantees. No food prevents dementia. These are patterns associated with lower risk across large populations, not prescriptions.
         </div>
 
         {/* MIND Diet Explainer Card */}
@@ -195,56 +206,60 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
           <h3 className="font-bold text-base text-slate-900 dark:text-white">
             Foods to Emphasise
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Vegetarian */}
             <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 space-y-2.5">
               <div className="flex items-center space-x-2 text-emerald-700 dark:text-emerald-400 font-bold text-sm">
                 <Salad className="w-4 h-4" />
-                <span>Vegetarian — Emphasise:</span>
+                <span className="font-bold text-sm text-slate-900 dark:text-white">Vegetarian: Key Priorities</span>
               </div>
-              <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed list-disc list-inside">
-                <li><strong className="text-slate-800 dark:text-slate-200">Green leafy vegetables</strong> (spinach, methi, palak) — daily</li>
-                <li><strong className="text-slate-800 dark:text-slate-200">Berries</strong> (amla, blueberries, jamun) — most days</li>
-                <li><strong className="text-slate-800 dark:text-slate-200">Nuts</strong> (walnuts, almonds) — small handful, 5x per week</li>
-                <li><strong className="text-slate-800 dark:text-slate-200">Olive oil or cold-pressed oils</strong> — for cooking and dressings</li>
-                <li><strong className="text-slate-800 dark:text-slate-200">Whole grains</strong> (oats, brown rice, jowar, bajra) — daily</li>
-                <li><strong className="text-slate-800 dark:text-slate-200">Beans and legumes</strong> (dal, rajma, chana) — 3x per week</li>
+              <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                <li><strong className="text-slate-800 dark:text-slate-200">Green leafy vegetables</strong> (spinach, methi, palak): daily</li>
+                <li><strong className="text-slate-800 dark:text-slate-200">Berries</strong> (amla, blueberries, jamun): most days</li>
+                <li><strong className="text-slate-800 dark:text-slate-200">Nuts</strong> (walnuts, almonds): small handful, 5x per week</li>
+                <li><strong className="text-slate-800 dark:text-slate-200">Olive oil or cold-pressed oils</strong>: for cooking and dressings</li>
+                <li><strong className="text-slate-800 dark:text-slate-200">Whole grains</strong> (oats, brown rice, jowar, bajra): daily</li>
+                <li><strong className="text-slate-800 dark:text-slate-200">Beans and legumes</strong> (dal, rajma, chana): 3x per week</li>
                 <li>
-                  <strong className="text-slate-800 dark:text-slate-200">Turmeric</strong> — emerging evidence for anti-inflammatory effect (note: based on preliminary Indian RCTs; evidence is emerging and not curative)
+                  <strong className="text-slate-800 dark:text-slate-200">Turmeric</strong>: emerging evidence for anti-inflammatory effect (note: based on preliminary Indian RCTs; evidence is emerging and not curative)
                 </li>
-                <li><strong className="text-slate-800 dark:text-slate-200">Green tea</strong> — 1-2 cups daily</li>
+                <li><strong className="text-slate-800 dark:text-slate-200">Green tea</strong>: 1-2 cups daily</li>
               </ul>
             </div>
 
-            {/* Non-Vegetarian */}
-            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 space-y-2.5">
-              <div className="flex items-center space-x-2 text-teal-700 dark:text-teal-400 font-bold text-sm">
-                <HeartPulse className="w-4 h-4" />
-                <span>Non-vegetarian — Additionally:</span>
+            {/* Column 2 */}
+            <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 space-y-3">
+              <div className="flex items-center space-x-2 text-teal-700 dark:text-teal-400 font-semibold">
+                <Utensils className="w-4 h-4" />
+                <span className="font-bold text-sm text-slate-900 dark:text-white">Non-vegetarian: In Addition</span>
               </div>
-              <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed list-disc list-inside">
+              <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
                 <li>
-                  <strong className="text-slate-800 dark:text-slate-200">Fatty fish</strong> (salmon, mackerel, sardines, rohu, hilsa) — at least 2 servings per week (Omega-3 fatty acids reduce neuroinflammation)
+                  <strong className="text-slate-800 dark:text-slate-200">Fatty fish</strong> (salmon, mackerel, sardines, rohu, hilsa): at least 2 servings per week (Omega-3 fatty acids reduce neuroinflammation)
                 </li>
-                <li><strong className="text-slate-800 dark:text-slate-200">Eggs</strong> — rich B12 source, crucial for nerve health</li>
-                <li><strong className="text-slate-800 dark:text-slate-200">Poultry</strong> (chicken, unprocessed) — moderate amounts</li>
+                <li><strong className="text-slate-800 dark:text-slate-200">Eggs</strong>: rich B12 source, crucial for nerve health</li>
+                <li><strong className="text-slate-800 dark:text-slate-200">Poultry</strong> (chicken, unprocessed): moderate amounts</li>
               </ul>
+            </div>
 
-              <div className="pt-3 border-t border-slate-200/60 dark:border-slate-700/60">
-                <span className="font-bold text-xs text-rose-600 dark:text-rose-400">Foods to reduce:</span>
-                <ul className="mt-1.5 space-y-1 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside">
-                  <li>Red meat — limit to 4 servings per month</li>
-                  <li>Processed and fried foods — minimise</li>
-                  <li>Refined sugar and sweets — limit significantly</li>
-                  <li>Ultra-processed foods (packaged snacks) — avoid</li>
-                  <li>Saturated fat from palm oil or vanaspati — reduce</li>
-                </ul>
+            {/* Column 3 */}
+            <div className="p-5 rounded-2xl bg-rose-50/40 dark:bg-rose-950/20 border border-rose-200/60 dark:border-rose-900/40 space-y-3">
+              <div className="flex items-center space-x-2 text-rose-600 dark:text-rose-400 font-semibold">
+                <AlertTriangle className="w-4 h-4" />
+                <span className="font-bold text-sm text-slate-900 dark:text-white">Foods to Limit</span>
               </div>
+              <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                <li>Red meat: limit to 4 servings per month</li>
+                <li>Processed and fried foods: minimise</li>
+                <li>Refined sugar and sweets: limit significantly</li>
+                <li>Ultra-processed foods (packaged snacks): avoid</li>
+                <li>Saturated fat from palm oil or vanaspati: reduce</li>
+              </ul>
             </div>
           </div>
         </div>
 
-        {/* Vitamin Deficiency Callout (Amber — critical in India) */}
+        {/* Vitamin Deficiency Callout (Amber: critical in India) */}
         <div className="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800/80 space-y-3">
           <div className="flex items-center space-x-2 text-amber-900 dark:text-amber-200 font-bold text-sm sm:text-base">
             <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0" />
@@ -265,76 +280,69 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* SUBSECTION 2C — Sleep */}
+      {/* SUBSECTION 2C: Sleep & Brain Cleansing */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
-            Subsection 2C · Sleep Medicine
+            Subsection 2C · Sleep & Brain Cleansing
           </span>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">
-            Sleep disorders and dementia — a two-way relationship
+            Sleep disorders and dementia: a two-way relationship
           </h2>
-        </div>
-
-        {/* Key finding */}
-        <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
-          <div className="flex items-center space-x-2 text-purple-600 dark:text-purple-400 font-bold text-sm">
-            <Moon className="w-4 h-4" />
-            <span>REM Sleep Behaviour Disorder (RBD) as an Early Precursor</span>
-          </div>
-          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
-            REM Sleep Behaviour Disorder (RBD) — acting out dreams physically while asleep — is now confirmed as a precursor of neurodegenerative disease. Cognitive decline in RBD begins up to 10 years before dementia diagnosis.
+          <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 max-w-3xl leading-relaxed">
+            During deep non-REM sleep, the glymphatic system cleans beta-amyloid and tau from the brain. Chronic sleep deprivation impairs this clearance.
           </p>
-          <div className="text-[11px] text-slate-500 dark:text-slate-400 pt-1">
-            Source:{' '}
-            <a
-              href="https://doi.org/10.1002/alz.13386"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-teal-600 dark:text-teal-400 hover:underline font-semibold"
-            >
-              Joza et al., Alzheimer&apos;s &amp; Dementia 2024. DOI: 10.1002/alz.13386
-            </a>
-          </div>
         </div>
 
+        {/* Callout: RBD (purple) */}
+        <div className="p-5 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-300 dark:border-purple-800 space-y-2">
+          <div className="flex items-center space-x-2 text-purple-900 dark:text-purple-200 font-bold text-sm sm:text-base">
+            <Moon className="w-5 h-5 text-purple-600 dark:text-purple-400 shrink-0" />
+            <span>REM Sleep Behaviour Disorder (RBD):</span>
+          </div>
+          <p className="text-xs sm:text-sm text-purple-950 dark:text-purple-100 leading-relaxed pl-7">
+            REM Sleep Behaviour Disorder (RBD), acting out dreams physically while asleep, is now confirmed as a precursor of neurodegenerative disease. Cognitive decline in RBD begins up to 10 years before dementia diagnosis.
+          </p>
+        </div>
+
+        {/* Two-column sleep facts */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
-            <h3 className="font-bold text-sm text-slate-900 dark:text-white">What to watch for:</h3>
-            <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
-              <li>Physically acting out dreams (kicking, shouting in sleep)</li>
-              <li>Excessive daytime sleepiness</li>
-              <li>Irregular sleep-wake cycle</li>
-              <li>Insomnia in elderly — linked to amyloid accumulation</li>
+            <h3 className="font-bold text-base text-slate-900 dark:text-white">
+              Key Findings
+            </h3>
+            <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Sleep apnea increases dementia risk by 26%</li>
+              <li>Insomnia in elderly: linked to amyloid accumulation</li>
+              <li>Optimal sleep for brain health: 7-8 hours for adults over 50</li>
             </ul>
           </div>
 
           <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
-            <h3 className="font-bold text-sm text-slate-900 dark:text-white">What to do:</h3>
-            <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
-              <li>Report dream-enactment behaviour to a neurologist (not a psychiatrist — this requires neurological evaluation)</li>
-              <li>Maintain consistent sleep and wake times</li>
-              <li>Avoid screens 1 hour before sleep</li>
-              <li>Keep bedroom dark, cool, and quiet</li>
-              <li>Morning sunlight exposure (15-30 minutes) regulates circadian rhythm</li>
+            <h3 className="font-bold text-base text-slate-900 dark:text-white">
+              Action Steps
+            </h3>
+            <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Screen for sleep apnea (CPAP treatment reduces cognitive decline risk)</li>
+              <li>Report dream-enactment behaviour to a neurologist (not a psychiatrist: this requires neurological evaluation)</li>
+              <li>Avoid sedative-hypnotic sleep medications (zolpidem, benzodiazepines) which worsen cognition</li>
             </ul>
           </div>
         </div>
 
-        {/* Safety Disclaimer */}
-        <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800/80 text-xs sm:text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
-          <strong className="font-bold">Important note:</strong> If a family member is physically acting out dreams — shouting, kicking, falling out of bed — consult a neurologist. This requires a sleep study (polysomnography) for proper diagnosis. Do not attempt to restrain them during episodes — ensure the sleep environment is safe instead.
+        <div className="p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 text-xs text-amber-950 dark:text-amber-200 leading-relaxed">
+          <strong className="font-bold">Important note:</strong> If a family member is physically acting out dreams, such as shouting, kicking, or falling out of bed, consult a neurologist. This requires a sleep study (polysomnography) for proper diagnosis. Do not attempt to restrain them during episodes; ensure the sleep environment is safe instead.
         </div>
       </section>
 
-      {/* SUBSECTION 2D — Cognitive testing and screening */}
+      {/* SUBSECTION 2D: Diagnostic Protocols */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
-            Subsection 2D · Clinical Screening
+            Subsection 2D · Diagnostic Protocols
           </span>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">
-            When and how to screen — what tests exist
+            When and how to screen: diagnostic tests available
           </h2>
         </div>
 
@@ -386,12 +394,13 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
           <div className="text-[11px] text-slate-500 dark:text-slate-400">
             Source:{' '}
             <a
-              href="https://doi.org/10.1016/j.arr.2026.102704"
+              href="https://doi.org/10.1001/jama.2024.13855"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold"
+              className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold inline-flex items-center gap-1"
             >
-              AAIC 2024 / ScienceDirect 2026. DOI: 10.1016/j.arr.2026.102704
+              <span>AAIC 2024 / JAMA 2024. DOI: 10.1001/jama.2024.13855</span>
+              <ExternalLink className="w-2.5 h-2.5" />
             </a>
           </div>
           <div className="pt-2 text-xs text-slate-500 dark:text-slate-400 italic">
@@ -447,7 +456,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* SUBSECTION 2E — Exercise for brain health (activity guide / weekly planner) */}
+      {/* SUBSECTION 2E: Exercise for brain health (activity guide / weekly planner) */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">

@@ -45,7 +45,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
       icon: Brain,
       iconColor: 'text-rose-500 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 border-rose-200 dark:border-rose-900',
       heading: 'Repeating the same question',
-      body: 'Asking the same thing minutes apart — not occasionally, but consistently. Forgetting recent conversations entirely.',
+      body: 'Asking the same thing minutes apart: not occasionally, but consistently. Forgetting recent conversations entirely.',
     },
     {
       domain: 'Behaviour',
@@ -84,7 +84,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
       icon: Moon,
       iconColor: 'text-purple-500 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/50 border-purple-200 dark:border-purple-900',
       heading: 'Withdrawal and apathy',
-      body: 'Loss of interest in hobbies, social withdrawal, sleeping more. Apathy affects 45% of early-onset dementia patients in India — often dismissed as depression.',
+      body: 'Loss of interest in hobbies, social withdrawal, sleeping more. Apathy affects 45% of early-onset dementia patients in India, often dismissed as depression.',
       sourceLabel: 'Chatterjee et al., 2024',
       sourceDoi: '10.1002/alz.088117',
       sourceUrl: 'https://doi.org/10.1002/alz.088117',
@@ -116,15 +116,15 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-            You just received difficult news.
+            Standing with Your Family with Dignity, Love, and Strength.
             <br />
             <span className="text-emerald-700 dark:text-emerald-400">
-              You do not have to figure this out alone.
+              You are undertaking one of life&apos;s most meaningful journeys: and you do not walk it alone.
             </span>
           </h1>
 
           <p className="text-base sm:text-lg font-medium text-slate-700 dark:text-slate-200 leading-relaxed">
-            This page walks you through what to watch for, when to seek help, and how to care — one step at a time.
+            Every moment of patience and presence honors a lifetime of shared memories. This guide provides clear clinical pathways, daily care techniques, and steadfast support: step by step.
           </p>
 
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 pt-2 border-t border-emerald-200/60 dark:border-emerald-900/60">
@@ -133,17 +133,17 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* SUBSECTION 1A — Early warning signs */}
+      {/* SUBSECTION 1A: Early warning signs */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
             Subsection 1A · Recognition
           </span>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">
-            What to watch for — and when to act
+            What to watch for: and when to act
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 max-w-3xl leading-relaxed">
-            Dementia and Alzheimer&apos;s do not begin with sudden memory loss. The earliest signs are often behavioural — easy to dismiss as stress, aging, or personality changes.
+            Dementia and Alzheimer&apos;s do not begin with sudden memory loss. The earliest signs are often behavioural, easy to dismiss as stress, aging, or personality changes.
           </p>
         </div>
 
@@ -201,12 +201,12 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
             <span>When to go to a doctor:</span>
           </div>
           <p className="text-xs sm:text-sm text-amber-900/90 dark:text-amber-200/90 leading-relaxed pl-7">
-            If 3 or more of these signs are present for more than 2 weeks and are new or worsening — this is the time to see a neurologist, not to wait and watch. Early diagnosis can slow progression. Every month of delay matters.
+            If 3 or more of these signs are present for more than 2 weeks and are new or worsening, this is the time to see a neurologist, not to wait and watch. Early diagnosis can slow progression. Every month of delay matters.
           </p>
         </div>
       </section>
 
-      {/* SUBSECTION 1B — Choosing the right doctor */}
+      {/* SUBSECTION 1B: Choosing the right doctor */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
@@ -216,7 +216,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
             Not every neurologist treats dementia the same way
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 max-w-3xl leading-relaxed">
-            A general neurologist can diagnose dementia. But for ongoing care, a cognitive and behavioural neurologist — a subspecialist — provides significantly better outcomes. When booking an appointment, ask specifically whether the neurologist has a subspecialty in cognitive or behavioural neurology, or runs a dedicated memory clinic.
+            A general neurologist can diagnose dementia. But for ongoing care, a cognitive and behavioural neurologist (a subspecialist) provides significantly better outcomes. When booking an appointment, ask specifically whether the neurologist has a subspecialty in cognitive or behavioural neurology, or runs a dedicated memory clinic.
           </p>
         </div>
 
@@ -232,7 +232,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
             </h3>
             <div className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
               <p><strong className="text-slate-800 dark:text-slate-200">Role:</strong> First point of contact</p>
-              <p><strong className="text-slate-800 dark:text-slate-200">Limitation:</strong> Cannot diagnose dementia — refers onwards</p>
+              <p><strong className="text-slate-800 dark:text-slate-200">Limitation:</strong> Cannot diagnose dementia; refers onwards</p>
               <p><strong className="text-slate-800 dark:text-slate-200">Action:</strong> Ask for a referral to a neurologist</p>
             </div>
           </div>
@@ -286,14 +286,14 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* SUBSECTION 1C — What to bring to the first appointment */}
+      {/* SUBSECTION 1C: What to bring to the first appointment */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
             Subsection 1C · Preparation
           </span>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">
-            Prepare before the appointment — it saves time
+            Prepare before the appointment: it saves time
           </h2>
         </div>
 
@@ -321,29 +321,29 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
         </div>
 
         <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-          The neurologist will likely conduct a cognitive assessment — tests like the Mini-Mental State Examination (MMSE) or Montreal Cognitive Assessment (MoCA) that take 20 to 30 minutes. These are not frightening — they are structured conversations and simple tasks.
+          The neurologist will likely conduct a cognitive assessment, including tests like the Mini-Mental State Examination (MMSE) or Montreal Cognitive Assessment (MoCA) that take 20 to 30 minutes. These are not frightening: they are structured conversations and simple tasks.
         </div>
       </section>
 
-      {/* SUBSECTION 1D — The caregiver mindset shift */}
+      {/* SUBSECTION 1D: The caregiver mindset shift */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
             Subsection 1D · Compassion & Reality
           </span>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">
-            The hardest part is not the tasks — it is the shift
+            The hardest part is not the tasks: it is the inner shift
           </h2>
         </div>
 
-        {/* Flowing text, not cards — feels human */}
+        {/* Flowing text, not cards: feels human */}
         <div className="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-4 text-sm sm:text-base leading-relaxed">
           <p>
-            When dementia enters a family, the relationship changes in a way no one is prepared for. A parent becomes someone who needs to be cared for like a child. A spouse becomes a patient. The person you knew is still there — but not always accessible.
+            When dementia enters a family, the relationship changes in a way no one is prepared for. A parent becomes someone who needs to be cared for like a child. A spouse becomes a patient. The person you knew is still there, but not always accessible.
           </p>
 
           <p>
-            The most important shift a caregiver must make is this: stop arguing with the reality the person with dementia is experiencing. If your mother insists it is 1975 and her own mother is still alive, correcting her causes distress without benefit. Meeting her in her reality — &ldquo;Yes, let us go see her later&rdquo; — is not dishonesty. It is compassion.
+            The most important shift a caregiver must make is this: stop arguing with the reality the person with dementia is experiencing. If your mother insists it is 1975 and her own mother is still alive, correcting her causes distress without benefit. Meeting her in her reality (&ldquo;Yes, let us go see her later&rdquo;) is not dishonesty. It is compassion.
           </p>
 
           <p>
@@ -363,7 +363,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* SUBSECTION 1E — Making the home safer */}
+      {/* SUBSECTION 1E: Making the home safer */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
@@ -384,7 +384,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
             <div className="space-y-2.5">
               {[
                 'Loose rugs and mats (fall risk)',
-                'All medicines — locked cabinet or box',
+                'All medicines: locked cabinet or box',
                 'Cleaning products, pesticides',
                 'Sharp tools and knives when unattended',
                 'Gas stove access if person is alone',
@@ -423,17 +423,17 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* SUBSECTION 1F — Keeping the person active and engaged */}
+      {/* SUBSECTION 1F: Keeping the person active and engaged */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
             Subsection 1F · Stage-Wise Activity
           </span>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">
-            Activity is medicine — but it must be appropriate
+            Activity is medicine: tailored to each individual
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 max-w-3xl leading-relaxed">
-            Research consistently shows that mental and physical activity slow cognitive decline. But the activity must match where the person currently is — not where they were before diagnosis.
+            Research consistently shows that mental and physical activity slow cognitive decline. But the activity must match where the person currently is, not where they were before diagnosis.
           </p>
         </div>
 
@@ -474,7 +474,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
               </span>
             </div>
             <div className="space-y-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-              <p><strong className="text-slate-800 dark:text-slate-200">Physical:</strong> Gentle hand massage, range-of-motion movements</p>
+              <p><strong className="text-slate-800 dark:text-slate-200">Physical:</strong> Gentle hand massage, range-of-motion movements, supervised physiotherapy (to preserve joint mobility and prevent contractures)</p>
               <p><strong className="text-slate-800 dark:text-slate-200">Mental:</strong> Music, especially songs from youth, simple sensory activities, touch and presence</p>
               <p><strong className="text-slate-800 dark:text-slate-200">Social:</strong> One-on-one presence is the activity</p>
             </div>
@@ -489,23 +489,23 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
             rel="noopener noreferrer"
             className="text-emerald-600 dark:text-emerald-400 hover:underline font-medium inline-flex items-center gap-0.5"
           >
-            <span>Frontiers in Dementia, 2026 — Physical activity and exercise in dementia: clinical relevance and emerging insights. DOI: 10.3389/frdem.2026.1843904</span>
+            <span>Frontiers in Dementia, 2026. Physical activity and exercise in dementia: clinical relevance and emerging insights. DOI: 10.3389/frdem.2026.1843904</span>
             <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
           </a>
         </div>
       </section>
 
-      {/* SUBSECTION 1G — Supporting each other: caregiver community */}
+      {/* SUBSECTION 1G: Supporting each other: caregiver community */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
             Subsection 1G · Caregiver Community
           </span>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">
-            You cannot do this alone — and you should not
+            You cannot do this alone: and you should not have to
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 max-w-3xl leading-relaxed">
-            Caregiver burnout in India is a silent crisis. 72% of dementia caregivers are women. The average daily care time is 6.2 hours — rising to 9.5 hours in advanced stages. Fewer than 10% of families have access to respite care.
+            Caregiver burnout in India is a silent crisis. 72% of dementia caregivers are women. The average daily care time is 6.2 hours, rising to 9.5 hours in advanced stages. Fewer than 10% of families have access to respite care.
           </p>
           <p className="text-sm font-medium text-emerald-700 dark:text-emerald-400 mt-2">
             Joining a caregiver support group is not a luxury. It is one of the most effective interventions for caregiver mental health that exists.
@@ -599,7 +599,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
             <span>Signs you need support:</span>
           </div>
           <p className="text-xs sm:text-sm text-amber-900/90 dark:text-amber-200/90 leading-relaxed pl-7">
-            Constant exhaustion even after sleep. Resentment or guilt. Withdrawing from your own relationships. Physical symptoms — headaches, illness. These are not weakness. They are signals. Call iCall (
+            Constant exhaustion even after sleep. Resentment or guilt. Withdrawing from your own relationships. Physical symptoms like headaches and recurring illness. These are not weakness: they are signals. Call iCall (
             <a href="tel:9152987821" className="font-mono font-bold hover:underline">9152987821</a>
             ) or Vandrevala Foundation (
             <a href="tel:9999666555" className="font-mono font-bold hover:underline">9999 666 555</a>
