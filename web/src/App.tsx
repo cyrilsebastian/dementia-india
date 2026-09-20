@@ -120,6 +120,17 @@ export const AppContent: React.FC = () => {
             <a href="https://cyrilsebastian.com" target="_blank" rel="noreferrer" className="hover:underline">
               cyrilsebastian.com
             </a>
+            <span className="text-slate-300 dark:text-slate-700">•</span>
+            <a
+              href="https://status.cyrilsebastian.com"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:underline inline-flex items-center gap-1.5"
+              title="Live monitoring of web portals"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
+              Status
+            </a>
           </div>
         </div>
       </footer>
