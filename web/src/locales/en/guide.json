@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "badge": "Family Caregiver Guide",
+    "title": "Standing with Your Family with Dignity, Love, and Strength.",
+    "subtitle": "You are undertaking one of life's most meaningful journeys: and you do not walk it alone.",
+    "lead": "Every moment of patience and presence honors a lifetime of shared memories. This guide provides clear clinical pathways, daily care techniques, and steadfast support: step by step.",
+    "disclaimer": "Written for families and primary caregivers in India. Medical decisions must always be directed to a qualified neurologist.",
+    "immediateHelplineTitle": "Immediate Helpline Support",
+    "tollFreeBadge": "Toll-Free",
+    "elderlineTitle": "Elderly Support Line (Elderline)",
+    "elderlineDesc": "Senior care guidance & elder assistance",
+    "telemanasTitle": "Tele-MANAS 24x7",
+    "telemanasDesc": "Free mental health & caregiver counselling",
+    "exploreDirectory": "Explore verified national networks:",
+    "careDirectory": "Care Directory"
+  },
+  "section1A": {
+    "tag": "Subsection 1A · Recognition",
+    "title": "What to watch for: and when to act",
+    "desc": "Dementia and Alzheimer's do not begin with sudden memory loss. The earliest signs are often behavioural, easy to dismiss as stress, aging, or personality changes."
+  },
+  "warnings": {
+    "memory": {
+      "domain": "Memory",
+      "heading": "Repeating the same question",
+      "body": "Asking the same thing minutes apart: not occasionally, but consistently. Forgetting recent conversations entirely."
+    },
+    "behaviour": {
+      "domain": "Behaviour",
+      "badge": "Critical in India",
+      "heading": "Sudden irritability or suspicion",
+      "body": "Unexplained anger, accusing family members of stealing, or persistent suspicion. In Indian early-onset dementia, irritability affects 61% of patients and is the most common first sign."
+    },
+    "navigation": {
+      "domain": "Navigation",
+      "heading": "Getting lost in familiar places",
+      "body": "Unable to navigate a route walked hundreds of times. Confusion in their own neighbourhood or home."
+    },
+    "language": {
+      "domain": "Language",
+      "heading": "Struggling to find words",
+      "body": "Pausing mid-sentence, substituting wrong words, or withdrawing from conversations to hide difficulty."
+    },
+    "dailyTasks": {
+      "domain": "Daily Tasks",
+      "heading": "Unable to manage familiar tasks",
+      "body": "Difficulty cooking a familiar recipe, managing finances, or following routines they have followed for decades."
+    },
+    "apathy": {
+      "domain": "Apathy",
+      "heading": "Withdrawal and apathy",
+      "body": "Loss of interest in hobbies, social withdrawal, sleeping more. Apathy affects 45% of early-onset dementia patients in India, often dismissed as depression."
+    },
+    "judgment": {
+      "domain": "Judgment",
+      "heading": "Poor judgment or decisions",
+      "body": "Giving money to strangers, neglecting personal hygiene, making decisions that are out of character."
+    },
+    "timePlace": {
+      "domain": "Time & Place",
+      "heading": "Confusion about time or dates",
+      "body": "Not knowing what year it is, thinking a deceased parent is still alive, or believing they are in a different decade."
+    }
+  }
+}

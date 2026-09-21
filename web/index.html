@@ -110,10 +110,76 @@
       ]
     }
     </script>
+  <style>
+    /* Permanently suppress Google Translate banner, toolbar, and spacing */
+    .goog-te-banner-frame,
+    .goog-te-banner-frame.skiptranslate,
+    iframe.goog-te-banner-frame,
+    iframe.skiptranslate,
+    iframe[id=":1.container"],
+    iframe[name=":1.container"],
+    #goog-gt-tt,
+    #goog-gt-vt,
+    .goog-te-balloon-frame,
+    .goog-te-spinner-pos,
+    .VIpgJd-ZVi9od-aT1pB-hSRGPd,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd,
+    .VIpgJd-ZVi9od-xl07Ob-lTBxed,
+    .VIpgJd-ZVi9od-TvD9Pc-hSRGPd,
+    .VIpgJd-ZVi9od-xl07Ob-O2twJf,
+    #google_translate_element,
+    .goog-tooltip,
+    .goog-text-highlight {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      height: 0 !important;
+      width: 0 !important;
+      max-height: 0 !important;
+      border: none !important;
+    }
+
+    body {
+      top: 0px !important;
+      position: static !important;
+      margin-top: 0px !important;
+    }
+  </style>
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased min-h-screen">
+    <div id="google_translate_element" style="display:none"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="text/javascript">
+      // Continuously enforce zero banner and top offset
+      (function() {
+        function suppressBanner() {
+          if (document.body) {
+            if (document.body.style.top !== '0px') document.body.style.top = '0px';
+            if (document.body.style.position !== 'static') document.body.style.position = 'static';
+          }
+          var banners = document.querySelectorAll('.goog-te-banner-frame, iframe.skiptranslate, iframe[id=":1.container"], iframe[name=":1.container"]');
+          for (var i = 0; i < banners.length; i++) {
+            banners[i].style.display = 'none';
+            banners[i].style.visibility = 'hidden';
+            banners[i].style.height = '0px';
+          }
+        }
+        setInterval(suppressBanner, 100);
+      })();
+
+      function googleTranslateElementInit() {
+        if (window.google && window.google.translate) {
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,ta,kn,te,bn,mr,ml,gu,pa,or,as',
+            autoDisplay: false
+          }, 'google_translate_element');
+        }
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- Cloudflare Web Analytics Beacon -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dementia_india_beacon"}'></script>
     <!-- End Cloudflare Web Analytics Beacon -->

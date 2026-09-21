@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "familyGuide": "Family Guide",
+    "indiaData": "India Data",
+    "brainHealth": "Brain Health",
+    "research": "Research",
+    "advancePlanning": "Advance Planning",
+    "reachOut": "Reach Out",
+    "more": "More",
+    "specialistDensity": "Specialist Density",
+    "healthSpending": "Health Spending",
+    "careNetwork": "Care Network",
+    "globalView": "Global View",
+    "about": "About"
+  },
+  "footer": {
+    "title": "Project Dementia India · Open Health Data Platform",
+    "disclaimer": "Disclaimer",
+    "github": "GitHub Repository",
+    "status": "Status",
+    "changelog": "Changelog"
+  },
+  "pages": {
+    "india": {
+      "title": "India Overview & Epidemiology",
+      "subtitle": "State-level dementia prevalence, demographic risk factors, and epidemiological projections across India."
+    },
+    "brainHealth": {
+      "title": "Brain Health & Prevention",
+      "subtitle": "Evidence-based lifestyle interventions, 14 modifiable risk factors, and proactive cognitive screening guidance."
+    },
+    "research": {
+      "title": "Dementia Research in India",
+      "subtitle": "Indian epidemiological studies, biomarkers, clinical trials, and clinical research milestones."
+    },
+    "advancePlanning": {
+      "title": "Advance Care Planning & Legal Rights",
+      "subtitle": "Advance Medical Directives, nominated representatives, and legal rights under Indian healthcare statutes."
+    },
+    "specialist": {
+      "title": "Specialist Deserts & Clinical Density",
+      "subtitle": "Mapping neurologist and geriatrician availability, clinical workforce deficits, and state ratios across India."
+    },
+    "healthSpending": {
+      "title": "Health Spending & Budget Allocations",
+      "subtitle": "Union and state mental health budgets, out-of-pocket spending burden, and fiscal resource tracking."
+    },
+    "careNetwork": {
+      "title": "Care Network & Support Facilities",
+      "subtitle": "Verified memory clinics, ARDSI day-care centers, respite homes, and emergency helplines nationwide."
+    },
+    "global": {
+      "title": "Global Dementia Intelligence",
+      "subtitle": "Comparative burden metrics across 195+ countries, health system benchmarks, and 2050 epidemiological forecasts."
+    },
+    "reachOut": {
+      "title": "Reach Out & Community Engagement",
+      "subtitle": "Connect with our research team, submit resource updates, request data exports, or seek caregiver direction."
+    },
+    "about": {
+      "title": "About Project Dementia India",
+      "subtitle": "Open health data mission, research methodology, data ethics, clinical citations, and team credentials."
+    }
+  },
+  "disclaimerBlock": {
+    "title": "Disclaimer & Legal Notice",
+    "subtitle": "This is a public health data visualization platform, not a clinical or medical service.",
+    "p1": "This platform presents aggregate statistical estimates derived from peer-reviewed, publicly available epidemiological datasets. All figures are population-level estimates and not individual clinical diagnoses. No Personally Identifiable Information (PII) or Protected Health Information (PHI) is collected or stored.",
+    "p2": "This platform does not provide medical advice. If you or a loved one are experiencing cognitive symptoms, please consult a qualified neurologist or geriatrician immediately.",
+    "p3": "Directory records for memory clinics and NGOs are indexed for reference only. Inclusion does not constitute clinical endorsement. Please verify services independently before visiting.",
+    "p4": "No personal tracking or advertising cookies are utilized. The platform code is open source under the MIT License."
+  },
+  "buttons": {
+    "learnMore": "Learn More",
+    "readGuide": "Read Guide",
+    "viewDirectory": "View Directory",
+    "close": "Close",
+    "back": "Back",
+    "callNow": "Call Helpline",
+    "downloadData": "Download Data",
+    "share": "Share"
+  }
+}

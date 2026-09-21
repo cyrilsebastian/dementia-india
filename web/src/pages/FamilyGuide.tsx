@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Brain,
   AlertTriangle,
@@ -32,6 +33,8 @@ interface FamilyGuideProps {
 }
 
 export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
+  const { t } = useTranslation(['guide', 'helplines', 'common']);
+
   const handleNav = (tab: NavTabType) => {
     if (onNavigate) {
       onNavigate(tab);
@@ -41,67 +44,75 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
 
   const warningCards = [
     {
-      domain: 'Memory',
+      key: 'memory',
+      domain: t('warnings.memory.domain', { defaultValue: 'Memory' }),
       icon: Brain,
       iconColor: 'text-rose-500 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 border-rose-200 dark:border-rose-900',
-      heading: 'Repeating the same question',
-      body: 'Asking the same thing minutes apart: not occasionally, but consistently. Forgetting recent conversations entirely.',
+      heading: t('warnings.memory.heading', { defaultValue: 'Repeating the same question' }),
+      body: t('warnings.memory.body', { defaultValue: 'Asking the same thing minutes apart: not occasionally, but consistently. Forgetting recent conversations entirely.' }),
     },
     {
-      domain: 'Behaviour',
-      badge: 'Critical in India',
+      key: 'behaviour',
+      domain: t('warnings.behaviour.domain', { defaultValue: 'Behaviour' }),
+      badge: t('warnings.behaviour.badge', { defaultValue: 'Critical in India' }),
       icon: AlertTriangle,
       iconColor: 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border-amber-200 dark:border-amber-900',
-      heading: 'Sudden irritability or suspicion',
-      body: 'Unexplained anger, accusing family members of stealing, or persistent suspicion. In Indian early-onset dementia, irritability affects 61% of patients and is the most common first sign.',
+      heading: t('warnings.behaviour.heading', { defaultValue: 'Sudden irritability or suspicion' }),
+      body: t('warnings.behaviour.body', { defaultValue: 'Unexplained anger, accusing family members of stealing, or persistent suspicion. In Indian early-onset dementia, irritability affects 61% of patients and is the most common first sign.' }),
       sourceLabel: "Chatterjee et al., Alzheimer's & Dementia 2024",
       sourceDoi: '10.1002/alz.088117',
       sourceUrl: 'https://doi.org/10.1002/alz.088117',
     },
     {
-      domain: 'Navigation',
+      key: 'navigation',
+      domain: t('warnings.navigation.domain', { defaultValue: 'Navigation' }),
       icon: MapPin,
       iconColor: 'text-blue-500 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-900',
-      heading: 'Getting lost in familiar places',
-      body: 'Unable to navigate a route walked hundreds of times. Confusion in their own neighbourhood or home.',
+      heading: t('warnings.navigation.heading', { defaultValue: 'Getting lost in familiar places' }),
+      body: t('warnings.navigation.body', { defaultValue: 'Unable to navigate a route walked hundreds of times. Confusion in their own neighbourhood or home.' }),
     },
     {
-      domain: 'Language',
+      key: 'language',
+      domain: t('warnings.language.domain', { defaultValue: 'Language' }),
       icon: MessageCircle,
       iconColor: 'text-teal-500 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/50 border-teal-200 dark:border-teal-900',
-      heading: 'Struggling to find words',
-      body: 'Pausing mid-sentence, substituting wrong words, or withdrawing from conversations to hide difficulty.',
+      heading: t('warnings.language.heading', { defaultValue: 'Struggling to find words' }),
+      body: t('warnings.language.body', { defaultValue: 'Pausing mid-sentence, substituting wrong words, or withdrawing from conversations to hide difficulty.' }),
     },
     {
-      domain: 'Daily Tasks',
+      key: 'dailyTasks',
+      domain: t('warnings.dailyTasks.domain', { defaultValue: 'Daily Tasks' }),
       icon: ClipboardList,
       iconColor: 'text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 border-indigo-200 dark:border-indigo-900',
-      heading: 'Unable to manage familiar tasks',
-      body: 'Difficulty cooking a familiar recipe, managing finances, or following routines they have followed for decades.',
+      heading: t('warnings.dailyTasks.heading', { defaultValue: 'Unable to manage familiar tasks' }),
+      body: t('warnings.dailyTasks.body', { defaultValue: 'Difficulty cooking a familiar recipe, managing finances, or following routines they have followed for decades.' }),
     },
     {
-      domain: 'Apathy',
+      key: 'apathy',
+      domain: t('warnings.apathy.domain', { defaultValue: 'Apathy' }),
       icon: Moon,
       iconColor: 'text-purple-500 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/50 border-purple-200 dark:border-purple-900',
-      heading: 'Withdrawal and apathy',
-      body: 'Loss of interest in hobbies, social withdrawal, sleeping more. Apathy affects 45% of early-onset dementia patients in India, often dismissed as depression.',
+      heading: t('warnings.apathy.heading', { defaultValue: 'Withdrawal and apathy' }),
+      body: t('warnings.apathy.body', { defaultValue: 'Loss of interest in hobbies, social withdrawal, sleeping more. Apathy affects 45% of early-onset dementia patients in India, often dismissed as depression.' }),
       sourceLabel: 'Chatterjee et al., 2024',
       sourceDoi: '10.1002/alz.088117',
       sourceUrl: 'https://doi.org/10.1002/alz.088117',
     },
     {
-      domain: 'Judgment',
+      key: 'judgment',
+      domain: t('warnings.judgment.domain', { defaultValue: 'Judgment' }),
       icon: Scale,
       iconColor: 'text-orange-500 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/50 border-orange-200 dark:border-orange-900',
-      heading: 'Poor judgment or decisions',
-      body: 'Giving money to strangers, neglecting personal hygiene, making decisions that are out of character.',
+      heading: t('warnings.judgment.heading', { defaultValue: 'Poor judgment or decisions' }),
+      body: t('warnings.judgment.body', { defaultValue: 'Giving money to strangers, neglecting personal hygiene, making decisions that are out of character.' }),
     },
     {
-      domain: 'Time & Place',
+      key: 'timePlace',
+      domain: t('warnings.timePlace.domain', { defaultValue: 'Time & Place' }),
       icon: Calendar,
       iconColor: 'text-cyan-500 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/50 border-cyan-200 dark:border-cyan-900',
-      heading: 'Confusion about time or dates',
-      body: 'Not knowing what year it is, thinking a deceased parent is still alive, or believing they are in a different decade.',
+      heading: t('warnings.timePlace.heading', { defaultValue: 'Confusion about time or dates' }),
+      body: t('warnings.timePlace.body', { defaultValue: 'Not knowing what year it is, thinking a deceased parent is still alive, or believing they are in a different decade.' }),
     },
   ];
 
@@ -114,22 +125,22 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
           <div className="lg:col-span-7 space-y-4">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 text-xs font-semibold border border-emerald-300 dark:border-emerald-800">
               <Heart className="w-3.5 h-3.5 fill-emerald-600 text-emerald-600 dark:fill-emerald-400 dark:text-emerald-400" />
-              <span>Family Caregiver Guide</span>
+              <span>{t('hero.badge', { defaultValue: 'Family Caregiver Guide' })}</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-              Standing with Your Family with Dignity, Love, and Strength.
+              {t('hero.title', { defaultValue: 'Standing with Your Family with Dignity, Love, and Strength.' })}
               <span className="block mt-2 text-emerald-700 dark:text-emerald-400">
-                You are undertaking one of life&apos;s most meaningful journeys: and you do not walk it alone.
+                {t('hero.subtitle', { defaultValue: "You are undertaking one of life's most meaningful journeys: and you do not walk it alone." })}
               </span>
             </h1>
 
             <p className="text-base sm:text-lg font-medium text-slate-700 dark:text-slate-200 leading-relaxed">
-              Every moment of patience and presence honors a lifetime of shared memories. This guide provides clear clinical pathways, daily care techniques, and steadfast support: step by step.
+              {t('hero.lead', { defaultValue: 'Every moment of patience and presence honors a lifetime of shared memories. This guide provides clear clinical pathways, daily care techniques, and steadfast support: step by step.' })}
             </p>
 
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 pt-3 border-t border-emerald-200/60 dark:border-emerald-900/60">
-              Written for families and primary caregivers in India. Medical decisions must always be directed to a qualified neurologist.
+              {t('hero.disclaimer', { defaultValue: 'Written for families and primary caregivers in India. Medical decisions must always be directed to a qualified neurologist.' })}
             </p>
           </div>
 
@@ -139,10 +150,10 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
               <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2.5">
                 <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
                   <PhoneCall className="w-3.5 h-3.5" />
-                  <span>Immediate Helpline Support</span>
+                  <span>{t('hero.immediateHelplineTitle', { defaultValue: 'Immediate Helpline Support' })}</span>
                 </span>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">
-                  Toll-Free
+                  {t('hero.tollFreeBadge', { defaultValue: 'Toll-Free' })}
                 </span>
               </div>
 
@@ -153,10 +164,10 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
                 >
                   <div className="space-y-0.5">
                     <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
-                      Elderly Support Line (Elderline)
+                      {t('hero.elderlineTitle', { defaultValue: 'Elderly Support Line (Elderline)' })}
                     </div>
                     <div className="text-[11px] text-slate-500 dark:text-slate-400">
-                      Senior care guidance &amp; elder assistance
+                      {t('hero.elderlineDesc', { defaultValue: 'Senior care guidance & elder assistance' })}
                     </div>
                   </div>
                   <span className="font-mono text-sm font-extrabold text-emerald-700 dark:text-emerald-400 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-lg border border-emerald-200 dark:border-emerald-700 shrink-0 ml-2 shadow-2xs">
@@ -170,10 +181,10 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
                 >
                   <div className="space-y-0.5">
                     <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
-                      Tele-MANAS 24×7
+                      {t('hero.telemanasTitle', { defaultValue: 'Tele-MANAS 24x7' })}
                     </div>
                     <div className="text-[11px] text-slate-500 dark:text-slate-400">
-                      Free mental health &amp; caregiver counselling
+                      {t('hero.telemanasDesc', { defaultValue: 'Free mental health & caregiver counselling' })}
                     </div>
                   </div>
                   <span className="font-mono text-sm font-extrabold text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-700 shrink-0 ml-2 shadow-2xs">
@@ -184,14 +195,14 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
 
               <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
                 <span className="text-slate-500 dark:text-slate-400 text-[11px]">
-                  Explore verified national networks:
+                  {t('hero.exploreDirectory', { defaultValue: 'Explore verified national networks:' })}
                 </span>
                 <button
                   type="button"
                   onClick={() => handleNav('care-network')}
                   className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold text-[11px] inline-flex items-center gap-1 cursor-pointer"
                 >
-                  <span>Care Directory</span>
+                  <span>{t('hero.careDirectory', { defaultValue: 'Care Directory' })}</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
               </div>
@@ -204,13 +215,13 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
       <section className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
           <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-            Subsection 1A · Recognition
+            {t('section1A.tag', { defaultValue: 'Subsection 1A · Recognition' })}
           </span>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">
-            What to watch for: and when to act
+            {t('section1A.title', { defaultValue: 'What to watch for: and when to act' })}
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 max-w-3xl leading-relaxed">
-            Dementia and Alzheimer&apos;s do not begin with sudden memory loss. The earliest signs are often behavioural, easy to dismiss as stress, aging, or personality changes.
+            {t('section1A.desc', { defaultValue: "Dementia and Alzheimer's do not begin with sudden memory loss. The earliest signs are often behavioural, easy to dismiss as stress, aging, or personality changes." })}
           </p>
         </div>
 

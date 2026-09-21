@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "familyGuide": "ಕುಟುಂಬ ಮಾರ್ಗದರ್ಶಿ",
+    "indiaData": "ಭಾರತದ ಅಂಕಿಅಂಶ",
+    "brainHealth": "ಮೆದುಳಿನ ಆರೋಗ್ಯ",
+    "research": "ಸಂಶೋಧನೆ",
+    "advancePlanning": "ಮುಂಚಿತ ಯೋಜನೆ",
+    "reachOut": "ಸಂಪರ್ಕಿಸಿ",
+    "more": "ಇನ್ನಷ್ಟು",
+    "specialistDensity": "ತಜ್ಞರ ಲಭ್ಯತೆ",
+    "healthSpending": "ಆರೋಗ್ಯ ವೆಚ್ಚ",
+    "careNetwork": "ಆರೈಕೆ ಕೇಂದ್ರಗಳು",
+    "globalView": "ಜಾಗತಿಕ ನೋಟ",
+    "about": "ನಮ್ಮ ಬಗ್ಗೆ"
+  },
+  "footer": {
+    "title": "ಪ್ರಾಜೆಕ್ಟ್ ಡಿಮೆನ್ಶಿಯಾ ಇಂಡಿಯಾ: ಮುಕ್ತ ಆರೋಗ್ಯ ದತ್ತಾಂಶ ವೇದಿಕೆ",
+    "disclaimer": "ಹಕ್ಕುತ್ಯಾಗ",
+    "github": "ಗಿಟ್‌ಹಬ್ ರೆಪೊಸಿಟರಿ",
+    "status": "ವ್ಯವಸ್ಥೆಯ ಸ್ಥಿತಿ",
+    "changelog": "ಬದಲಾವಣೆಗಳ ದಾಖಲೆ"
+  },
+  "buttons": {
+    "learnMore": "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ",
+    "readGuide": "ಮಾರ್ಗದರ್ಶಿ ಓದಿ",
+    "viewDirectory": "ಕೇಂದ್ರಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
+    "close": "ಮುಚ್ಚಿ",
+    "back": "ಹಿಂದಕ್ಕೆ"
+  }
+}

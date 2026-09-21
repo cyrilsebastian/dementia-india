@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FilterProvider } from './context/FilterContext';
 import { Navbar } from './components/Navbar';
 import { FilterBar } from './components/FilterBar';
@@ -36,6 +37,7 @@ export const AppContent: React.FC = () => {
   };
 
   const [activeTab, setActiveTab] = useState<NavTabType>(getInitialTab);
+  const { t } = useTranslation('common');
 
   React.useEffect(() => {
     const handlePopState = () => {
@@ -48,6 +50,23 @@ export const AppContent: React.FC = () => {
       window.removeEventListener('hashchange', handlePopState);
     };
   }, []);
+
+  React.useEffect(() => {
+    try {
+      const savedLang = localStorage.getItem('di_language');
+      if (savedLang && savedLang !== 'en') {
+        setTimeout(() => {
+          const combo = document.querySelector<HTMLSelectElement>('.goog-te-combo');
+          if (combo) {
+            combo.value = savedLang;
+            combo.dispatchEvent(new Event('change'));
+          }
+        }, 150);
+      }
+    } catch {
+      // Ignore
+    }
+  }, [activeTab]);
 
   const handleTabChange = (tab: NavTabType) => {
     setActiveTab(tab);
@@ -97,7 +116,7 @@ export const AppContent: React.FC = () => {
       <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div>
-            <span>Project Dementia India · Open Health Data Platform</span>
+            <span>{t('footer.title', { defaultValue: 'Project Dementia India · Open Health Data Platform' })}</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
             <button
@@ -110,11 +129,11 @@ export const AppContent: React.FC = () => {
               }}
               className="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:underline transition-colors cursor-pointer"
             >
-              Disclaimer
+              {t('footer.disclaimer', { defaultValue: 'Disclaimer' })}
             </button>
             <span className="text-slate-300 dark:text-slate-700">•</span>
             <a href="https://github.com/cyrilsebastian/dementia-india" target="_blank" rel="noreferrer" className="hover:underline">
-              GitHub Repository
+              {t('footer.github', { defaultValue: 'GitHub Repository' })}
             </a>
             <span className="text-slate-300 dark:text-slate-700">•</span>
             <a href="https://cyrilsebastian.com" target="_blank" rel="noreferrer" className="hover:underline">
@@ -129,7 +148,7 @@ export const AppContent: React.FC = () => {
               title="Live monitoring of web portals"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
-              Status
+              {t('footer.status', { defaultValue: 'Status' })}
             </a>
           </div>
         </div>

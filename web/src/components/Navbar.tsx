@@ -6,7 +6,9 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useFilters } from '../context/FilterContext';
+import { LanguageSelector } from './LanguageSelector';
 import {
   Moon,
   Sun,
@@ -156,6 +158,25 @@ export const NAV_ITEMS: NavItem[] = NAV_GROUPS.flatMap((group) => group.items);
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
   const { isDarkMode, toggleDarkMode } = useFilters();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useTranslation('common');
+
+  const getLocalizedNavLabel = (id: NavTabId, defaultLabel: string): string => {
+    const map: Record<NavTabId, string> = {
+      'family-guide': 'nav.familyGuide',
+      'india': 'nav.indiaData',
+      'brain-health': 'nav.brainHealth',
+      'research': 'nav.research',
+      'advance-planning': 'nav.advancePlanning',
+      'reach-out': 'nav.reachOut',
+      'specialist': 'nav.specialistDensity',
+      'health-spending': 'nav.healthSpending',
+      'care-network': 'nav.careNetwork',
+      'global': 'nav.globalView',
+      'about': 'nav.about',
+    };
+    const key = map[id];
+    return key ? t(key, { defaultValue: defaultLabel }) : defaultLabel;
+  };
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -223,6 +244,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
 
           {/* Action Controls & Mobile Hamburger Toggle */}
           <div className="flex items-center space-x-1 sm:space-x-2 shrink-0">
+            <LanguageSelector />
+
             <button
               onClick={toggleDarkMode}
               aria-label="Toggle dark mode"
@@ -283,7 +306,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                         }`}
                         title={item.description}
                       >
-                        <span>{item.label}</span>
+                        <span>{getLocalizedNavLabel(item.id, item.label)}</span>
                       </button>
                     );
                   })}
@@ -320,7 +343,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                 </span>
               </div>
 
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center space-x-2">
+                <LanguageSelector />
                 <button
                   onClick={toggleDarkMode}
                   aria-label="Toggle dark mode"
@@ -380,7 +404,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                                 <Icon className="w-4 h-4" />
                               </div>
                               <div className="min-w-0">
-                                <span className="text-sm font-semibold truncate block">{item.label}</span>
+                                <span className="text-sm font-semibold truncate block">{getLocalizedNavLabel(item.id, item.label)}</span>
                                 {item.description && (
                                   <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
                                     {item.description}

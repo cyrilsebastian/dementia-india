@@ -1,0 +1,20 @@
+{
+  "elderline": {
+    "title": "National Elderline",
+    "number": "14567",
+    "hours": "Toll-Free, 8 AM - 8 PM",
+    "desc": "Government of India national helpline for elder care, abuse intervention, and support services."
+  },
+  "ardsi": {
+    "title": "National Dementia Helpline (ARDSI)",
+    "number": "0484 2802035",
+    "hours": "Mon - Sat, 10 AM - 5 PM",
+    "desc": "Specialized dementia counseling, caregiver guidance, and local chapter support."
+  },
+  "telemanas": {
+    "title": "Tele-MANAS",
+    "number": "14416",
+    "hours": "24/7 Toll-Free",
+    "desc": "National mental health support service providing immediate psychological counseling."
+  }
+}

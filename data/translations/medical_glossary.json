@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "title": "Project Dementia India: Standardized Multilingual Clinical Glossary",
+    "description": "Standardized neurological and psychiatric clinical terms for dementia care in Indian languages. Adheres to NIMHANS and ARDSI guidance to prevent stigmatization.",
+    "version": "1.0.0",
+    "prohibited_terms": {
+      "hi": ["पागलपन", "पागल", "सनक", "मतिभ्रम"],
+      "ta": ["பைத்தியம்", "வெறி", "புத்திசுவாதீனம் இன்மை"],
+      "te": ["పిచ్చి", "వెర్రి"],
+      "kn": ["ಹುಚ್ಚುತನ", "ಹುಚ್ಚು"],
+      "bn": ["পাগলামি", "পাগল"],
+      "mr": ["वेडेपणा", "वेडा"],
+      "ml": ["ഭ്രാന്ത്"]
+    }
+  },
+  "terms": [
+    {
+      "key": "dementia",
+      "en": "Dementia",
+      "definition": "An umbrella term for loss of memory, language, problem-solving and other thinking abilities that are severe enough to interfere with daily life.",
+      "hi": {
+        "primary": "स्मृतिलोप",
+        "vernacular": "भूलने की बीमारी",
+        "notes": "Use 'भूलने की बीमारी' for general caregiver communication and 'स्मृतिलोप' in formal clinical contexts."
+      },
+      "ta": {
+        "primary": "நினைவாற்றல் இழப்பு நோய்",
+        "vernacular": "மறதி நோய்",
+        "notes": "Use 'மறதி நோய்' in patient-facing guides."
+      },
+      "te": {
+        "primary": "చిత్తవైకల్యం",
+        "vernacular": "మతిమరుపు వ్యాధి",
+        "notes": "Preferred vernacular is 'మతిమరుపు వ్యాధి'."
+      },
+      "kn": {
+        "primary": "ಮರೆಗುಳಿತನ",
+        "vernacular": "ನೆನಪಿನ ಶಕ್ತಿ ಕುಂದುವಿಕೆ",
+        "notes": "Do not confuse with general developmental delays."
+      },
+      "bn": {
+        "primary": "স্মৃতিভ্রংশ",
+        "vernacular": "ভুলে যাওয়ার রোগ",
+        "notes": "Commonly understood as 'স্মৃতিভ্রংশ' in medical literature."
+      },
+      "mr": {
+        "primary": "स्मृतीभ्रंश",
+        "vernacular": "विस्मृती विकार",
+        "notes": "Widely accepted in public health documentation."
+      },
+      "ml": {
+        "primary": "സ്മൃതിനാശം",
+        "vernacular": "ഓർമ്മക്കുറവ് രോഗം",
+        "notes": "Use 'ഓർമ്മക്കുറവ് രോഗം' for public-facing awareness."
+      }
+    },
+    {
+      "key": "alzheimers",
+      "en": "Alzheimer's Disease",
+      "definition": "A progressive disease that destroys memory and other important mental functions, representing 60-70% of dementia cases.",
+      "hi": { "primary": "अल्जाइमर रोग", "vernacular": "अल्जाइमर बीमारी" },
+      "ta": { "primary": "அல்சைமர் நோய்", "vernacular": "அல்சைமர் மறதி நோய்" },
+      "te": { "primary": "అల్జీమర్స్ వ్యాధి", "vernacular": "అల్జీమర్స్" },
+      "kn": { "primary": "ಅಲ್ಝೈಮರ್ ಕಾಯಿಲೆ", "vernacular": "ಅಲ್ಝೈಮರ್ ಕಾಯಿಲೆ" },
+      "bn": { "primary": "আলঝেইমার রোগ", "vernacular": "আলঝেইমার" },
+      "mr": { "primary": "अल्झायमर रोग", "vernacular": "अल्झायमर" },
+      "ml": { "primary": "അൽഷിമേഴ്സ് രോഗം", "vernacular": "അൽഷിമേഴ്സ്" }
+    },
+    {
+      "key": "caregiver",
+      "en": "Caregiver",
+      "definition": "A family member or supportive person who regularly assists with daily activities and care.",
+      "hi": { "primary": "देखभालकर्ता", "vernacular": "देखभाल करने वाले" },
+      "ta": { "primary": "பராமரிப்பாளர்", "vernacular": "கவனிப்பாளர்" },
+      "te": { "primary": "సంరక్షకుడు", "vernacular": "సంరక్షకులు" },
+      "kn": { "primary": "ಪಾಲಕರು", "vernacular": "ಆರೈಕೆದಾರರು" },
+      "bn": { "primary": "শুশ্রূষাকারী", "vernacular": "সেবাকারী" },
+      "mr": { "primary": "देखभालकर्ता", "vernacular": "काळजीवाहक" },
+      "ml": { "primary": "പരിചാരകൻ", "vernacular": "പരിപಾಲകൻ" }
+    },
+    {
+      "key": "neurologist",
+      "en": "Neurologist",
+      "definition": "A specialist physician trained in diagnosing and treating disorders of the brain and nervous system.",
+      "hi": { "primary": "न्यूरोलॉजिस्ट", "vernacular": "तंत्रिका रोग विशेषज्ञ" },
+      "ta": { "primary": "நரம்பியல் நிபுணர்", "vernacular": "நரம்பியல் மருத்துவர்" },
+      "te": { "primary": "న్యూరాలజిస్ట్", "vernacular": "నరాల వైద్య నిపుణుడు" },
+      "kn": { "primary": "ನರರೋಗ ತಜ್ಞರು", "vernacular": "ನರಶಾಸ್ತ್ರಜ್ಞರು" },
+      "bn": { "primary": "স্নায়ুরোগ বিশেষজ্ঞ", "vernacular": "নিউরো বিশেষজ্ঞ" },
+      "mr": { "primary": "मज्जारोगतज्ज्ञ", "vernacular": "मेंदू आणि मज्जातंतू तज्ज्ञ" },
+      "ml": { "primary": "ന്യൂറോളജിസ്റ്റ്", "vernacular": "നാഡീരോഗ വിദഗ്ദ്ധൻ" }
+    },
+    {
+      "key": "memory_clinic",
+      "en": "Memory Clinic",
+      "definition": "A specialized clinical facility focusing on cognitive assessment, early detection, and multidisciplinary care planning.",
+      "hi": { "primary": "मेमोरी क्लिनिक", "vernacular": "स्मृति जांच केंद्र" },
+      "ta": { "primary": "நினைவக மருத்துவ மையம்", "vernacular": "நினைவு பரிசோதனை மையம்" },
+      "te": { "primary": "మెమరీ క్లినిక్", "vernacular": "జ్ఞాపకశక్తి పరీక్షా కేంద్రం" },
+      "kn": { "primary": "ಮೆಮೊರಿ ಕ್ಲಿನಿಕ್", "vernacular": "ನೆನಪಿನ ತಪಾಸಣಾ ಕೇಂದ್ರ" },
+      "bn": { "primary": "মেমরি ক্লিনিক", "vernacular": "স্মৃতি পরীক্ষা কেন্দ্র" },
+      "mr": { "primary": "मेमरी क्लिनिक", "vernacular": "स्मृती तपासणी केंद्र" },
+      "ml": { "primary": "മെമ്മറി ക്ലിനിക്ക്", "vernacular": "ഓർമ്മ പരിശോധനാ കേന്ദ്രം" }
+    }
+  ]
+}

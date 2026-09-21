@@ -48,3 +48,31 @@
     scrollbar-width: none;
   }
 }
+
+/* Seamless Google Translate styling: hide banners, iframes, tooltips, and top offsets */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+.goog-te-gadget,
+#google_translate_element {
+  display: none !important;
+}
+
+.goog-tooltip,
+.goog-tooltip:hover,
+#goog-gt-tt,
+.goog-text-highlight {
+  display: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "familyGuide": "परिवार मार्गदर्शन",
+    "indiaData": "भारत आंकड़े",
+    "brainHealth": "मस्तिष्क स्वास्थ्य",
+    "research": "अनुसंधान",
+    "advancePlanning": "अग्रिम योजना",
+    "reachOut": "संपर्क करें",
+    "more": "अधिक",
+    "specialistDensity": "विशेषज्ञ उपलब्धता",
+    "healthSpending": "स्वास्थ्य बजट",
+    "careNetwork": "देखभाल केंद्र",
+    "globalView": "वैश्विक परिप्रेक्ष्य",
+    "about": "हमारे बारे में"
+  },
+  "footer": {
+    "title": "प्रोजेक्ट डिमेंशिया इंडिया: खुला स्वास्थ्य डेटा मंच",
+    "disclaimer": "अस्वीकरण",
+    "github": "गिटहब भंडार",
+    "status": "सिस्टम स्थिति",
+    "changelog": "परिवर्तन विवरण"
+  },
+  "buttons": {
+    "learnMore": "और जानें",
+    "readGuide": "मार्गदर्शिका पढ़ें",
+    "viewDirectory": "केंद्र देखें",
+    "close": "बंद करें",
+    "back": "वापस"
+  }
+}
