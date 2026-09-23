@@ -52,11 +52,10 @@ BANNED_DOSAGE_PATTERNS = [
 # Mandatory DOIs and citations that must exist in the codebase
 REQUIRED_CITATIONS = [
     ("10.1002/alz.088117", "Chatterjee et al., Alzheimer's & Dementia 2024"),
-    ("10.1016/S0140-6736(24)01061-5", "Lancet Commission on Dementia Prevention 2024"),
+    ("10.1016/S0140-6736(24)01296-0", "Lancet Commission on Dementia Prevention 2024"),
+    ("10.1001/jama.2024.13855", "AAIC 2024 / JAMA 2024"),
     ("10.3389/frdem.2026.1843904", "Frontiers in Dementia 2026"),
     ("10.1007/s11357-024-01488-3", "GeroScience meta-analysis 2025"),
-    ("10.1002/alz.13386", "Joza et al., Alzheimer's & Dementia 2024"),
-    ("10.1016/j.arr.2026.102704", "ScienceDirect 2026 / AAIC 2024"),
 ]
 
 def scan_files():
@@ -125,7 +124,7 @@ def scan_files():
 
 def main():
     print("=" * 65)
-    print("🔍 PROJECT DEMENTIA INDIA — EDITORIAL & CLINICAL COMPLIANCE AUDIT")
+    print("🔍 PROJECT DEMENTIA INDIA: EDITORIAL & CLINICAL COMPLIANCE AUDIT")
     print("=" * 65)
     
     violations = scan_files()

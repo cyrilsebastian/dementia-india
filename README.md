@@ -20,16 +20,21 @@ Project Dementia India is an open-source epidemiological data intelligence and h
 git clone https://github.com/cyrilsebastian/dementia-india.git
 cd dementia-india
 
-# 2. Build datasets and validate schemas
+# 2. Configure environment secrets
+cp .env.example .env.local
+
+# 3. Build datasets and validate schemas
 make data
 
-# 3. Install frontend dependencies and start Vite dev server
+# 4. Install frontend dependencies and start Vite dev server
 cd web
 npm install
 npm run dev
 ```
 
 The application will be running locally at `http://localhost:3000`.
+
+For synchronizing development across multiple systems (e.g. Mac Mini and MacBook Air), see the [Multi-Device Workflow Guide](MULTI_DEVICE_WORKFLOW.md).
 
 ## Data Pipeline
 

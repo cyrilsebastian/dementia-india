@@ -11,6 +11,7 @@ web/public/data/
 # Environment and secrets
 .env
 .env.*
+!.env.example
 *.local
 
 # OS and IDE files
@@ -21,3 +22,7 @@ web/public/data/
 .vscode/
 .obsidian/
 .agents/
+.tmp/
+.cache/
+plans/
+ledger/
