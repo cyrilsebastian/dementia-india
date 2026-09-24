@@ -7,9 +7,7 @@
 
 ## 1. Repository Identity & Architecture
 
-This repository contains **only the hosted application code** for **Project Dementia India**, an open-source epidemiological data intelligence and caregiver navigation platform.
-
-The universal agent personas and namespaced directives are maintained in the separate `agentic-template` repository (`~/Documents/git/github/agentic-template/`).
+This repository contains the complete hosted web application and deterministic data pipeline for **Project Dementia India**, an open-source epidemiological data intelligence and caregiver navigation platform.
 
 ### Codebase Organization
 - `cmd/`: Go deterministic pipeline executables (`mock`, `validate`, `transform`, `fetch`).
@@ -21,7 +19,7 @@ The universal agent personas and namespaced directives are maintained in the sep
 
 ---
 
-## 2. Multi-Device Synchronization (Mac Mini & MacBook Air)
+## 2. Multi-Device & Team Synchronization
 
 1. **Active Branch**: All work is coordinated on the `develop` branch.
 2. **Pull Before Work**: Always verify git status and pull latest changes:
@@ -53,19 +51,3 @@ Always verify changes locally before finishing a task:
 - `make test`: Executes all Go unit tests.
 - `cd web && npm run build`: Confirms TypeScript compiles with zero errors.
 - `python3 scripts/audit_compliance.py`: Confirms compliance with clinical guidelines.
-
----
-
-## 4. Agentic Directives & Personas Boundary
-
-- **Hosted Application Scope (This Repository)**: All executable application logic, data pipelines (`cmd/`, `internal/`), web UI (`web/`), vernacular translations (`web/src/locales/`), documentation (`wiki/`), and tests live strictly here.
-- **Directives & Personas (`agentic-template`)**: When executing specialized workflows, refer to the sibling directory `~/Documents/git/github/agentic-template/`:
-  - **Dementia India Directives**: `agentic-template/directives/dementia-india/`
-    - `mock_data.md`: Dataset synthesis protocols
-    - `validate_data.md`: Schema sanity checking rules
-    - `translate_locale.md`: Localization and clinical glossary standards
-    - `compliance_audit.md`: Regulatory and clinical verification rules
-    - `seo_audit.md`: Search engine optimization guidelines
-  - **Universal Personas**: `agentic-template/agents/` (`data_curator.md`, `compliance_auditor.md`, `seo_auditor.md`, etc.).
-- **Boundary Rule**: Never commit agent framework files, prompt plans, or ledgers inside `dementia-india`. Only the production-ready hosted code lives in this repository.
-

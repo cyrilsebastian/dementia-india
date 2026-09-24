@@ -34,8 +34,6 @@ npm run dev
 
 The application will be running locally at `http://localhost:3000`.
 
-For synchronizing development across multiple systems (e.g. Mac Mini and MacBook Air), see the [Multi-Device Workflow Guide](MULTI_DEVICE_WORKFLOW.md).
-
 ## Data Pipeline
 
 The project uses deterministic pipeline commands orchestrated via `make`:
