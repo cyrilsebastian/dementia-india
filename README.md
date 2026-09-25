@@ -20,8 +20,8 @@ Project Dementia India is an open-source epidemiological data intelligence and h
 git clone https://github.com/cyrilsebastian/dementia-india.git
 cd dementia-india
 
-# 2. Configure environment secrets
-cp .env.example .env.local
+# 2. Initialize setup (automatically links keys from ../keys/.env.dementia if available)
+make setup
 
 # 3. Build datasets and validate schemas
 make data
