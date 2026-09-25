@@ -1,57 +1,53 @@
-# Security rules
+# Security and Data Privacy Policy: Project Dementia India
 
-These rules are not subject to self-annealing. An agent may propose a change
-to this file; it may never apply one to itself.
+This document outlines the security, data privacy, and clinical safety standards enforced across **Project Dementia India**.
 
-## 1. Secrets stay in the execution layer
+---
 
-Only files in `execution/` may read `.env`. Directives, agent persona files,
-and plan files are committed to git and must never contain API keys, tokens,
-account numbers, or credentials — not even example ones that look real.
+## 1. Zero Protected Health Information (PHI) and PII
 
-## 2. Mutating actions require confirmation, always
+Project Dementia India is strictly a public health data visualization, research intelligence, and caregiver guidance platform.
 
-Any execution script that changes external state — placing a trade or order,
-sending an email, posting to a social account, deleting/overwriting a file
-outside `.tmp/`, calling a paid API above the cost threshold — must be marked
-`requires_confirmation: true` in its directive's frontmatter. The orchestrator
-writes a plan file and stops for human review before running it. This applies
-even after a script has run successfully many times before. No exceptions
-carved out by self-annealing.
+- **No Patient Data**: Under no circumstances does this platform collect, store, transmit, or process patient medical records, diagnostic imaging, cognitive assessment test results, or personal identifiers.
+- **Aggregated Open Data**: All datasets hosted in `data/processed/` consist exclusively of aggregated, anonymized epidemiological indicators derived from accredited national and international surveys (LASI Wave 1, GBD 2021, WHO Global Dementia Observatory).
+- **Directory Submissions**: Any directory submissions (e.g. support groups, day care centers) contain only publicly available organizational contacts, never private individuals.
 
-## 3. Read-only is the default assumption
+---
 
-If a directive doesn't explicitly say a script mutates state, treat it as
-read-only until proven otherwise. When in doubt, ask.
+## 2. Secrets and Credential Management
 
-## 4. Confirmation flags are a one-way door
+- **Local Secrets Stay Local**: Environment variables (`.env`, `.env.local`, `*.local`) are gitignored and must never be committed to source control.
+- **Template Configuration**: Reference [.env.example](.env.example) for required client-side keys.
+- **Restricted Access Keys**: Client-side keys (`VITE_WEB3FORMS_KEY`, `VITE_TURNSTILE_SITE_KEY`) are scoped with domain restrictions and rate limiting to prevent unauthorized usage.
+- **No Private Keys in Client Bundles**: Backend tokens, secret keys (such as `VITE_TURNSTILE_SECRET_KEY` or admin keys), and database connection strings must never be bundled into frontend assets.
 
-An agent may set `requires_confirmation: true` on its own initiative if it
-judges a task riskier than the directive assumed. An agent may never set it
-to `false`. Only a human editing the file directly can loosen this.
+---
 
-## 5. Cost threshold is a hard stop, not a suggestion
+## 3. Clinical Safety and Statutory Disclaimers
 
-`COST_THRESHOLD_USD` in `.env` defines the per-call/per-task ceiling above
-which the router must stop and request confirmation via a plan file,
-regardless of how confident the agent is that the spend is worth it.
+To protect vulnerable families and caregivers from misinformation:
 
-## 6. No credentials in prompts sent to cloud/paid models
+- **Zero Pharmaceutical Recommendations**: Brand and generic drug names (e.g. Donepezil, Memantine, Galantamine, Rivastigmine, Aducanumab, Lecanemab, Donanemab) and dosage instructions are strictly prohibited from all public pages.
+- **Specialist Routing**: All diagnostic, symptom assessment, and clinical inquiries must direct families exclusively to qualified cognitive neurologists, geriatricians, and accredited memory clinics.
+- **Mandatory Disclaimers**:
+  - Legal & Advance Planning: Explicitly state that content is informational and does not constitute formal legal counsel.
+  - Caregiver Guidance: Explicitly state that advice is non-prescriptive guidance and requires consultation with medical professionals.
+- **Deterministic Compliance Scanning**: The automated scanner (`python3 scripts/audit_compliance.py`) runs in CI and pre-commit to block prohibited terms.
 
-Never include `.env` contents, tokens, or account identifiers in a prompt
-sent to any LLM, local or remote. Local models are lower risk but not zero
-risk — treat prompt contents as if they could leak.
+---
 
-## 7. Financial account connections (trading APIs, banking, etc.)
+## 4. Source Attribution and Citation Integrity
 
-Any directive that touches a live trading, banking, or payment account:
-- Must be read-only (quotes, positions, balances) unless explicitly and
-  narrowly scoped otherwise by the user.
-- Order placement / fund transfer directives require `requires_confirmation:
-  true` with no exception, and should log the full intended action to
-  `plans/` before any execution script runs.
+- Every statistical claim, epidemiological estimate, and prevalence figure must be anchored to a published, peer-reviewed source or government health dataset.
+- Mandatory DOIs and permanent URLs must be hyperlinked directly in the user interface (e.g. Research and Brain Health pages).
 
-## 8. Reviewing this file
+---
 
-Re-read this file at the start of any session where the task involves money,
-personal data, or external communication on the user's behalf.
+## 5. Reporting Security Vulnerabilities
+
+We take the security of this platform and its underlying data pipelines seriously.
+
+If you discover a security vulnerability, data integrity flaw, or credential exposure:
+1. Please do not open a public issue.
+2. Email the maintainer directly at: `security@cyrilsebastian.com` (or create a private GitHub Security Advisory).
+3. Include detailed steps to reproduce the issue. We will respond within 48 hours to validate and patch the vulnerability.
