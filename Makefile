@@ -11,9 +11,10 @@ help: ## Show this help message
 setup: ## Initialize directories and verify tooling
 	@echo "🔧 Setting up project directories..."
 	@mkdir -p data/raw data/processed web/public
-	@if [ -f ../keys/.env.dementia ] && [ ! -e .env.local ]; then \
+	@if [ -f ../keys/.env.dementia ]; then \
 		ln -sf ../keys/.env.dementia .env.local; \
-		echo "✓ Linked .env.local -> ../keys/.env.dementia"; \
+		ln -sf ../../keys/.env.dementia web/.env.local; \
+		echo "✓ Linked .env.local & web/.env.local -> keys/.env.dementia"; \
 	fi
 	@go version
 	@node -v
