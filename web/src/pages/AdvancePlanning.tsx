@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { SEOHead } from '../components/SEOHead';
 import {
   Scale,
   CheckCircle2,
@@ -21,6 +22,12 @@ interface AdvancePlanningProps {
 export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) => {
   return (
     <div className="space-y-12 max-w-5xl mx-auto pb-16">
+      <SEOHead
+        title="Advance Medical Directive India — Planning for Dementia Care"
+        description="How to create a Living Will and Advance Medical Directive in India. Legal guidance on planning ahead for dementia patients and families."
+        path="/advance-planning"
+        keywords="advance medical directive India, living will India dementia, dementia planning India, end of life care India, power of attorney dementia India"
+      />
       {/* HEADER / INTRO */}
       <section className="bg-gradient-to-b from-blue-500/10 via-blue-500/5 to-transparent dark:from-blue-950/30 dark:via-blue-950/10 dark:to-transparent rounded-3xl border border-blue-200/80 dark:border-blue-800/50 p-6 sm:p-10 shadow-xs">
         <div className="max-w-3xl space-y-4">

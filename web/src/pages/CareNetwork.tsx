@@ -6,6 +6,7 @@
  */
 
 import React, { useState } from 'react';
+import { SEOHead } from '../components/SEOHead';
 import { Building2, Users, PhoneCall, AlertCircle, HeartHandshake, Clock, ShieldCheck, Award } from 'lucide-react';
 import { CareDirectory } from '../components/CareDirectory';
 import { HelplineCard } from '../components/HelplineCard';
@@ -101,6 +102,12 @@ export const CareNetwork: React.FC = () => {
 
   return (
     <div className="space-y-6">
+      <SEOHead
+        title="Dementia Care Network India — Memory Clinics, ARDSI Chapters, Helplines"
+        description="Verified directory of 30+ memory clinics, ARDSI support chapters, and 24×7 helplines across India. Find dementia care near you."
+        path="/care-network"
+        keywords="memory clinic India, ARDSI chapter, dementia helpline India, dementia care centre India, Alzheimer's support India, cognitive neurology clinic India"
+      />
       {/* Header Banner */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
         <div className="flex items-center space-x-3 mb-2">
@@ -288,3 +295,5 @@ export const CareNetwork: React.FC = () => {
     </div>
   );
 };
+
+export default CareNetwork;

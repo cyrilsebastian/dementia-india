@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { SEOHead } from '../components/SEOHead';
 import {
   Microscope,
   ExternalLink,
@@ -21,6 +22,12 @@ interface ResearchProps {
 export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
   return (
     <div className="space-y-12 max-w-5xl mx-auto pb-16">
+      <SEOHead
+        title="Dementia Research in India — Clinical Studies and Global Findings"
+        description="Overview of dementia research in India including LASI-DAD, NIMHANS studies, and key global findings on prevention, biomarkers, and treatment."
+        path="/research"
+        keywords="dementia research India, Alzheimer's research India, LASI dementia study, NIMHANS dementia, cognitive neurology India research"
+      />
       {/* HEADER / INTRO */}
       <section className="bg-gradient-to-b from-indigo-500/10 via-indigo-500/5 to-transparent dark:from-indigo-950/30 dark:via-indigo-950/10 dark:to-transparent rounded-3xl border border-indigo-200/80 dark:border-indigo-800/50 p-6 sm:p-10 shadow-xs">
         <div className="max-w-3xl space-y-4">

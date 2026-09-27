@@ -9,6 +9,7 @@
  */
 
 import React, { useState } from 'react';
+import { SEOHead } from '../components/SEOHead';
 import { Globe, BookOpen, ExternalLink } from 'lucide-react';
 import { GlobalStatCards } from '../components/GlobalStatCards';
 import { YoungOnsetCallout } from '../components/YoungOnsetCallout';
@@ -24,6 +25,12 @@ export const GlobalView: React.FC = () => {
 
   return (
     <div className="space-y-6">
+      <SEOHead
+        title="Global Dementia Statistics — India vs World Comparison 2024"
+        description="Compare dementia prevalence, case counts, and health system capacity across 10 countries. India against USA, UK, Japan, China, Australia and more."
+        path="/global-view"
+        keywords="global dementia statistics, dementia countries comparison, Alzheimer's world data, dementia India vs world, GBD dementia 2021"
+      />
       {/* Header Banner */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
         <div className="flex items-center justify-between mb-2">
@@ -155,3 +162,5 @@ export const GlobalView: React.FC = () => {
     </div>
   );
 };
+
+export default GlobalView;

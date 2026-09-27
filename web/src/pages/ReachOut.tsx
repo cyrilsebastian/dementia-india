@@ -21,6 +21,7 @@
  */
 
 import React, { useState, useRef } from 'react';
+import { SEOHead } from '../components/SEOHead';
 import { Turnstile } from '@marsidev/react-turnstile';
 import {
   Heart,
@@ -230,6 +231,12 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 py-4">
+      <SEOHead
+        title="Contact Dementia India — Feedback, Data Corrections and Research Queries"
+        description="Reach out to the Dementia India platform for feedback, data validation, research collaboration, or to report outdated information."
+        path="/reach-out"
+        keywords="contact dementia India, dementia data feedback India, dementia research collaboration"
+      />
       {/* Header Section */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
         <div className="flex items-center space-x-3 mb-2">
@@ -631,3 +638,5 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
     </div>
   );
 };
+
+export default ReachOut;

@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { SEOHead } from '../components/SEOHead';
 import { StatCards } from '../components/StatCards';
 import { IndiaChoropleth } from '../charts/IndiaChoropleth';
 import { AgeOnsetBar } from '../charts/AgeOnsetBar';
@@ -17,6 +18,12 @@ import { SubscribeForm } from '../components/SubscribeForm';
 export const IndiaPage: React.FC = () => {
   return (
     <div className="space-y-6">
+      <SEOHead
+        title="Dementia in India — State-wise Prevalence Data and Statistics"
+        description="Interactive data on dementia across India. State-wise prevalence maps, neurologist shortage analysis, and age-onset trends based on LASI Wave 1 and GBD 2021 data."
+        path="/"
+        keywords="dementia India statistics, dementia prevalence India state wise, Alzheimer's India data, dementia map India, LASI dementia study"
+      />
       {/* Headline Stat Cards */}
       <StatCards />
 
@@ -65,3 +72,5 @@ export const IndiaPage: React.FC = () => {
     </div>
   );
 };
+
+export default IndiaPage;

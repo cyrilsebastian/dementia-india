@@ -1,57 +1,73 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FilterProvider } from './context/FilterContext';
 import { Navbar } from './components/Navbar';
 import { FilterBar } from './components/FilterBar';
-import { IndiaPage } from './pages/IndiaPage';
-import { SpecialistPage } from './pages/SpecialistPage';
-import { HealthSpending } from './pages/HealthSpending';
-import { CareNetwork } from './pages/CareNetwork';
-import { GlobalView } from './pages/GlobalView';
-import { AboutPage } from './pages/AboutPage';
-import { FamilyGuide } from './pages/FamilyGuide';
-import { BrainHealth } from './pages/BrainHealth';
-import { Research } from './pages/Research';
-import { AdvancePlanning } from './pages/AdvancePlanning';
-import { ReachOut, NavTabType } from './pages/ReachOut';
 import { SubscribePopup } from './components/SubscribePopup';
+import type { NavTabType } from './pages/ReachOut';
+
+const FamilyGuide      = lazy(() => import('./pages/FamilyGuide'));
+const IndiaOverview    = lazy(() => import('./pages/IndiaOverview'));
+const CareNetwork      = lazy(() => import('./pages/CareNetwork'));
+const HealthSpending   = lazy(() => import('./pages/HealthSpending'));
+const GlobalView       = lazy(() => import('./pages/GlobalView'));
+const BrainHealth      = lazy(() => import('./pages/BrainHealth'));
+const AdvancePlanning  = lazy(() => import('./pages/AdvancePlanning'));
+const Research         = lazy(() => import('./pages/Research'));
+const About            = lazy(() => import('./pages/About'));
+const ReachOut         = lazy(() => import('./pages/ReachOut'));
+const SpecialistPage   = lazy(() => import('./pages/SpecialistPage'));
 
 export const AppContent: React.FC = () => {
-  const getInitialTab = (): NavTabType => {
-    const path = window.location.pathname.replace(/^\/+/, '');
-    const hash = window.location.hash.replace(/^#\/?/, '');
-    const target = hash || path;
-    if (target === 'india') return 'india';
-    if (target === 'brain-health') return 'brain-health';
-    if (target === 'research') return 'research';
-    if (target === 'advance-planning') return 'advance-planning';
-    if (target === 'specialist') return 'specialist';
-    if (target === 'health-spending') return 'health-spending';
-    if (target === 'care-network') return 'care-network';
-    if (target === 'global') return 'global';
-    if (target === 'reach-out') return 'reach-out';
-    if (target === 'about') return 'about';
-    if (target === 'family-guide') return 'family-guide';
-    // Family Guide is the primary landing view
-    return 'family-guide';
-  };
-
-  const [activeTab, setActiveTab] = useState<NavTabType>(getInitialTab);
+  const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useTranslation('common');
 
-  React.useEffect(() => {
-    const handlePopState = () => {
-      setActiveTab(getInitialTab());
-    };
-    window.addEventListener('popstate', handlePopState);
-    window.addEventListener('hashchange', handlePopState);
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-      window.removeEventListener('hashchange', handlePopState);
-    };
-  }, []);
+  const getTabFromPath = (pathname: string): NavTabType => {
+    const clean = pathname.replace(/^\/+/, '').replace(/\/+$/, '');
+    if (!clean || clean === 'india') return 'india';
+    if (clean === 'family-guide') return 'family-guide';
+    if (clean === 'brain-health') return 'brain-health';
+    if (clean === 'research') return 'research';
+    if (clean === 'advance-planning') return 'advance-planning';
+    if (clean === 'specialist' || clean === 'specialist-deserts') return 'specialist';
+    if (clean === 'health-spending') return 'health-spending';
+    if (clean === 'care-network') return 'care-network';
+    if (clean === 'global' || clean === 'global-view') return 'global';
+    if (clean === 'reach-out') return 'reach-out';
+    if (clean === 'about') return 'about';
+    return 'india';
+  };
 
-  React.useEffect(() => {
+  const activeTab = getTabFromPath(location.pathname);
+
+  // Backward compatibility: redirect any legacy hash URLs to clean BrowserRouter paths
+  useEffect(() => {
+    if (window.location.hash) {
+      const hash = window.location.hash.replace(/^#\/?/, '');
+      const hashRouteMap: Record<string, string> = {
+        'india': '/',
+        'family-guide': '/family-guide',
+        'care-network': '/care-network',
+        'brain-health': '/brain-health',
+        'specialist': '/specialist-deserts',
+        'specialist-deserts': '/specialist-deserts',
+        'health-spending': '/health-spending',
+        'global': '/global-view',
+        'global-view': '/global-view',
+        'advance-planning': '/advance-planning',
+        'research': '/research',
+        'about': '/about',
+        'reach-out': '/reach-out',
+      };
+      if (hashRouteMap[hash]) {
+        navigate(hashRouteMap[hash], { replace: true });
+      }
+    }
+  }, [navigate]);
+
+  useEffect(() => {
     try {
       const savedLang = localStorage.getItem('di_language');
       if (savedLang && savedLang !== 'en') {
@@ -66,29 +82,23 @@ export const AppContent: React.FC = () => {
     } catch {
       // Ignore
     }
-  }, [activeTab]);
+  }, [location.pathname]);
 
   const handleTabChange = (tab: NavTabType) => {
-    setActiveTab(tab);
-    if (tab === 'family-guide') {
-      window.history.pushState(null, '', '/family-guide');
-    } else if (tab === 'india') {
-      window.history.pushState(null, '', '/india');
-    } else if (tab === 'brain-health') {
-      window.history.pushState(null, '', '/brain-health');
-    } else if (tab === 'research') {
-      window.history.pushState(null, '', '/research');
-    } else if (tab === 'advance-planning') {
-      window.history.pushState(null, '', '/advance-planning');
-    } else if (tab === 'reach-out') {
-      window.history.pushState(null, '', '/reach-out');
-    } else if (tab === 'care-network') {
-      window.history.pushState(null, '', '/care-network');
-    } else if (tab === 'about') {
-      window.history.pushState(null, '', '/about');
-    } else {
-      window.history.pushState(null, '', `/#${tab}`);
-    }
+    const routeMap: Record<NavTabType, string> = {
+      'india': '/',
+      'family-guide': '/family-guide',
+      'care-network': '/care-network',
+      'brain-health': '/brain-health',
+      'specialist': '/specialist-deserts',
+      'health-spending': '/health-spending',
+      'global': '/global-view',
+      'advance-planning': '/advance-planning',
+      'research': '/research',
+      'about': '/about',
+      'reach-out': '/reach-out',
+    };
+    navigate(routeMap[tab] || `/${tab}`);
   };
 
   return (
@@ -97,17 +107,31 @@ export const AppContent: React.FC = () => {
       {activeTab === 'india' && <FilterBar />}
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-4 sm:py-6">
-        {activeTab === 'family-guide' && <FamilyGuide onNavigate={handleTabChange} />}
-        {activeTab === 'india' && <IndiaPage />}
-        {activeTab === 'brain-health' && <BrainHealth onNavigate={handleTabChange} />}
-        {activeTab === 'research' && <Research onNavigate={handleTabChange} />}
-        {activeTab === 'advance-planning' && <AdvancePlanning onNavigate={handleTabChange} />}
-        {activeTab === 'specialist' && <SpecialistPage />}
-        {activeTab === 'health-spending' && <HealthSpending />}
-        {activeTab === 'care-network' && <CareNetwork />}
-        {activeTab === 'global' && <GlobalView />}
-        {activeTab === 'reach-out' && <ReachOut onNavigate={handleTabChange} />}
-        {activeTab === 'about' && <AboutPage />}
+        <Suspense
+          fallback={
+            <div className="min-h-screen flex items-center justify-center">
+              <div className="animate-pulse text-muted-foreground">Loading...</div>
+            </div>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<IndiaOverview />} />
+            <Route path="/india" element={<IndiaOverview />} />
+            <Route path="/family-guide" element={<FamilyGuide onNavigate={handleTabChange} />} />
+            <Route path="/care-network" element={<CareNetwork />} />
+            <Route path="/brain-health" element={<BrainHealth onNavigate={handleTabChange} />} />
+            <Route path="/specialist-deserts" element={<SpecialistPage />} />
+            <Route path="/specialist" element={<SpecialistPage />} />
+            <Route path="/health-spending" element={<HealthSpending />} />
+            <Route path="/global-view" element={<GlobalView />} />
+            <Route path="/global" element={<GlobalView />} />
+            <Route path="/advance-planning" element={<AdvancePlanning onNavigate={handleTabChange} />} />
+            <Route path="/research" element={<Research onNavigate={handleTabChange} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/reach-out" element={<ReachOut onNavigate={handleTabChange} />} />
+            <Route path="*" element={<IndiaOverview />} />
+          </Routes>
+        </Suspense>
       </main>
 
       {/* Time-triggered subscription popup */}
@@ -159,10 +183,13 @@ export const AppContent: React.FC = () => {
 
 export const App: React.FC = () => {
   return (
-    <FilterProvider>
-      <AppContent />
-    </FilterProvider>
+    <BrowserRouter>
+      <FilterProvider>
+        <AppContent />
+      </FilterProvider>
+    </BrowserRouter>
   );
 };
 
 export default App;
+

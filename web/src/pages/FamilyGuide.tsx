@@ -6,6 +6,7 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { SEOHead } from '../components/SEOHead';
 import {
   Brain,
   AlertTriangle,
@@ -118,6 +119,12 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
 
   return (
     <div className="space-y-12 max-w-5xl mx-auto pb-16">
+      <SEOHead
+        title="Family Guide to Dementia — What to Watch For and How to Help"
+        description="A practical guide for families in India navigating dementia and Alzheimer's. Learn the warning signs, when to see a cognitive neurologist, and how to care for your loved one."
+        path="/family-guide"
+        keywords="dementia family guide India, Alzheimer's caregiver India, dementia symptoms India, when to see neurologist dementia, dementia warning signs"
+      />
       {/* OPENING */}
       <section className="bg-gradient-to-b from-emerald-500/10 via-emerald-500/5 to-transparent dark:from-emerald-950/30 dark:via-emerald-950/10 dark:to-transparent rounded-3xl border border-emerald-200/80 dark:border-emerald-800/50 p-6 sm:p-8 lg:p-10 shadow-xs">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

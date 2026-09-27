@@ -6,6 +6,7 @@
  */
 
 import React, { useState, useMemo } from 'react';
+import { SEOHead } from '../components/SEOHead';
 import { useCSV } from '../data/useCSV';
 import { NeurologistRecord } from '../types/data';
 import { Stethoscope, ShieldAlert, ArrowUpDown, ChevronUp, ChevronDown } from 'lucide-react';
@@ -87,6 +88,12 @@ export const SpecialistPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
+      <SEOHead
+        title="Neurologist Shortage in India — State-wise Specialist Availability"
+        description="India has 1 neurologist per 5 million people. Explore the state-wise neurologist gap, cognitive specialist shortage, and dementia patient load across all Indian states."
+        path="/specialist-deserts"
+        keywords="neurologist India state wise, cognitive neurologist India, dementia specialist India, neurologist shortage India, memory clinic neurologist"
+      />
       {/* Header Banner */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
         <div className="flex items-center space-x-3 mb-2">
@@ -296,3 +303,5 @@ export const SpecialistPage: React.FC = () => {
     </div>
   );
 };
+
+export default SpecialistPage;

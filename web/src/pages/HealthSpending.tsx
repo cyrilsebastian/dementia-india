@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { SEOHead } from '../components/SEOHead';
 import { IndianRupee, Brain, AlertOctagon, TrendingDown, Info, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { BudgetWaterfall } from '../charts/BudgetWaterfall';
 import { MentalHealthTrend } from '../charts/MentalHealthTrend';
@@ -15,6 +16,12 @@ import { NmhpUtilisationBar } from '../charts/NmhpUtilisationBar';
 export const HealthSpending: React.FC = () => {
   return (
     <div className="space-y-6">
+      <SEOHead
+        title="India Mental Health Budget — Dementia and Alzheimer's Funding Analysis"
+        description="India spends less than ₹7 per person per year on mental health. Analysis of the Union Health Budget, mental health allocation, and the invisible dementia funding gap."
+        path="/health-spending"
+        keywords="India mental health budget, dementia funding India, health spending India, NMHP budget, mental health allocation India"
+      />
       {/* Header Banner */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
         <div className="flex items-center space-x-3 mb-2">
@@ -313,3 +320,5 @@ export const HealthSpending: React.FC = () => {
     </div>
   );
 };
+
+export default HealthSpending;

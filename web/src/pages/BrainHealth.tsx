@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { SEOHead } from '../components/SEOHead';
 import {
   Activity,
   Salad,
@@ -29,6 +30,12 @@ interface BrainHealthProps {
 export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
   return (
     <div className="space-y-12 max-w-5xl mx-auto pb-16">
+      <SEOHead
+        title="How to Reduce Dementia Risk — Diet, Exercise, Sleep and Brain Health"
+        description="Evidence-based guide to reducing dementia risk. Mediterranean diet, physical activity, sleep health, and cognitive screening — what the research actually shows."
+        path="/brain-health"
+        keywords="prevent dementia India, reduce Alzheimer's risk, brain health India, Mediterranean diet dementia, exercise dementia prevention, cognitive screening India"
+      />
       {/* HEADER / INTRO */}
       <section className="bg-gradient-to-b from-teal-500/10 via-teal-500/5 to-transparent dark:from-teal-950/30 dark:via-teal-950/10 dark:to-transparent rounded-3xl border border-teal-200/80 dark:border-teal-800/50 p-6 sm:p-10 shadow-xs">
         <div className="max-w-3xl space-y-4">

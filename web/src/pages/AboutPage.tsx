@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { SEOHead } from '../components/SEOHead';
 import { Heart, Database, ShieldCheck, ExternalLink } from 'lucide-react';
 import { Disclaimer } from '../components/Disclaimer';
 import { SubscribeForm } from '../components/SubscribeForm';
@@ -52,6 +53,12 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 py-4">
+      <SEOHead
+        title="About Dementia India — Open Health Data Platform"
+        description="Built by a family caregiver. Dementia India is a free, open-source data platform for dementia and Alzheimer's awareness in India. Data sources, methodology, and ethical standards."
+        path="/about"
+        keywords="about dementia India platform, dementia India open data, LASI data dementia, dementia India methodology"
+      />
       {/* Caregiver Motivation */}
       <div className="bg-gradient-to-br from-emerald-50 via-teal-50 to-white dark:from-slate-900 dark:via-slate-850 dark:to-slate-900 rounded-2xl border border-emerald-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
         <div className="flex items-center space-x-3 mb-4">
@@ -151,3 +158,5 @@ export const AboutPage: React.FC = () => {
     </div>
   );
 };
+
+export default AboutPage;
