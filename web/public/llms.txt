@@ -1,0 +1,26 @@
+# Dementia India — Open Health Data Platform
+
+> Free, open-access epidemiological intelligence and health systems data platform for dementia and Alzheimer's disease across Indian states and Union Territories.
+
+## Overview
+Dementia India synthesizes subnational epidemiological benchmarks from the Longitudinal Aging Study in India (LASI Wave 1), Global Burden of Disease (GBD 2021), and ARDSI dementia registries. It provides state-wise prevalence figures, specialist deficit analyses, cognitive care clinic registries, and caregiver support directories.
+
+## Core Navigation & Endpoints
+- [India Overview](https://dementia.cyrilsebastian.com/): Interactive epidemiological dashboard with state choropleth map, age-onset gradient, and demographic disparities.
+- [Specialist Deserts](https://dementia.cyrilsebastian.com/specialist-deserts): State-wise neurologist availability, cognitive subspecialist counts, and patient-to-neurologist clinical burden.
+- [Care Network Directory](https://dementia.cyrilsebastian.com/care-network): Searchable directory of verified memory clinics, ARDSI chapters, day-care centers, and emergency elder helplines across Indian states.
+- [Family Guide](https://dementia.cyrilsebastian.com/family-guide): Clinical roadmap, early warning signs, behavioral symptom navigation, and daily caregiver strategies.
+- [Advance Planning](https://dementia.cyrilsebastian.com/advance-planning): Legal preparation, Advance Medical Directives (living wills), and power of attorney frameworks under Indian law.
+- [Brain Health](https://dementia.cyrilsebastian.com/brain-health): Lancet Commission modifiable risk factors, cognitive reserve, and evidence-based prevention.
+- [Health Spending](https://dementia.cyrilsebastian.com/health-spending): Union budget health allocations, National Mental Health Programme (NMHP) fund utilization, and state spending disparities.
+- [Global View](https://dementia.cyrilsebastian.com/global-view): Cross-national comparisons, WHO Western Pacific/SEARO regional burdens, and 2050 epidemiological forecasts.
+- [Research Hub](https://dementia.cyrilsebastian.com/research): Indian clinical studies, biomarker advances, and clinical trial landscape.
+- [About & Methodology](https://dementia.cyrilsebastian.com/about): Data sources, analytical methodology, citations, limitations, and platform governance.
+
+## Public Data Feeds (Machine-Readable)
+- [State Prevalence Dataset (CSV)](https://dementia.cyrilsebastian.com/data/india-states.csv): Disaggregated state-level prevalence rates by sex, urban/rural residence, age cohort, and education.
+- [India Boundary GeoJSON](https://dementia.cyrilsebastian.com/india-states.geojson): Topologically accurate GeoJSON of 36 Indian States & Union Territories.
+- [Headline Metrics (CSV)](https://dementia.cyrilsebastian.com/data/summary-stats.csv): Summary indicators including national caseloads, neurologist ratio, and diagnostic gaps.
+
+## Emergency Helpline
+- National Senior Citizen Helpline (Elderline): 14567 (Toll-free across India, 8 AM - 8 PM).

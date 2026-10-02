@@ -131,23 +131,28 @@ export const EtiologyBreakdown: React.FC = () => {
         </div>
         <div className="h-4 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden flex shadow-inner">
           {subtypes.map((st) => (
-            <div
+            <button
+              type="button"
               key={st.id}
               style={{ width: `${st.percentage}%` }}
-              className={`${st.colorBar} h-full transition-all duration-300 hover:opacity-90 relative group cursor-pointer`}
+              className={`${st.colorBar} h-full transition-all duration-300 hover:opacity-90 relative group cursor-pointer border-none p-0 focus:outline-none focus:ring-1 focus:ring-emerald-500`}
               title={`${st.name}: ${st.percentage}% (~${st.estCases})`}
+              aria-label={`Select ${st.name}, ${st.percentage} percent`}
               onClick={() => setSelectedSubtype(st.id)}
             />
           ))}
         </div>
-        <div className="flex flex-wrap items-center gap-3 pt-1 text-[11px] text-slate-500 dark:text-slate-400">
+        <div className="flex flex-wrap items-center gap-3 pt-1 text-[11px] text-slate-600 dark:text-slate-400">
           {subtypes.map((st) => (
             <button
+              type="button"
               key={st.id}
               onClick={() => setSelectedSubtype(selectedSubtype === st.id ? 'all' : st.id)}
-              className="flex items-center space-x-1.5 hover:underline"
+              className="flex items-center space-x-1.5 hover:underline focus:outline-none focus:ring-1 focus:ring-emerald-500 rounded px-1 py-0.5"
+              aria-pressed={selectedSubtype === st.id}
+              aria-label={`Filter by ${st.name}`}
             >
-              <span className={`w-2.5 h-2.5 rounded-sm ${st.colorBar}`} />
+              <span className={`w-2.5 h-2.5 rounded-sm ${st.colorBar}`} aria-hidden="true" />
               <span>{st.shortName} ({st.percentage}%)</span>
             </button>
           ))}

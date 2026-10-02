@@ -1,0 +1,42 @@
+# Dementia India — Full Epidemiological & Clinical Intelligence Documentation
+
+> Complete open-access knowledge base, dataset schema, and clinical directory documentation for AI assistants and autonomous research agents.
+
+## 1. Key Epidemiological Metrics (India Baseline)
+- **Total Senior Caseload (60+ yrs)**: 8.8 Million individuals living with dementia (LASI Wave 1 survey weights, 2020). Projected to reach 17.6 Million by 2050 (+100% surge).
+- **National Prevalence Rate**: ~7.4% across older adults aged 60+.
+- **Sex Disparity**: Women experience a disproportionately higher prevalence (~8.1% vs ~6.7% in men), compounded by longevity gaps, lower formal education rates, and vascular comorbidities.
+- **Urban vs Rural Disparity**: Rural cohorts exhibit nearly double the prevalence risk of urban counterparts, driven by diagnostic delays, lower cognitive reserve, and high rates of uncontrolled cardiovascular comorbidities.
+- **Neurologist Deficit**: ~1 neurologist per 5,000,000 citizens in rural India. Fewer than 100 formal cognitive/behavioral subspecialists practice nationwide.
+- **Diagnostic Void**: 85% to 90% of individuals with dementia never receive a formal clinical diagnosis, often dismissed as normal senescence ("bhulne ki bimari").
+- **Caregiver Burden**: 6.2 hours per day of unpaid family caregiving on average, surging to 9.5 hours/day in advanced stages. Over 70% of caregivers are female kin (wives, daughters, daughters-in-law).
+
+## 2. Clinical Etiology Breakdown
+- **Alzheimer's Disease (AD)**: ~65% of cases (~5.72 Million). Progressive episodic memory decay, spatial disorientation, language anomia.
+- **Vascular Dementia (VD)**: ~18% of cases (~1.58 Million). Stepwise cognitive decline, slowed executive processing, post-stroke ischemia.
+- **Lewy Body Dementia (DLB)**: ~10% of cases (~0.88 Million). Visual hallucinations, parkinsonian motor rigidity, fluctuating alertness, REM sleep disorder.
+- **Frontotemporal Dementia (FTD)**: ~7% of cases (~0.62 Million). Profound behavioral disinhibition, loss of empathy, progressive primary aphasia; higher proportion among younger seniors (45-65 yrs).
+
+## 3. Data Schema & CSV Downloads
+### State Prevalence Dataset (`/data/india-states.csv`)
+Columns:
+- `state_code`: ISO 3166-2:IN code (e.g., `IN-DL`, `IN-KL`, `IN-MH`)
+- `state_name`: Official State / Union Territory name
+- `sex`: Demographic stratum (`Both`, `Male`, `Female`)
+- `urban`: Geographic sector (`All`, `Rural`, `Urban`)
+- `age_group`: Age cohort (`60+`, `60-64`, `65-69`, `70-74`, `75-79`, `80-84`, `85+`)
+- `education`: Educational attainment level
+- `prevalence_pct`: Estimated dementia prevalence percentage
+- `lower`: 95% Confidence Interval lower bound
+- `upper`: 95% Confidence Interval upper bound
+- `est_cases`: Estimated population living with dementia
+- `population`: Senior cohort population estimate
+
+## 4. Emergency & Support Helplines
+- **National Elderline Helpline**: 14567 (Toll-free across India)
+- **Tele-MANAS (Mental Health Helpline)**: 14416 or 1800-891-4416 (24x7 toll-free)
+- **ARDSI National Office**: +91-98461-98471 / +91-484-280-1288
+- **NIMHANS Memory Clinic**: Bengaluru, Karnataka
+
+## 5. License & Attribution
+All data and research compilations are released under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. Attributed to: "Project Dementia India (dementia.cyrilsebastian.com), based on LASI Wave 1 (IIPS/MoHFW) and GBD 2021 data."

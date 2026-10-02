@@ -220,6 +220,10 @@ export const GlobalBubble: React.FC<GlobalBubbleProps> = ({ onSelectCountry }) =
               min="1990"
               max="2021"
               value={year}
+              aria-label="Select year for global timeline"
+              aria-valuemin={1990}
+              aria-valuemax={2021}
+              aria-valuenow={year}
               onChange={(e) => {
                 setIsPlaying(false);
                 setYear(Number(e.target.value));

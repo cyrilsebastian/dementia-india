@@ -73,9 +73,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor:   ['react', 'react-dom', 'react-router-dom'],
-          echarts:  ['echarts', 'echarts-for-react'],
-          ui:       ['tailwindcss'],
+          'vendor-react':  ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
+          'vendor-i18n':   ['i18next', 'react-i18next'],
+          'vendor-charts': ['echarts', 'echarts-for-react'],
+          'vendor-utils':  ['papaparse', 'lucide-react'],
         },
       },
     },

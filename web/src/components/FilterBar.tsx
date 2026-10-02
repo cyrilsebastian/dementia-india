@@ -159,9 +159,11 @@ export const FilterBar: React.FC = () => {
 
           {/* [Region] */}
           <div className="shrink-0" style={groupStyle}>
-            <span style={labelStyle}>Region</span>
+            <label htmlFor="filter-region-select" style={labelStyle}>Region</label>
             <div className="relative flex items-center shrink-0" style={{ alignSelf: 'center' }}>
               <select
+                id="filter-region-select"
+                aria-label="Filter by Indian State or Region"
                 value={selectedState || ''}
                 onChange={(e) => setSelectedState(e.target.value ? e.target.value : null)}
                 className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 font-medium focus:outline-none focus:ring-1 focus:ring-emerald-500"
@@ -188,9 +190,11 @@ export const FilterBar: React.FC = () => {
             </div>
             {selectedState && (
               <button
+                type="button"
                 onClick={() => setSelectedState(null)}
                 className="h-[24px] px-1 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-200 text-xs font-semibold border border-emerald-300 dark:border-emerald-800 transition-colors"
                 title="Clear state filter"
+                aria-label="Clear state filter"
                 style={{ alignSelf: 'center' }}
               >
                 ×
@@ -275,9 +279,11 @@ export const FilterBar: React.FC = () => {
 
           {/* [Cohort] */}
           <div className="shrink-0" style={groupStyle}>
-            <span style={labelStyle}>Cohort</span>
+            <label htmlFor="filter-cohort-select" style={labelStyle}>Cohort</label>
             <div className="relative flex items-center shrink-0" style={{ alignSelf: 'center' }}>
               <select
+                id="filter-cohort-select"
+                aria-label="Filter by Age Cohort"
                 value={ageGroup}
                 onChange={(e) => setAgeGroup(e.target.value as any)}
                 className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-md border border-slate-200 dark:border-slate-700 font-medium focus:outline-none focus:ring-1 focus:ring-emerald-500"
@@ -393,9 +399,13 @@ export const FilterBar: React.FC = () => {
             <div className="space-y-4 text-xs">
               {/* Region */}
               <div className="flex flex-col gap-1.5">
-                <span className="font-semibold text-slate-700 dark:text-slate-300">State / Region</span>
+                <label htmlFor="mobile-filter-region-select" className="font-semibold text-slate-700 dark:text-slate-300">
+                  State / Region
+                </label>
                 <div className="relative flex items-center">
                   <select
+                    id="mobile-filter-region-select"
+                    aria-label="Filter by Indian State or Region"
                     value={selectedState || ''}
                     onChange={(e) => setSelectedState(e.target.value ? e.target.value : null)}
                     className="w-full h-[38px] px-3 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -458,8 +468,12 @@ export const FilterBar: React.FC = () => {
 
               {/* Cohort */}
               <div className="flex flex-col gap-1.5">
-                <span className="font-semibold text-slate-700 dark:text-slate-300">Age Cohort</span>
+                <label htmlFor="mobile-filter-cohort-select" className="font-semibold text-slate-700 dark:text-slate-300">
+                  Age Cohort
+                </label>
                 <select
+                  id="mobile-filter-cohort-select"
+                  aria-label="Filter by Age Cohort"
                   value={ageGroup}
                   onChange={(e) => setAgeGroup(e.target.value as any)}
                   className="w-full h-[38px] px-3 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500"

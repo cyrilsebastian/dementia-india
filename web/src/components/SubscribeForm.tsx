@@ -132,8 +132,13 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
         ) : (
           <form onSubmit={handleSubmit} className="space-y-3">
             <div className="flex flex-col sm:flex-row gap-2.5 max-w-md mx-auto">
+              <label htmlFor="subscribe-newsletter-email" className="sr-only">
+                Email address
+              </label>
               <input
+                id="subscribe-newsletter-email"
                 type="email"
+                aria-label="Email address for monthly dispatch"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ email: e.target.value })}

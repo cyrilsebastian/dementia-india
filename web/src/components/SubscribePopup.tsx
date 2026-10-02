@@ -147,8 +147,13 @@ export const SubscribePopup: React.FC<SubscribePopupProps> = ({ delayMs }) => {
             {/* Subscription Form */}
             <form onSubmit={handleSubscribe} className="space-y-3 pt-2">
               <div>
+                <label htmlFor="popup-subscribe-email" className="sr-only">
+                  Email address
+                </label>
                 <input
+                  id="popup-subscribe-email"
                   type="email"
+                  aria-label="Email address for monthly dispatch"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

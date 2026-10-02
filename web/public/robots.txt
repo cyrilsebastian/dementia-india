@@ -1,9 +1,13 @@
 User-agent: *
 Allow: /
-Disallow: /data/
+Allow: /data/*.csv
+Allow: /india-states.geojson
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /*.env
+Disallow: /api/
 
 Sitemap: https://dementia.cyrilsebastian.com/sitemap.xml
 
-# Crawl-delay for polite bots
-Crawl-delay: 1
+# AI and Agentic Discovery
+# LLMS.txt: https://dementia.cyrilsebastian.com/llms.txt

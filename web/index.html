@@ -42,10 +42,13 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Google Font Preconnect -->
+    <!-- Google Font Preconnect & Non-blocking Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- Schema.org Linked Data (JSON-LD) for Search Rich Snippets -->
     <script type="application/ld+json">
@@ -165,12 +168,12 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script type="text/javascript">
-      // Continuously enforce zero banner and top offset
+      // Efficient observer to enforce zero banner without CPU timer polling
       (function() {
         function suppressBanner() {
           if (document.body) {
-            if (document.body.style.top !== '0px') document.body.style.top = '0px';
-            if (document.body.style.position !== 'static') document.body.style.position = 'static';
+            if (document.body.style.top && document.body.style.top !== '0px') document.body.style.top = '0px';
+            if (document.body.style.position && document.body.style.position !== 'static') document.body.style.position = 'static';
           }
           var banners = document.querySelectorAll('.goog-te-banner-frame, iframe.skiptranslate, iframe[id=":1.container"], iframe[name=":1.container"]');
           for (var i = 0; i < banners.length; i++) {
@@ -179,10 +182,13 @@
             banners[i].style.height = '0px';
           }
         }
-        setInterval(suppressBanner, 100);
+        if (typeof MutationObserver !== 'undefined') {
+          var observer = new MutationObserver(suppressBanner);
+          observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+        }
       })();
 
-      function googleTranslateElementInit() {
+      window.googleTranslateElementInit = function() {
         if (window.google && window.google.translate) {
           new window.google.translate.TranslateElement({
             pageLanguage: 'en',
@@ -190,9 +196,39 @@
             autoDisplay: false
           }, 'google_translate_element');
         }
+      };
+
+      // Non-blocking deferred loading of translation library
+      window.initGoogleTranslateScript = function() {
+        if (document.getElementById('google-translate-script')) return;
+        var s = document.createElement('script');
+        s.id = 'google-translate-script';
+        s.type = 'text/javascript';
+        s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        s.async = true;
+        document.body.appendChild(s);
+      };
+
+      // Load when non-English language requested or after window load idle
+      try {
+        var savedLang = localStorage.getItem('di_language');
+        if (savedLang && savedLang !== 'en') {
+          window.initGoogleTranslateScript();
+        } else if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() {
+            window.addEventListener('load', function() {
+              setTimeout(window.initGoogleTranslateScript, 3000);
+            });
+          });
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(window.initGoogleTranslateScript, 3500);
+          });
+        }
+      } catch (e) {
+        window.addEventListener('load', window.initGoogleTranslateScript);
       }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- Cloudflare Web Analytics Beacon -->
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dementia_india_beacon"}'></script>
     <!-- End Cloudflare Web Analytics Beacon -->

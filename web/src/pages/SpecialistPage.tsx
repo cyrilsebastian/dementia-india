@@ -134,8 +134,12 @@ export const SpecialistPage: React.FC = () => {
         {/* Mobile-Only Sort Control Bar */}
         <div className="sm:hidden p-3 bg-slate-50 dark:bg-slate-850/60 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
           <div className="flex items-center space-x-1.5 flex-1 min-w-0">
-            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 shrink-0">Sort:</span>
+            <label htmlFor="specialist-sort-select" className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 shrink-0">
+              Sort:
+            </label>
             <select
+              id="specialist-sort-select"
+              aria-label="Sort specialists table by metric"
               value={sortKey}
               onChange={(e) => handleSort(e.target.value as SortKey)}
               className="text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-lg border border-slate-200 dark:border-slate-700 py-1.5 px-2 font-medium focus:outline-none focus:ring-1 focus:ring-emerald-500 w-full truncate"
@@ -147,12 +151,14 @@ export const SpecialistPage: React.FC = () => {
             </select>
           </div>
           <button
+            type="button"
             onClick={() => setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'))}
             className="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 shrink-0"
             title="Toggle sort direction"
+            aria-label={`Toggle sort direction, currently ${sortOrder === 'asc' ? 'ascending' : 'descending'}`}
           >
             <span>{sortOrder.toUpperCase()}</span>
-            {sortOrder === 'asc' ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            {sortOrder === 'asc' ? <ChevronUp className="w-3.5 h-3.5" aria-hidden="true" /> : <ChevronDown className="w-3.5 h-3.5" aria-hidden="true" />}
           </button>
         </div>
 

@@ -106,7 +106,7 @@ export const AppContent: React.FC = () => {
       <Navbar activeTab={activeTab} setActiveTab={handleTabChange} />
       {activeTab === 'india' && <FilterBar />}
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-4 sm:py-6">
+      <main id="main-content" role="main" className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-4 sm:py-6">
         <Suspense
           fallback={
             <div className="min-h-screen flex items-center justify-center">
@@ -137,7 +137,7 @@ export const AppContent: React.FC = () => {
       {/* Time-triggered subscription popup */}
       <SubscribePopup />
 
-      <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+      <footer role="contentinfo" className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div>
             <span>{t('footer.title', { defaultValue: 'Project Dementia India · Open Health Data Platform' })}</span>

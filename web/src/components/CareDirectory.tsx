@@ -143,9 +143,14 @@ export const CareDirectory: React.FC<CareDirectoryProps> = ({ activeSection }) =
       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 shadow-sm flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
         {/* Search Input */}
         <div className="relative w-full sm:w-80">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true" />
+          <label htmlFor="care-directory-search-input" className="sr-only">
+            {activeSection === 'clinics' ? 'Search memory clinics or cities' : 'Search NGOs, support services, or cities'}
+          </label>
           <input
+            id="care-directory-search-input"
             type="text"
+            aria-label={activeSection === 'clinics' ? 'Search memory clinics or cities' : 'Search NGOs, support services, or cities'}
             placeholder={`Search ${activeSection === 'clinics' ? 'clinics or cities' : 'NGOs, services, cities'}...`}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -156,8 +161,13 @@ export const CareDirectory: React.FC<CareDirectoryProps> = ({ activeSection }) =
         {/* State & Service Filters */}
         <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
           <div className="flex items-center space-x-1.5 flex-1 sm:flex-initial min-w-[140px]">
-            <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
+            <MapPin className="w-4 h-4 text-slate-400 shrink-0 pointer-events-none" aria-hidden="true" />
+            <label htmlFor="care-directory-state-select" className="sr-only">
+              Filter by State
+            </label>
             <select
+              id="care-directory-state-select"
+              aria-label="Filter directory by state"
               value={selectedState}
               onChange={(e) => setSelectedState(e.target.value)}
               className="w-full text-xs sm:text-sm px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -174,7 +184,12 @@ export const CareDirectory: React.FC<CareDirectoryProps> = ({ activeSection }) =
           {/* Service Filter (for NGOs only) */}
           {activeSection === 'ngos' && (
             <div className="flex-1 sm:flex-initial min-w-[140px]">
+              <label htmlFor="care-directory-service-select" className="sr-only">
+                Filter by Service
+              </label>
               <select
+                id="care-directory-service-select"
+                aria-label="Filter directory by service type"
                 value={selectedService}
                 onChange={(e) => setSelectedService(e.target.value)}
                 className="w-full text-xs sm:text-sm px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
