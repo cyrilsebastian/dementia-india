@@ -137,7 +137,7 @@ export const AppContent: React.FC = () => {
       {/* Time-triggered subscription popup */}
       <SubscribePopup />
 
-      <footer role="contentinfo" className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+      <footer role="contentinfo" className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-700 dark:text-slate-300">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div>
             <span>{t('footer.title', { defaultValue: 'Project Dementia India · Open Health Data Platform' })}</span>
@@ -151,27 +151,27 @@ export const AppContent: React.FC = () => {
                   document.getElementById('disclaimer')?.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
               }}
-              className="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:underline transition-colors cursor-pointer"
+              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:underline transition-colors cursor-pointer"
             >
               {t('footer.disclaimer', { defaultValue: 'Disclaimer' })}
             </button>
-            <span className="text-slate-300 dark:text-slate-700">•</span>
-            <a href="https://github.com/cyrilsebastian/dementia-india" target="_blank" rel="noreferrer" className="hover:underline">
+            <span className="text-slate-400 dark:text-slate-600" aria-hidden="true">•</span>
+            <a href="https://github.com/cyrilsebastian/dementia-india" target="_blank" rel="noreferrer" className="hover:underline text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
               {t('footer.github', { defaultValue: 'GitHub Repository' })}
             </a>
-            <span className="text-slate-300 dark:text-slate-700">•</span>
-            <a href="https://cyrilsebastian.com" target="_blank" rel="noreferrer" className="hover:underline">
+            <span className="text-slate-400 dark:text-slate-600" aria-hidden="true">•</span>
+            <a href="https://cyrilsebastian.com" target="_blank" rel="noreferrer" className="hover:underline text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
               cyrilsebastian.com
             </a>
-            <span className="text-slate-300 dark:text-slate-700">•</span>
+            <span className="text-slate-400 dark:text-slate-600" aria-hidden="true">•</span>
             <a
               href="https://status.cyrilsebastian.com"
               target="_blank"
               rel="noreferrer"
-              className="hover:underline inline-flex items-center gap-1.5"
+              className="hover:underline inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
               title="Live monitoring of web portals"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" aria-hidden="true"></span>
               {t('footer.status', { defaultValue: 'Status' })}
             </a>
           </div>

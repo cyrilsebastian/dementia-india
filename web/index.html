@@ -46,13 +46,24 @@
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLMs.txt" />
     <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="LLMs-full.txt" />
 
-    <!-- Google Font Preconnect & Non-blocking Preload -->
+    <!-- Google Font Preconnect & Async Idle Loader -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    </noscript>
+    <script>
+      (function() {
+        function injectFont() {
+          var f = document.createElement('link');
+          f.rel = 'stylesheet';
+          f.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap';
+          document.head.appendChild(f);
+        }
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(injectFont);
+        } else {
+          window.addEventListener('load', injectFont);
+        }
+      })();
+    </script>
 
     <!-- Schema.org Linked Data (JSON-LD) for Search Rich Snippets -->
     <script type="application/ld+json">
@@ -233,8 +244,5 @@
         window.addEventListener('load', window.initGoogleTranslateScript);
       }
     </script>
-    <!-- Cloudflare Web Analytics Beacon -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dementia_india_beacon"}'></script>
-    <!-- End Cloudflare Web Analytics Beacon -->
   </body>
 </html>

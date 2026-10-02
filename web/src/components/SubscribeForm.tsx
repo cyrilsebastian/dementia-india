@@ -196,9 +196,9 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
               </div>
             )}
 
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            <p className="text-[11px] text-slate-600 dark:text-slate-300">
               Sent once monthly from{' '}
-              <span className="font-mono text-slate-600 dark:text-slate-300">
+              <span className="font-mono text-slate-800 dark:text-slate-200 font-medium">
                 hello@maildementia.cyrilsebastian.com
               </span>
               . No spam, ever. Unsubscribe at any time.

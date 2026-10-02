@@ -230,14 +230,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
           </div>
 
           {/* Supportive Helpline Pill on Desktop */}
-          <div className="hidden md:flex items-center space-x-2 text-xs text-slate-500 dark:text-slate-400">
+          <div className="hidden md:flex items-center space-x-2 text-xs text-slate-700 dark:text-slate-300">
             <a
               href="tel:14567"
-              className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/80 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors shadow-2xs"
+              className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors shadow-2xs font-medium"
               title="National Helpline for Senior Citizens (Elderline: 14567)"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-              <span className="font-medium">Elderly support line:</span>
+              <PhoneCall className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />
+              <span className="font-semibold">Elderly support line:</span>
               <span className="font-mono font-bold">14567</span>
             </a>
           </div>
@@ -249,31 +249,31 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             <button
               onClick={toggleDarkMode}
               aria-label="Toggle dark mode"
-              className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              {isDarkMode ? <Sun className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 sm:w-5 sm:h-5" />}
+              {isDarkMode ? <Sun className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-amber-400" aria-hidden="true" /> : <Moon className="w-4.5 h-4.5 sm:w-5 sm:h-5" aria-hidden="true" />}
             </button>
 
             <a
               href="https://github.com/cyrilsebastian/dementia-india"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="hidden sm:inline-flex p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               title="GitHub Repository"
               aria-label="GitHub Repository"
             >
-              <Github className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+              <Github className="w-4.5 h-4.5 sm:w-5 sm:h-5" aria-hidden="true" />
             </a>
 
             {/* Mobile Menu Toggle Button (lg:hidden) */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="lg:hidden p-2 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500"
               aria-label="Open navigation menu"
               aria-expanded={mobileMenuOpen}
             >
-              <Menu className="w-5 h-5 text-slate-900 dark:text-white" />
+              <Menu className="w-5 h-5 text-slate-900 dark:text-white" aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -302,7 +302,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                         className={`flex items-center px-2.5 py-1 rounded-lg text-xs xl:text-[13px] font-medium transition-all whitespace-nowrap ${
                           isActive
                             ? 'bg-emerald-600 text-white font-semibold shadow-xs'
-                            : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
+                            : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
                         }`}
                         title={item.description}
                       >

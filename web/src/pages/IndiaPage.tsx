@@ -11,6 +11,7 @@ import { StatCards } from '../components/StatCards';
 import { EtiologyBreakdown } from '../components/EtiologyBreakdown';
 import { AlertCircle } from 'lucide-react';
 import { SubscribeForm } from '../components/SubscribeForm';
+import { DeferredView } from '../components/DeferredView';
 
 const IndiaChoropleth = lazy(() =>
   import('../charts/IndiaChoropleth').then((m) => ({ default: m.IndiaChoropleth }))
@@ -54,22 +55,28 @@ export const IndiaPage: React.FC = () => {
         <h2 className="sr-only">Prevalence Maps and Demographic Disparities</h2>
         {/* Left Column: Interactive Map */}
         <div className="lg:col-span-7 flex flex-col">
-          <Suspense fallback={<ChartSkeleton heightClass="h-[380px] sm:h-[460px]" title="State Prevalence Map" />}>
-            <IndiaChoropleth />
-          </Suspense>
+          <DeferredView fallback={<ChartSkeleton heightClass="h-[380px] sm:h-[460px]" title="State Prevalence Map" />}>
+            <Suspense fallback={<ChartSkeleton heightClass="h-[380px] sm:h-[460px]" title="State Prevalence Map" />}>
+              <IndiaChoropleth />
+            </Suspense>
+          </DeferredView>
         </div>
 
         {/* Right Column: Demographic Disparities */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           <div className="flex-1">
-            <Suspense fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Age-Onset Gradient" />}>
-              <AgeOnsetBar />
-            </Suspense>
+            <DeferredView fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Age-Onset Gradient" />}>
+              <Suspense fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Age-Onset Gradient" />}>
+                <AgeOnsetBar />
+              </Suspense>
+            </DeferredView>
           </div>
           <div className="flex-1">
-            <Suspense fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Urban-Rural Distribution" />}>
-              <UrbanRuralBar />
-            </Suspense>
+            <DeferredView fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Urban-Rural Distribution" />}>
+              <Suspense fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Urban-Rural Distribution" />}>
+                <UrbanRuralBar />
+              </Suspense>
+            </DeferredView>
           </div>
         </div>
       </section>
