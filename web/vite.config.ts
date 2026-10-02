@@ -71,6 +71,7 @@ export default defineConfig({
     port: 3000,
   },
   build: {
+    cssCodeSplit: true,
     rollupOptions: {
       output: {
         manualChunks(id) {

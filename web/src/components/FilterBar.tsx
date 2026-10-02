@@ -120,7 +120,6 @@ export const FilterBar: React.FC = () => {
             <div
               className="relative flex items-center justify-center cursor-default"
               title="Global Filters (Synchronized across all visualizations)"
-              aria-label="Global Filters active"
               style={{ alignSelf: 'center' }}
             >
               <Filter style={{ width: '16px', height: '16px' }} className="text-emerald-600 dark:text-emerald-400" />
@@ -218,7 +217,6 @@ export const FilterBar: React.FC = () => {
                     aria-checked={isActive}
                     onClick={() => setSex(s)}
                     aria-label={`Filter by sex: ${s}`}
-                    aria-pressed={isActive}
                     style={{
                       height: '28px',
                       fontSize: '12px',
@@ -258,7 +256,6 @@ export const FilterBar: React.FC = () => {
                     aria-checked={isActive}
                     onClick={() => setUrban(u)}
                     aria-label={`Filter by area: ${u}`}
-                    aria-pressed={isActive}
                     style={{
                       height: '28px',
                       fontSize: '12px',
@@ -442,10 +439,9 @@ export const FilterBar: React.FC = () => {
                         aria-checked={isActive}
                         onClick={() => setSex(s)}
                         aria-label={`Filter by sex: ${s}`}
-                        aria-pressed={isActive}
                         className={`h-[36px] rounded-xl text-xs font-semibold flex items-center justify-center transition-all ${
                           isActive
-                            ? 'bg-emerald-600 text-white shadow-xs'
+                            ? 'bg-emerald-700 text-white shadow-xs'
                             : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700'
                         }`}
                       >
@@ -469,10 +465,9 @@ export const FilterBar: React.FC = () => {
                         aria-checked={isActive}
                         onClick={() => setUrban(u)}
                         aria-label={`Filter by area: ${u}`}
-                        aria-pressed={isActive}
                         className={`h-[36px] rounded-xl text-xs font-semibold flex items-center justify-center transition-all ${
                           isActive
-                            ? 'bg-emerald-600 text-white shadow-xs'
+                            ? 'bg-emerald-700 text-white shadow-xs'
                             : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700'
                         }`}
                       >
@@ -515,7 +510,7 @@ export const FilterBar: React.FC = () => {
               </button>
               <button
                 onClick={() => setMobileDrawerOpen(false)}
-                className="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-sm"
+                className="flex-1 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold shadow-sm"
               >
                 Apply Filters
               </button>

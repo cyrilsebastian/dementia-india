@@ -173,7 +173,7 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center space-x-1.5 shrink-0"
+                className="px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center space-x-1.5 shrink-0"
               >
                 {status === 'loading' ? (
                   <>

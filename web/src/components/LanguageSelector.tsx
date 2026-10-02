@@ -80,7 +80,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
           setIsOpen((prev) => !prev);
         }}
         className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200/80 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
-        aria-label="Select language"
+        aria-label={`Select language, currently ${currentLanguage.nativeName}`}
         aria-expanded={isOpen}
       >
         <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-300" />

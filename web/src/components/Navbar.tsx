@@ -301,7 +301,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                         onClick={() => handleSelectTab(item.id)}
                         className={`flex items-center px-2.5 py-1 rounded-lg text-xs xl:text-[13px] font-medium transition-all whitespace-nowrap ${
                           isActive
-                            ? 'bg-emerald-600 text-white font-semibold shadow-xs'
+                            ? 'bg-emerald-700 text-white font-semibold shadow-xs'
                             : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
                         }`}
                         title={item.description}

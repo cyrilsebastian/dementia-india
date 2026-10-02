@@ -114,7 +114,7 @@ export const EtiologyBreakdown: React.FC = () => {
             onClick={() => setSelectedSubtype('alzheimers')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               selectedSubtype === 'alzheimers'
-                ? 'bg-emerald-600 text-white shadow-sm'
+                ? 'bg-emerald-700 text-white shadow-sm'
                 : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
@@ -137,7 +137,7 @@ export const EtiologyBreakdown: React.FC = () => {
               style={{ width: `${st.percentage}%` }}
               className={`${st.colorBar} h-full transition-all duration-300 hover:opacity-90 relative group cursor-pointer border-none p-0 focus:outline-none focus:ring-1 focus:ring-emerald-500`}
               title={`${st.name}: ${st.percentage}% (~${st.estCases})`}
-              aria-label={`Select ${st.name}, ${st.percentage} percent`}
+              aria-label={`Select ${st.shortName} (${st.percentage}%)`}
               onClick={() => setSelectedSubtype(st.id)}
             />
           ))}
@@ -150,7 +150,7 @@ export const EtiologyBreakdown: React.FC = () => {
               onClick={() => setSelectedSubtype(selectedSubtype === st.id ? 'all' : st.id)}
               className="flex items-center space-x-1.5 hover:underline focus:outline-none focus:ring-1 focus:ring-emerald-500 rounded px-1 py-0.5"
               aria-pressed={selectedSubtype === st.id}
-              aria-label={`Filter by ${st.name}`}
+              aria-label={`Filter by ${st.shortName} (${st.percentage}%)`}
             >
               <span className={`w-2.5 h-2.5 rounded-sm ${st.colorBar}`} aria-hidden="true" />
               <span>{st.shortName} ({st.percentage}%)</span>
