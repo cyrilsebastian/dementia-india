@@ -90,7 +90,7 @@ export const SpecialistPage: React.FC = () => {
     <div className="space-y-6">
       <SEOHead
         title="Neurologist Shortage in India — State-wise Specialist Availability"
-        description="India has 1 neurologist per 5 million people. Explore the state-wise neurologist gap, cognitive specialist shortage, and dementia patient load across all Indian states."
+        description="India has 1 neurologist per 5 million people. Explore state-wise specialist shortages, diagnostic deserts, and dementia caseloads across Indian states."
         path="/specialist-deserts"
         keywords="neurologist India state wise, cognitive neurologist India, dementia specialist India, neurologist shortage India, memory clinic neurologist"
       />
@@ -104,7 +104,7 @@ export const SpecialistPage: React.FC = () => {
             <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
               India's Neurological Care Deserts
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-300">
               Assessing state-by-state specialist density against rising dementia caseloads.
             </p>
           </div>
@@ -122,7 +122,7 @@ export const SpecialistPage: React.FC = () => {
             <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white">
               State-wise Neurologist Availability & Specialist Load
             </h3>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed max-w-2xl">
+            <p className="text-[11px] text-slate-500 dark:text-slate-300 mt-0.5 leading-relaxed max-w-2xl">
               Neurologist counts: IAN membership directory ~3,000 members (<a href="https://ianindia.org" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 hover:underline">ianindia.org</a>) and NSI registry. Per-million figures calculated using Census 2011 projected population. Data year: 2023-24. Cognitive/behavioural specialist counts are estimates based on IAN subspecialty listings; not independently verified per state.
             </p>
           </div>
@@ -134,7 +134,7 @@ export const SpecialistPage: React.FC = () => {
         {/* Mobile-Only Sort Control Bar */}
         <div className="sm:hidden p-3 bg-slate-50 dark:bg-slate-850/60 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
           <div className="flex items-center space-x-1.5 flex-1 min-w-0">
-            <label htmlFor="specialist-sort-select" className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 shrink-0">
+            <label htmlFor="specialist-sort-select" className="text-[11px] font-semibold text-slate-500 dark:text-slate-300 shrink-0">
               Sort:
             </label>
             <select
@@ -211,7 +211,7 @@ export const SpecialistPage: React.FC = () => {
         {/* Desktop Table View (hidden sm:block) */}
         <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-slate-50 dark:bg-slate-850 text-slate-600 dark:text-slate-400 font-semibold border-b border-slate-200 dark:border-slate-800 select-none">
+            <thead className="bg-slate-50 dark:bg-slate-850 text-slate-600 dark:text-slate-300 font-semibold border-b border-slate-200 dark:border-slate-800 select-none">
               <tr>
                 <th className="py-3 px-4">
                   <button
@@ -285,7 +285,7 @@ export const SpecialistPage: React.FC = () => {
                       {row.neurologist_per_million.toFixed(2)}
                     </span>
                   </td>
-                  <td className="py-3 px-4 text-right font-mono tabular-nums text-slate-500 dark:text-slate-400">
+                  <td className="py-3 px-4 text-right font-mono tabular-nums text-slate-500 dark:text-slate-300">
                     {row.total_neurologists === 0 ? 'No Specialist' : `1 : ${Number(row.patient_per_neurologist).toLocaleString()}`}
                   </td>
                 </tr>
@@ -295,7 +295,7 @@ export const SpecialistPage: React.FC = () => {
         </div>
 
         {/* Table Legend */}
-        <div className="p-3.5 sm:p-4 bg-slate-50/70 dark:bg-slate-850/50 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 space-y-1.5">
+        <div className="p-3.5 sm:p-4 bg-slate-50/70 dark:bg-slate-850/50 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-300 space-y-1.5">
           <div className="flex items-start space-x-1.5">
             <span className="text-amber-500 font-bold shrink-0">*</span>
             <span><strong>Total Neurologists:</strong> Estimated from partial registry data. Exact count unverified.</span>

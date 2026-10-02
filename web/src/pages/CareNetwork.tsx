@@ -118,7 +118,7 @@ export const CareNetwork: React.FC = () => {
             <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
               India Dementia Care Network
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-300">
               Verified directory of specialized memory clinics, ARDSI support chapters, and emergency helplines.
             </p>
           </div>
@@ -170,7 +170,7 @@ export const CareNetwork: React.FC = () => {
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
                 Informal Caregiver Burden & Economic Reality
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-slate-500 dark:text-slate-300">
                 Source: ARDSI Dementia India Report & WHO Global Dementia Observatory Benchmarks
               </p>
             </div>
@@ -182,53 +182,53 @@ export const CareNetwork: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-1">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-300">
               <span className="text-xs font-semibold uppercase tracking-wider">Daily Care Time</span>
               <Clock className="w-4 h-4 text-emerald-500" />
             </div>
             <div className="text-2xl font-bold font-mono text-slate-900 dark:text-white tabular-nums">
               6.2 <span className="text-sm font-sans font-medium text-slate-500">hrs/day</span>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            <p className="text-[11px] text-slate-500 dark:text-slate-300">
               Surges to <strong>9.5 hrs/day</strong> in moderate-to-severe stages of neurodegeneration.
             </p>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-1">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-300">
               <span className="text-xs font-semibold uppercase tracking-wider">Gender Disparity</span>
               <Users className="w-4 h-4 text-indigo-500" />
             </div>
             <div className="text-2xl font-bold font-mono text-indigo-600 dark:text-indigo-400 tabular-nums">
               72% <span className="text-sm font-sans font-medium text-slate-500">Female</span>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            <p className="text-[11px] text-slate-500 dark:text-slate-300">
               Overwhelmingly borne by spouses, daughters, and daughters-in-law without institutional aid.
             </p>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-1">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-300">
               <span className="text-xs font-semibold uppercase tracking-wider">Opportunity Cost</span>
               <Award className="w-4 h-4 text-amber-500" />
             </div>
             <div className="text-2xl font-bold font-mono text-amber-600 dark:text-amber-400 tabular-nums">
               ₹40k–₹1.5L
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            <p className="text-[11px] text-slate-500 dark:text-slate-300">
               Monthly lost income and foregone employment opportunities per household.
             </p>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-1">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-300">
               <span className="text-xs font-semibold uppercase tracking-wider">Respite Access</span>
               <ShieldCheck className="w-4 h-4 text-rose-500" />
             </div>
             <div className="text-2xl font-bold font-mono text-rose-600 dark:text-rose-400 tabular-nums">
               &lt; 10%
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            <p className="text-[11px] text-slate-500 dark:text-slate-300">
               Fewer than 1 in 10 Indian families have access to subsidized day-care or respite facilities.
             </p>
           </div>
@@ -242,7 +242,7 @@ export const CareNetwork: React.FC = () => {
           className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 whitespace-nowrap ${
             activeTab === 'clinics'
               ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/20'
-              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
+              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
           }`}
         >
           <Building2 className="w-4 h-4" />
@@ -254,7 +254,7 @@ export const CareNetwork: React.FC = () => {
           className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 whitespace-nowrap ${
             activeTab === 'ngos'
               ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/20'
-              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
+              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
           }`}
         >
           <Users className="w-4 h-4" />
@@ -266,7 +266,7 @@ export const CareNetwork: React.FC = () => {
           className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 whitespace-nowrap ${
             activeTab === 'helplines'
               ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/20'
-              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
+              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
           }`}
         >
           <PhoneCall className="w-4 h-4" />

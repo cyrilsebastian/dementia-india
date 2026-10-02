@@ -44,7 +44,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
             Research on dementia, Alzheimer&apos;s, and brain health, with priority given to Indian studies.
           </p>
 
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 pt-2 border-t border-indigo-200/60 dark:border-indigo-900/60">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-300 pt-2 border-t border-indigo-200/60 dark:border-indigo-900/60">
             Verified scientific citations and research registries. No commercial sponsorships or unverified claims.
           </p>
         </div>
@@ -80,7 +80,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
                 LASI-DAD (Diagnostic Assessment of Dementia)
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <p className="text-xs text-slate-500 dark:text-slate-300 font-medium">
                 Institution: NIMHANS + IIPS
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -109,7 +109,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
                 AIIMS Memory Clinic Research
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <p className="text-xs text-slate-500 dark:text-slate-300 font-medium">
                 Institution: AIIMS New Delhi
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -117,7 +117,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
               </p>
             </div>
             <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px]">
-              <span className="text-slate-500 dark:text-slate-400">Published: </span>
+              <span className="text-slate-500 dark:text-slate-300">Published: </span>
               <a
                 href="https://doi.org/10.1002/alz.088117"
                 target="_blank"
@@ -139,7 +139,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
                 NIMHANS Dementia Programme
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <p className="text-xs text-slate-500 dark:text-slate-300 font-medium">
                 Institution: National Institute of Mental Health &amp; Neuro Sciences, Bengaluru
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -157,7 +157,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
                 ICMR Neurodegenerative Disease Task Force
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <p className="text-xs text-slate-500 dark:text-slate-300 font-medium">
                 Institution: Indian Council of Medical Research
               </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -317,7 +317,7 @@ export const Research: React.FC<ResearchProps> = ({ onNavigate }) => {
 
       {/* Clinical Disclaimer */}
       <div className="text-center pt-4 border-t border-slate-200 dark:border-slate-800">
-        <p className="text-xs text-slate-500 dark:text-slate-400 italic max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs text-slate-500 dark:text-slate-300 italic max-w-2xl mx-auto leading-relaxed">
           The research cited on this page is for public education and health policy analysis. All clinical investigations and evaluations should be coordinated through an accredited memory clinic or cognitive neurology department.
         </p>
       </div>

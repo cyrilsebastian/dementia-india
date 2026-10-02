@@ -55,7 +55,7 @@ export const AboutPage: React.FC = () => {
     <div className="max-w-4xl mx-auto space-y-8 py-4">
       <SEOHead
         title="About Dementia India — Open Health Data Platform"
-        description="Built by a family caregiver. Dementia India is a free, open-source data platform for dementia and Alzheimer's awareness in India. Data sources, methodology, and ethical standards."
+        description="About Dementia India: a free, open-source health data platform mapping dementia prevalence, diagnostic gaps, and care infrastructure across Indian states."
         path="/about"
         keywords="about dementia India platform, dementia India open data, LASI data dementia, dementia India methodology"
       />
@@ -69,7 +69,7 @@ export const AboutPage: React.FC = () => {
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">
               Caregiver Context & Personal Motivation
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-300">
               Built by Cyril Sebastian, a DevOps and Platform Engineering consultant and a family caregiver.
             </p>
           </div>
@@ -94,7 +94,7 @@ export const AboutPage: React.FC = () => {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
               Data Sources & Citations
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-300">
               Rigorous, peer-reviewed, and publicly accessible epidemiological datasets.
             </p>
           </div>
@@ -117,7 +117,7 @@ export const AboutPage: React.FC = () => {
                   {src.institution}
                 </span>
               </div>
-              <p className="text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-300 mt-1 leading-relaxed">
                 {src.description}
               </p>
             </div>
@@ -135,7 +135,7 @@ export const AboutPage: React.FC = () => {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
               Ethical Standards & Privacy
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-300">
               Compliance with DPDP Act 2023 and Open Data Principles.
             </p>
           </div>

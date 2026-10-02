@@ -83,7 +83,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ className = 
         aria-label="Select language"
         aria-expanded={isOpen}
       >
-        <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+        <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-300" />
         <span className="font-semibold">{currentLanguage.nativeName}</span>
         <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500" />
       </button>

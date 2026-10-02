@@ -47,7 +47,7 @@ export const GlobalView: React.FC = () => {
                   Live Surveillance
                 </span>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-slate-500 dark:text-slate-300">
                 Cross-National Benchmarks, Economic Gradients & Longitudinal Projections
               </p>
             </div>
@@ -97,7 +97,7 @@ export const GlobalView: React.FC = () => {
       </div>
 
       {/* Methodology & Data Sources Footer */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm text-xs text-slate-600 dark:text-slate-400 space-y-2">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm text-xs text-slate-600 dark:text-slate-300 space-y-2">
         <div className="flex items-center space-x-2 text-slate-900 dark:text-white font-semibold">
           <BookOpen className="w-4 h-4 text-emerald-500" />
           <span>Global Methodology & Primary Citations</span>

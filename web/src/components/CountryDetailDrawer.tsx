@@ -81,11 +81,11 @@ export const CountryDetailDrawer: React.FC<CountryDetailDrawerProps> = ({ countr
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <span>{countryName}</span>
-                    <span className="text-xs font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                    <span className="text-xs font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300">
                       {countryCode}
                     </span>
                   </h3>
-                  <span className="text-xs text-slate-500 dark:text-slate-400">
+                  <span className="text-xs text-slate-500 dark:text-slate-300">
                     Region: {region}
                   </span>
                 </div>
@@ -104,14 +104,14 @@ export const CountryDetailDrawer: React.FC<CountryDetailDrawerProps> = ({ countr
             <div className="mt-6 space-y-4">
               {/* Epidemiological Prevalence */}
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
-                <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-1">
+                <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-300 mb-1">
                   <span>Dementia Prevalence (60+ Cohort)</span>
                   <span className="font-mono text-[11px]">95% CI: [{lowerCI}% – {upperCI}%]</span>
                 </div>
                 <div className="text-2xl font-extrabold text-amber-600 dark:text-amber-400">
                   {prevalence}%
                 </div>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                <p className="text-[11px] text-slate-500 dark:text-slate-300 mt-1">
                   Surveillance standard based on IHME GBD 2021 DISMOD-MR 2.1 Bayesian modeling.
                 </p>
               </div>
@@ -142,7 +142,7 @@ export const CountryDetailDrawer: React.FC<CountryDetailDrawerProps> = ({ countr
               {/* Economic Status */}
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex items-center justify-between">
                 <div>
-                  <span className="text-xs text-slate-500 dark:text-slate-400 block">GDP per Capita (PPP 2021)</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-300 block">GDP per Capita (PPP 2021)</span>
                   <span className="text-lg font-bold text-slate-900 dark:text-white tabular-nums">{gdpUSD}</span>
                 </div>
                 <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-500">
@@ -153,7 +153,7 @@ export const CountryDetailDrawer: React.FC<CountryDetailDrawerProps> = ({ countr
               {/* WHO Policy Readiness */}
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-500 dark:text-slate-400">WHO National Action Plan</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-300">WHO National Action Plan</span>
                   <div className="flex items-center space-x-1 font-semibold text-xs">
                     {policyStatus === 'Yes' ? (
                       <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
@@ -170,7 +170,7 @@ export const CountryDetailDrawer: React.FC<CountryDetailDrawerProps> = ({ countr
                     )}
                   </div>
                 </div>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2">
+                <p className="text-[11px] text-slate-500 dark:text-slate-300 mt-2">
                   Targeted under Pillar 1 of the WHO Global Action Plan on the Public Health Response to Dementia (2017–2025).
                 </p>
               </div>

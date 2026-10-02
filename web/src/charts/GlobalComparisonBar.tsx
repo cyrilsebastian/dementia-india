@@ -196,7 +196,7 @@ export const GlobalComparisonBar: React.FC<GlobalComparisonBarProps> = ({ onSele
               className={`flex items-center space-x-1 px-3 py-1 text-xs font-semibold rounded-lg cursor-pointer transition-all ${
                 metric === tab.key
                   ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-xs'
-                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  : 'text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <span>{tab.label}</span>

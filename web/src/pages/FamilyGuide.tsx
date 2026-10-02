@@ -121,7 +121,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
     <div className="space-y-12 max-w-5xl mx-auto pb-16">
       <SEOHead
         title="Family Guide to Dementia — What to Watch For and How to Help"
-        description="A practical guide for families in India navigating dementia and Alzheimer's. Learn the warning signs, when to see a cognitive neurologist, and how to care for your loved one."
+        description="A practical guide for Indian families navigating dementia: recognize warning signs, learn when to see a neurologist, and discover everyday care strategies."
         path="/family-guide"
         keywords="dementia family guide India, Alzheimer's caregiver India, dementia symptoms India, when to see neurologist dementia, dementia warning signs"
       />
@@ -146,7 +146,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
               {t('hero.lead', { defaultValue: 'Every moment of patience and presence honors a lifetime of shared memories. This guide provides clear clinical pathways, daily care techniques, and steadfast support: step by step.' })}
             </p>
 
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 pt-3 border-t border-emerald-200/60 dark:border-emerald-900/60">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-300 pt-3 border-t border-emerald-200/60 dark:border-emerald-900/60">
               {t('hero.disclaimer', { defaultValue: 'Written for families and primary caregivers in India. Medical decisions must always be directed to a qualified neurologist.' })}
             </p>
           </div>
@@ -173,7 +173,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
                     <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
                       {t('hero.elderlineTitle', { defaultValue: 'Elderly Support Line (Elderline)' })}
                     </div>
-                    <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                    <div className="text-[11px] text-slate-500 dark:text-slate-300">
                       {t('hero.elderlineDesc', { defaultValue: 'Senior care guidance & elder assistance' })}
                     </div>
                   </div>
@@ -190,7 +190,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
                     <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
                       {t('hero.telemanasTitle', { defaultValue: 'Tele-MANAS 24x7' })}
                     </div>
-                    <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                    <div className="text-[11px] text-slate-500 dark:text-slate-300">
                       {t('hero.telemanasDesc', { defaultValue: 'Free mental health & caregiver counselling' })}
                     </div>
                   </div>
@@ -201,7 +201,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
               </div>
 
               <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                <span className="text-slate-500 dark:text-slate-400 text-[11px]">
+                <span className="text-slate-500 dark:text-slate-300 text-[11px]">
                   {t('hero.exploreDirectory', { defaultValue: 'Explore verified national networks:' })}
                 </span>
                 <button
@@ -261,7 +261,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
                 </div>
 
                 {card.sourceLabel && (
-                  <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-500 dark:text-slate-400">
+                  <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-500 dark:text-slate-300">
                     Source:{' '}
                     <a
                       href={card.sourceUrl}
@@ -566,7 +566,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="pt-2 text-[11px] text-slate-500 dark:text-slate-400">
+        <div className="pt-2 text-[11px] text-slate-500 dark:text-slate-300">
           Source:{' '}
           <a
             href="https://doi.org/10.3389/frdem.2026.1843904"
@@ -695,7 +695,7 @@ export const FamilyGuide: React.FC<FamilyGuideProps> = ({ onNavigate }) => {
 
       {/* Clinical Disclaimer */}
       <div className="text-center pt-4 border-t border-slate-200 dark:border-slate-800">
-        <p className="text-xs text-slate-500 dark:text-slate-400 italic max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs text-slate-500 dark:text-slate-300 italic max-w-2xl mx-auto leading-relaxed">
           This page was prepared for family caregivers. It is not medical advice. For clinical diagnosis, care planning, and medical decisions, always consult a qualified neurologist or geriatrician.
         </p>
       </div>

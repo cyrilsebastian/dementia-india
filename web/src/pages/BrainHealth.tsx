@@ -52,7 +52,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
             Dementia is not inevitable. Research shows that up to 45% of dementia cases could be prevented or delayed by addressing modifiable risk factors. This page summarises what the evidence actually shows.
           </p>
 
-          <div className="pt-2 border-t border-teal-200/60 dark:border-teal-900/60 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+          <div className="pt-2 border-t border-teal-200/60 dark:border-teal-900/60 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
             Source:{' '}
             <a
               href="https://doi.org/10.1016/S0140-6736(24)01296-0"
@@ -117,7 +117,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
                 <p><strong className="text-slate-800 dark:text-slate-200">India context:</strong> Morning walks are culturally established: this is one prevention tool that fits naturally.</p>
               </div>
             </div>
-            <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-500 dark:text-slate-400">
+            <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-500 dark:text-slate-300">
               Source:{' '}
               <a
                 href="https://doi.org/10.3389/frdem.2026.1843904"
@@ -195,7 +195,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
             A hybrid of the Mediterranean and DASH diets, developed specifically for brain health. Adherence to the Mediterranean diet is associated with a 30% lower risk of Alzheimer&apos;s disease (HR 0.70, 95% CI 0.60–0.82 across 23 studies).
           </p>
-          <div className="pt-2 text-[11px] text-slate-500 dark:text-slate-400">
+          <div className="pt-2 text-[11px] text-slate-500 dark:text-slate-300">
             Source:{' '}
             <a
               href="https://doi.org/10.1007/s11357-024-01488-3"
@@ -398,7 +398,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
             Measures phosphorylated tau protein in blood. Detects Alzheimer&apos;s pathology 15-20 years before symptoms. FDA-approved Lumipulse test outperforms clinicians in diagnosis accuracy.
           </p>
-          <div className="text-[11px] text-slate-500 dark:text-slate-400">
+          <div className="text-[11px] text-slate-500 dark:text-slate-300">
             Source:{' '}
             <a
               href="https://doi.org/10.1001/jama.2024.13855"
@@ -410,7 +410,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
               <ExternalLink className="w-2.5 h-2.5" />
             </a>
           </div>
-          <div className="pt-2 text-xs text-slate-500 dark:text-slate-400 italic">
+          <div className="pt-2 text-xs text-slate-500 dark:text-slate-300 italic">
             <strong>India availability:</strong> Not yet widely available in India. Available at selected tertiary centres. Currently recommended only for people with symptoms, not general population screening.
           </div>
         </div>
@@ -472,7 +472,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">
             Simple activities to keep the brain active at home
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-300 mt-1">
             Backed by research. Adaptable to any fitness level.
           </p>
         </div>
@@ -493,7 +493,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
 
           {/* Most days */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300">
               Most Days (5x / Week)
             </span>
             <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-200 leading-relaxed list-disc list-inside">
@@ -505,7 +505,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
 
           {/* 3x per week */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300">
               3x Per Week
             </span>
             <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-200 leading-relaxed list-disc list-inside">
@@ -516,7 +516,7 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
 
           {/* Weekly */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300">
               Weekly
             </span>
             <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-200 leading-relaxed list-disc list-inside">
@@ -526,14 +526,14 @@ export const BrainHealth: React.FC<BrainHealthProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <p className="text-xs text-slate-500 dark:text-slate-400 italic pt-2 text-center">
+        <p className="text-xs text-slate-500 dark:text-slate-300 italic pt-2 text-center">
           These are lifestyle patterns, not prescriptions. The benefit comes from consistency over years, not perfection over weeks.
         </p>
       </section>
 
       {/* Clinical Disclaimer */}
       <div className="text-center pt-4 border-t border-slate-200 dark:border-slate-800">
-        <p className="text-xs text-slate-500 dark:text-slate-400 italic max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs text-slate-500 dark:text-slate-300 italic max-w-2xl mx-auto leading-relaxed">
           The information on this page is educational and reflects population-level research associations. It is not medical advice or individual prescription. Always consult a qualified neurologist for personalised screening and diagnostic decisions.
         </p>
       </div>

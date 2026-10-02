@@ -64,6 +64,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      'echarts$': path.resolve(__dirname, './src/charts/echartsCustom.ts'),
     },
   },
   server: {
@@ -72,12 +73,29 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react':  ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
-          'vendor-i18n':   ['i18next', 'react-i18next'],
-          'vendor-charts': ['echarts', 'echarts-for-react'],
-          'vendor-utils':  ['papaparse', 'lucide-react'],
+        manualChunks(id) {
+          if (id.includes('echarts') || id.includes('zrender')) {
+            return 'echarts';
+          }
+          if (id.includes('/node_modules/react-dom/')) {
+            return 'react-dom';
+          }
+          if (id.includes('/node_modules/react/') || id.includes('/node_modules/scheduler/')) {
+            return 'react';
+          }
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         },
+      },
+    },
+    chunkSizeWarningLimit: 600,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info'],
       },
     },
   },

@@ -69,7 +69,7 @@ export const StatCards: React.FC = () => {
       {activeStats.map((stat) => (
         <article
           key={stat.metric_id}
-          className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm hover:shadow-md transition-all relative overflow-hidden group"
+          className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm hover:shadow-md transition-all relative overflow-hidden group min-h-[175px] flex flex-col justify-between"
         >
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">

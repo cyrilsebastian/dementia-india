@@ -28,7 +28,7 @@ const ChartSkeleton: React.FC<{ heightClass: string; title: string }> = ({ heigh
     className={`bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex flex-col items-center justify-center ${heightClass}`}
   >
     <div className="w-8 h-8 border-3 border-emerald-500 border-t-transparent rounded-full animate-spin mb-3" />
-    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Loading {title}...</p>
+    <p className="text-xs text-slate-500 dark:text-slate-300 font-medium">Loading {title}...</p>
   </div>
 );
 
@@ -37,7 +37,7 @@ export const IndiaPage: React.FC = () => {
     <div className="space-y-6">
       <SEOHead
         title="Dementia in India — State-wise Prevalence Data and Statistics"
-        description="Interactive data on dementia across India. State-wise prevalence maps, neurologist shortage analysis, and age-onset trends based on LASI Wave 1 and GBD 2021 data."
+        description="State-wise dementia prevalence maps, cognitive neurologist availability, and demographic trends across India based on LASI Wave 1 and GBD 2021 data."
         path="/"
         keywords="dementia India statistics, dementia prevalence India state wise, Alzheimer's India data, dementia map India, LASI dementia study"
       />
@@ -55,8 +55,8 @@ export const IndiaPage: React.FC = () => {
         <h2 className="sr-only">Prevalence Maps and Demographic Disparities</h2>
         {/* Left Column: Interactive Map */}
         <div className="lg:col-span-7 flex flex-col">
-          <DeferredView fallback={<ChartSkeleton heightClass="h-[380px] sm:h-[460px]" title="State Prevalence Map" />}>
-            <Suspense fallback={<ChartSkeleton heightClass="h-[380px] sm:h-[460px]" title="State Prevalence Map" />}>
+          <DeferredView fallback={<ChartSkeleton heightClass="min-h-[500px] h-[500px]" title="State Prevalence Map" />}>
+            <Suspense fallback={<ChartSkeleton heightClass="min-h-[500px] h-[500px]" title="State Prevalence Map" />}>
               <IndiaChoropleth />
             </Suspense>
           </DeferredView>

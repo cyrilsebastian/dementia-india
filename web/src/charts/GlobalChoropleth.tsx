@@ -7,7 +7,42 @@
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import ReactECharts from 'echarts-for-react';
-import * as echarts from 'echarts';
+import * as echarts from 'echarts/core';
+import {
+  MapChart,
+  BarChart,
+  LineChart,
+  ScatterChart,
+  PieChart,
+} from 'echarts/charts';
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  GridComponent,
+  GeoComponent,
+  VisualMapComponent,
+  DataZoomComponent,
+  ToolboxComponent,
+} from 'echarts/components';
+import { CanvasRenderer } from 'echarts/renderers';
+
+echarts.use([
+  MapChart,
+  BarChart,
+  LineChart,
+  ScatterChart,
+  PieChart,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  GridComponent,
+  GeoComponent,
+  VisualMapComponent,
+  DataZoomComponent,
+  ToolboxComponent,
+  CanvasRenderer,
+]);
 import { useCSV } from '../data/useCSV';
 import { CountryRecord, PolicyRecord } from '../types/data';
 import { ChartPanel } from '../components/ChartPanel';
@@ -151,7 +186,7 @@ export const GlobalChoropleth: React.FC<GlobalChoroplethProps> = ({ onSelectCoun
               className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-all flex items-center space-x-1 ${
                 layer === 'prevalence'
                   ? 'bg-emerald-500 text-white shadow-xs'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <span>Prevalence Rate</span>
@@ -161,7 +196,7 @@ export const GlobalChoropleth: React.FC<GlobalChoroplethProps> = ({ onSelectCoun
               className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-all flex items-center space-x-1 ${
                 layer === 'policy'
                   ? 'bg-sky-500 text-white shadow-xs'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <Layers className="w-3 h-3 mr-1" />

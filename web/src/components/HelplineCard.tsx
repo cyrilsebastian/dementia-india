@@ -23,7 +23,7 @@ export const HelplineCard: React.FC<HelplineCardProps> = ({ helpline }) => {
             <h4 className="font-bold text-base text-slate-900 dark:text-white">
               {helpline.name}
             </h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-300">
               {helpline.organization}
             </p>
           </div>
@@ -55,7 +55,7 @@ export const HelplineCard: React.FC<HelplineCardProps> = ({ helpline }) => {
           </p>
         )}
 
-        <div className="flex items-center space-x-2 text-[11px] text-slate-500 dark:text-slate-400 pt-1">
+        <div className="flex items-center space-x-2 text-[11px] text-slate-500 dark:text-slate-300 pt-1">
           <Clock className="w-3.5 h-3.5 text-slate-400" />
           <span>{helpline.hours}</span>
           {helpline.language && (

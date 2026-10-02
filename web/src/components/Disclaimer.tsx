@@ -21,7 +21,7 @@ export const Disclaimer: React.FC = () => {
           <h3 className="text-lg font-bold text-slate-900 dark:text-white">
             {t('disclaimerBlock.title', { defaultValue: 'Disclaimer & Legal Notice' })}
           </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
+          <p className="text-xs text-slate-500 dark:text-slate-300">
             {t('disclaimerBlock.subtitle', { defaultValue: 'This is a data visualisation platform, not a clinical or medical service.' })}
           </p>
         </div>
@@ -46,7 +46,7 @@ export const Disclaimer: React.FC = () => {
               'The hospital and NGO directory information is provided for reference only. Inclusion does not constitute endorsement. Please independently verify contact details and services before visiting.',
           })}
         </p>
-        <p className="text-slate-500 dark:text-slate-400 font-medium">
+        <p className="text-slate-500 dark:text-slate-300 font-medium">
           {t('disclaimerBlock.p4', {
             defaultValue: 'This platform collects no personal data. No cookies, no tracking, no user accounts. Source code is publicly available under the MIT License at ',
           })}

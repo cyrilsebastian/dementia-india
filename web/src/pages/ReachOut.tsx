@@ -252,7 +252,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
             </p>
           </div>
         </div>
-        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 leading-relaxed">
+        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-300 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 leading-relaxed">
           If you need urgent help for a family member, please use the helplines on the{' '}
           <a
             href="/care-network"
@@ -314,7 +314,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                 What best describes your message?
               </h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-slate-500 dark:text-slate-300">
                 Choose a category below to open the message form.
               </p>
             </div>
@@ -340,7 +340,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
                         className={`p-2.5 rounded-xl shrink-0 transition-colors ${
                           isSelected
                             ? 'bg-teal-500 text-white shadow-md shadow-teal-500/20'
-                            : 'bg-slate-100 dark:bg-slate-850 text-slate-600 dark:text-slate-400'
+                            : 'bg-slate-100 dark:bg-slate-850 text-slate-600 dark:text-slate-300'
                         }`}
                       >
                         <IconComponent className="w-5 h-5" />
@@ -355,7 +355,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
                         >
                           {cat.label}
                         </div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        <div className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
                           {cat.sublabel}
                         </div>
                       </div>
@@ -549,7 +549,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
       {/* SECTION E: Direct Contact (Always visible below the form) */}
       <div className="space-y-3">
         <div className="px-1">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-300">
             Direct & Public Channels
           </h2>
         </div>
@@ -558,7 +558,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
           {/* Left card: Email */}
           <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm space-y-3 flex flex-col justify-between">
             <div className="space-y-2">
-              <div className="flex items-center space-x-2.5 text-slate-500 dark:text-slate-400">
+              <div className="flex items-center space-x-2.5 text-slate-500 dark:text-slate-300">
                 <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-850 text-slate-700 dark:text-slate-300">
                   <Mail className="w-4 h-4" />
                 </div>
@@ -575,7 +575,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
                 </a>
               </div>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+            <p className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
               For sensitive matters you prefer not to submit through a form
             </p>
           </div>
@@ -583,7 +583,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
           {/* Right card: GitHub */}
           <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm space-y-3 flex flex-col justify-between">
             <div className="space-y-2">
-              <div className="flex items-center space-x-2.5 text-slate-500 dark:text-slate-400">
+              <div className="flex items-center space-x-2.5 text-slate-500 dark:text-slate-300">
                 <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-850 text-slate-700 dark:text-slate-300">
                   <Github className="w-4 h-4" />
                 </div>
@@ -603,7 +603,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
                 </a>
               </div>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+            <p className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
               For factual errors, outdated information, or missing data (tracked publicly)
             </p>
           </div>
@@ -612,7 +612,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
 
       {/* SECTION F: Privacy Note */}
       <div className="text-center pt-2 pb-6 px-4 space-y-2">
-        <p className="text-xs text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs text-slate-500 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
           Messages submitted through this form are sent to{' '}
           <a
             href="mailto:dementia@cyrilsebastian.com"
@@ -631,7 +631,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({ onNavigate }) => {
           </a>
           .
         </p>
-        <p className="text-xs text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs text-slate-500 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
           If you subscribed to the newsletter, your email is stored in Brevo and used only to send the monthly Dementia India update from hello@maildementia.cyrilsebastian.com. Replies go to dementia@cyrilsebastian.com. You can unsubscribe at any time using the link in any email we send.
         </p>
       </div>

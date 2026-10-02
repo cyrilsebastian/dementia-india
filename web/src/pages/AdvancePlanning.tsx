@@ -75,7 +75,7 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
           </p>
         </div>
 
-        <div className="pt-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
+        <div className="pt-2 text-xs text-slate-500 dark:text-slate-300 font-medium">
           Legal Landmark:{' '}
           <a
             href="https://indiankanoon.org/doc/184449972/"
@@ -278,7 +278,7 @@ export const AdvancePlanning: React.FC<AdvancePlanningProps> = ({ onNavigate }) 
 
       {/* Bottom Legal Disclaimer */}
       <div className="text-center pt-4 border-t border-slate-200 dark:border-slate-800">
-        <p className="text-xs text-slate-500 dark:text-slate-400 italic max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs text-slate-500 dark:text-slate-300 italic max-w-2xl mx-auto leading-relaxed">
           Disclaimer: This guidance is informational only and does not substitute for consultation with a qualified legal advocate or notary. Legal provisions may vary based on state jurisprudence and individual competency assessments.
         </p>
       </div>

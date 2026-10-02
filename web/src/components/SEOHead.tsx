@@ -116,8 +116,16 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   modifiedDate,
   customSchemas,
 }) => {
-  const canonicalUrl = `${BASE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+  // Normalize canonical URL: no trailing slash for routes like /family-guide
+  const cleanPath = path === '/' ? '' : path.replace(/\/+$/, '');
+  const canonicalUrl = `${BASE_URL}${cleanPath.startsWith('/') ? cleanPath : (cleanPath ? `/${cleanPath}` : '')}`;
   const image = ogImage || DEFAULT_IMAGE;
+
+  // Enforce recommended 120-160 character meta description length
+  const metaDescription =
+    description.length > 160
+      ? `${description.slice(0, 157).trim()}...`
+      : description;
 
   const schemas: object[] = [ORGANIZATION_SCHEMA];
 
@@ -135,13 +143,13 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     <>
       <Helmet>
         <title>{title} | Dementia India</title>
-        <meta name="description" content={description} />
+        <meta name="description" content={metaDescription} />
         {keywords && <meta name="keywords" content={keywords} />}
         <link rel="canonical" href={canonicalUrl} />
 
         {/* Open Graph */}
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={image} />
         <meta property="og:type" content={ogType} />

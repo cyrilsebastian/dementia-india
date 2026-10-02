@@ -348,7 +348,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                 <button
                   onClick={toggleDarkMode}
                   aria-label="Toggle dark mode"
-                  className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="p-2 rounded-lg text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5" />}
                 </button>
@@ -398,7 +398,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                                 className={`p-2 rounded-lg shrink-0 ${
                                   isActive
                                     ? 'bg-emerald-500 text-white shadow-xs'
-                                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
                                 }`}
                               >
                                 <Icon className="w-4 h-4" />
@@ -406,7 +406,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                               <div className="min-w-0">
                                 <span className="text-sm font-semibold truncate block">{getLocalizedNavLabel(item.id, item.label)}</span>
                                 {item.description && (
-                                  <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                                  <p className="text-[11px] text-slate-500 dark:text-slate-300 truncate mt-0.5">
                                     {item.description}
                                   </p>
                                 )}
@@ -435,7 +435,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                   </span>
                 </a>
 
-                <div className="flex items-center justify-between pt-1 px-1 text-xs text-slate-500 dark:text-slate-400">
+                <div className="flex items-center justify-between pt-1 px-1 text-xs text-slate-500 dark:text-slate-300">
                   <a
                     href="https://github.com/cyrilsebastian/dementia-india"
                     target="_blank"

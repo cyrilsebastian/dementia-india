@@ -18,7 +18,7 @@ export const HealthSpending: React.FC = () => {
     <div className="space-y-6">
       <SEOHead
         title="India Mental Health Budget — Dementia and Alzheimer's Funding Analysis"
-        description="India spends less than ₹7 per person per year on mental health. Analysis of the Union Health Budget, mental health allocation, and the invisible dementia funding gap."
+        description="India spends under ₹7 per capita annually on mental health. Explore Union Health Budget data, state allocations, and the dementia financing deficit."
         path="/health-spending"
         keywords="India mental health budget, dementia funding India, health spending India, NMHP budget, mental health allocation India"
       />
@@ -32,7 +32,7 @@ export const HealthSpending: React.FC = () => {
             <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
               Health Spending & Dementia Care Financing
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-300">
               Examining fiscal allocations, mental health parity, and the policy gap in cognitive care financing.
             </p>
           </div>
@@ -48,7 +48,7 @@ export const HealthSpending: React.FC = () => {
         {/* Card 1: Total Health Budget */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm space-y-2 flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">Total Health Budget (MoHFW)</span>
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-300">Total Health Budget (MoHFW)</span>
             <div className="p-2 rounded-lg bg-blue-500/10 text-blue-500">
               <IndianRupee className="w-4 h-4" />
             </div>
@@ -56,7 +56,7 @@ export const HealthSpending: React.FC = () => {
           <div className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono tabular-nums">
             ₹99,859 <span className="text-sm font-sans font-medium text-slate-500">Cr</span>
           </div>
-          <div className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center space-x-1">
+          <div className="text-[11px] text-slate-500 dark:text-slate-300 flex items-center space-x-1">
             <span>FY2025–26 Demand for Grants</span>
           </div>
         </div>
@@ -64,7 +64,7 @@ export const HealthSpending: React.FC = () => {
         {/* Card 2: Mental Health Allocation */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm space-y-2 flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">Mental Health Allocation</span>
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-300">Mental Health Allocation</span>
             <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">
               <Brain className="w-4 h-4" />
             </div>
@@ -72,7 +72,7 @@ export const HealthSpending: React.FC = () => {
           <div className="text-2xl font-bold tracking-tight text-emerald-600 dark:text-emerald-400 font-mono tabular-nums">
             ₹950 <span className="text-sm font-sans font-medium text-slate-500">Cr</span>
           </div>
-          <div className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center space-x-1">
+          <div className="text-[11px] text-slate-500 dark:text-slate-300 flex items-center space-x-1">
             <span className="font-semibold text-emerald-600 dark:text-emerald-400">~1.05%</span>
             <span>of Union Health Budget</span>
           </div>
@@ -82,7 +82,7 @@ export const HealthSpending: React.FC = () => {
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm space-y-2 flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-1.5">
-              <span className="text-xs font-medium text-slate-500 dark:text-slate-400">Elderly Mental Health Budget</span>
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-300">Elderly Mental Health Budget</span>
               <span
                 className="inline-flex cursor-help text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
                 title="Covers dementia, Alzheimer's disease, late-life depression, geriatric psychosis, and Parkinson's-related cognitive decline. None of these conditions have a dedicated budget line in India's union or state accounts. The NMHP geriatric mental health component exists in policy documents but is not separately tracked or reported in budget statements. Source: CMHLP Budget Brief 2025-26, MoHFW Demand for Grants."
@@ -97,7 +97,7 @@ export const HealthSpending: React.FC = () => {
           <div className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono tabular-nums">
             ₹0 <span className="text-sm font-sans font-medium text-slate-500">dedicated line item</span>
           </div>
-          <div className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+          <div className="text-[11px] text-slate-500 dark:text-slate-300 flex items-center space-x-1.5">
             <span className="font-semibold text-amber-700 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/60 px-1.5 py-0.5 rounded text-[10px] border border-amber-300 dark:border-amber-800">
               Policy gap
             </span>
@@ -108,7 +108,7 @@ export const HealthSpending: React.FC = () => {
         {/* Card 4: Economic Burden 2030 */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm space-y-2 flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">Projected Burden by 2030</span>
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-300">Projected Burden by 2030</span>
             <div className="p-2 rounded-lg bg-rose-500/10 text-rose-500">
               <TrendingDown className="w-4 h-4" />
             </div>
@@ -116,7 +116,7 @@ export const HealthSpending: React.FC = () => {
           <div className="text-2xl font-bold tracking-tight text-rose-600 dark:text-rose-400 font-mono tabular-nums">
             $1.5 Trillion
           </div>
-          <div className="text-[11px] text-slate-500 dark:text-slate-400">
+          <div className="text-[11px] text-slate-500 dark:text-slate-300">
             Lancet Commission Economic Forecast
           </div>
         </div>
@@ -167,11 +167,11 @@ export const HealthSpending: React.FC = () => {
             <h3 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight">
               Where Does the Central Mental Health Budget Go?
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-500 dark:text-slate-300 mt-0.5">
               Dissecting the ~₹950 Cr central allocation: Heavy concentration in apex tertiary hospitals vs. primary community care.
             </p>
           </div>
-          <span className="text-xs px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-medium">
+          <span className="text-xs px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">
             MoHFW Expenditure Profile
           </span>
         </div>
@@ -180,13 +180,13 @@ export const HealthSpending: React.FC = () => {
           {/* Component 1 */}
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Apex Institutes</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-300">Apex Institutes</span>
               <span className="text-xs font-bold font-mono px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-400">
                 ~70% (₹665 Cr)
               </span>
             </div>
             <h4 className="font-bold text-sm text-slate-900 dark:text-white">Tertiary Neuropsychiatry</h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
               Directed almost exclusively to 3 autonomous institutes: <strong>NIMHANS</strong> (Bengaluru), <strong>LGBRIMH</strong> (Tezpur), and <strong>CIP</strong> (Ranchi).
             </p>
           </div>
@@ -194,13 +194,13 @@ export const HealthSpending: React.FC = () => {
           {/* Component 2 */}
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">District Outreach</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-300">District Outreach</span>
               <span className="text-xs font-bold font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400">
                 ~15% (₹142 Cr)
               </span>
             </div>
             <h4 className="font-bold text-sm text-slate-900 dark:text-white">DMHP in 704 Districts</h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
               Distributed across 700+ District Mental Health Programmes for grassroots psychiatric clinics, nurse staffing, and essential psychiatric drugs.
             </p>
           </div>
@@ -208,13 +208,13 @@ export const HealthSpending: React.FC = () => {
           {/* Component 3 */}
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Digital Infrastructure</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-300">Digital Infrastructure</span>
               <span className="text-xs font-bold font-mono px-2 py-0.5 rounded bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400">
                 ~10% (₹95 Cr)
               </span>
             </div>
             <h4 className="font-bold text-sm text-slate-900 dark:text-white">Tele-MANAS Network</h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
               Funding 51 tele-mental health operational cells, multilingual telephony lines, and digital triage software connecting patients to counsellors.
             </p>
           </div>
@@ -222,13 +222,13 @@ export const HealthSpending: React.FC = () => {
           {/* Component 4 */}
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Advocacy & Admin</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-300">Advocacy & Admin</span>
               <span className="text-xs font-bold font-mono px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400">
                 ~5% (₹48 Cr)
               </span>
             </div>
             <h4 className="font-bold text-sm text-slate-900 dark:text-white">Research & IEC Campaigns</h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
               National anti-stigma campaigns, clinical dementia guidelines development, ICMR epidemiological surveys, and modernization.
             </p>
           </div>
@@ -249,7 +249,7 @@ export const HealthSpending: React.FC = () => {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-tight">
               Public Healthcare Entitlements: Accessing Care Free of Cost
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-300">
               Actionable guide for families navigating subsidized and zero-cost neurological assistance in India.
             </p>
           </div>

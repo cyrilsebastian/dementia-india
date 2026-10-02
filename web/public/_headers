@@ -1,3 +1,35 @@
+# Cache static assets aggressively
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache fonts
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache images
+/*.png
+  Cache-Control: public, max-age=86400
+/*.webp
+  Cache-Control: public, max-age=86400
+/*.jpg
+  Cache-Control: public, max-age=86400
+
+# Cache data files
+/data/*.csv
+  Content-Type: text/csv; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+
+/india-states.geojson
+  Content-Type: application/geo+json; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=86400
+
+/world.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=86400
+
 /llms.txt
   Content-Type: text/plain; charset=utf-8
   Access-Control-Allow-Origin: *
@@ -8,16 +40,16 @@
   Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=3600
 
-/data/*.csv
-  Content-Type: text/csv; charset=utf-8
-  Access-Control-Allow-Origin: *
-  Cache-Control: public, max-age=86400
+# Do not cache HTML (so updates deploy instantly)
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+/
+  Cache-Control: no-cache, no-store, must-revalidate
 
-/india-states.geojson
-  Content-Type: application/geo+json; charset=utf-8
-  Access-Control-Allow-Origin: *
-  Cache-Control: public, max-age=86400
-
+# Security headers (also improves Best Practices score)
 /*
   X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

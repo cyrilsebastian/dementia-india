@@ -108,7 +108,7 @@ export const BudgetWaterfall: React.FC = () => {
                     <div className="text-[13px] font-medium text-slate-900 dark:text-slate-100 leading-tight">
                       {item.label}
                     </div>
-                    <div className="text-[11px] text-slate-500 dark:text-slate-400 italic leading-snug">
+                    <div className="text-[11px] text-slate-500 dark:text-slate-300 italic leading-snug">
                       {item.sublabel}
                     </div>
                   </div>
@@ -133,7 +133,7 @@ export const BudgetWaterfall: React.FC = () => {
                         </div>
 
                         {/* Percentage of total health budget below bar */}
-                        <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium pl-0.5">
+                        <div className="text-[10px] text-slate-500 dark:text-slate-300 font-medium pl-0.5">
                           {item.pct}% of total health budget
                         </div>
                       </div>
@@ -169,7 +169,7 @@ export const BudgetWaterfall: React.FC = () => {
                     <ChevronDown className="w-3 h-3" />
                   </div>
                   {item.dropLabel ? (
-                    <span className="text-[11px] text-slate-500 dark:text-slate-400 italic">
+                    <span className="text-[11px] text-slate-500 dark:text-slate-300 italic">
                       {item.dropLabel}
                     </span>
                   ) : (

@@ -18,6 +18,7 @@ const Research         = lazy(() => import('./pages/Research'));
 const About            = lazy(() => import('./pages/About'));
 const ReachOut         = lazy(() => import('./pages/ReachOut'));
 const SpecialistPage   = lazy(() => import('./pages/SpecialistPage'));
+const NotFound         = lazy(() => import('./pages/NotFound'));
 
 export const AppContent: React.FC = () => {
   const navigate = useNavigate();
@@ -84,6 +85,12 @@ export const AppContent: React.FC = () => {
     }
   }, [location.pathname]);
 
+  // Prefetch the most likely next pages
+  useEffect(() => {
+    import('./pages/CareNetwork');
+    import('./pages/FamilyGuide');
+  }, []);
+
   const handleTabChange = (tab: NavTabType) => {
     const routeMap: Record<NavTabType, string> = {
       'india': '/',
@@ -129,7 +136,7 @@ export const AppContent: React.FC = () => {
             <Route path="/research" element={<Research onNavigate={handleTabChange} />} />
             <Route path="/about" element={<About />} />
             <Route path="/reach-out" element={<ReachOut onNavigate={handleTabChange} />} />
-            <Route path="*" element={<IndiaOverview />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>

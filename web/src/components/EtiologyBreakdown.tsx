@@ -105,7 +105,7 @@ export const EtiologyBreakdown: React.FC = () => {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               selectedSubtype === 'all'
                 ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             All Syndromes (8.8M)
@@ -115,7 +115,7 @@ export const EtiologyBreakdown: React.FC = () => {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               selectedSubtype === 'alzheimers'
                 ? 'bg-emerald-600 text-white shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             Alzheimer's Only (5.72M)
@@ -125,7 +125,7 @@ export const EtiologyBreakdown: React.FC = () => {
 
       {/* Proportional Stacked Bar */}
       <div className="space-y-1.5">
-        <div className="flex items-center justify-between text-xs font-medium text-slate-600 dark:text-slate-400">
+        <div className="flex items-center justify-between text-xs font-medium text-slate-600 dark:text-slate-300">
           <span>Etiological Share of 8.8 Million Indian Caseload</span>
           <span className="text-[11px] text-slate-400">ARDSI 2020 / GBD 2021 Benchmarks</span>
         </div>
@@ -142,7 +142,7 @@ export const EtiologyBreakdown: React.FC = () => {
             />
           ))}
         </div>
-        <div className="flex flex-wrap items-center gap-3 pt-1 text-[11px] text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-center gap-3 pt-1 text-[11px] text-slate-600 dark:text-slate-300">
           {subtypes.map((st) => (
             <button
               type="button"

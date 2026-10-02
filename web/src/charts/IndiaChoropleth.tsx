@@ -6,7 +6,42 @@
 
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import ReactECharts from 'echarts-for-react';
-import * as echarts from 'echarts';
+import * as echarts from 'echarts/core';
+import {
+  MapChart,
+  BarChart,
+  LineChart,
+  ScatterChart,
+  PieChart,
+} from 'echarts/charts';
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  GridComponent,
+  GeoComponent,
+  VisualMapComponent,
+  DataZoomComponent,
+  ToolboxComponent,
+} from 'echarts/components';
+import { CanvasRenderer } from 'echarts/renderers';
+
+echarts.use([
+  MapChart,
+  BarChart,
+  LineChart,
+  ScatterChart,
+  PieChart,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  GridComponent,
+  GeoComponent,
+  VisualMapComponent,
+  DataZoomComponent,
+  ToolboxComponent,
+  CanvasRenderer,
+]);
 import { useCSV } from '../data/useCSV';
 import { StateRecord } from '../types/data';
 import { useFilters } from '../context/FilterContext';
@@ -90,10 +125,10 @@ export const IndiaChoropleth: React.FC = () => {
 
   if (!geoLoaded || loadingCSV) {
     return (
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex items-center justify-center h-[380px] sm:h-[460px]">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex items-center justify-center w-full" style={{ minHeight: '500px' }}>
         <div className="text-center">
           <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-          <p className="text-sm text-slate-500 dark:text-slate-400">Loading India State Choropleth...</p>
+          <p className="text-sm text-slate-500 dark:text-slate-300">Loading India State Choropleth...</p>
         </div>
       </div>
     );
@@ -111,7 +146,7 @@ export const IndiaChoropleth: React.FC = () => {
       onExport={handleExport}
       activeFilterBadges={activeBadges}
     >
-      <div className="w-full h-[380px] sm:h-[460px]">
+      <div className="w-full" style={{ minHeight: '500px', height: '500px', width: '100%' }}>
         <ReactECharts
           ref={chartRef}
           option={option}

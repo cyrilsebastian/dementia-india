@@ -61,7 +61,7 @@ export const GlobalStatCards: React.FC = () => {
       case 'POLICY_READINESS':
         return 'text-sky-700 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/60 border-sky-200 dark:border-sky-800';
       default:
-        return 'text-slate-700 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700';
+        return 'text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700';
     }
   };
 
@@ -89,7 +89,7 @@ export const GlobalStatCards: React.FC = () => {
           <div>
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-1.5">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-300">
                   {stat.label}
                 </span>
                 <Tooltip text={getTooltipText(stat.metric_id)} size={12} />
@@ -111,7 +111,7 @@ export const GlobalStatCards: React.FC = () => {
                 {stat.change_pct}
               </span>
             </div>
-            <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-snug line-clamp-2" title={stat.notes}>
+            <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-300 leading-snug line-clamp-2" title={stat.notes}>
               {stat.notes}
             </p>
             {stat.metric_id === 'POLICY_READINESS' && (

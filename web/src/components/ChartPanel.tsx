@@ -91,7 +91,7 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
             <ExternalLink className="w-2.5 h-2.5 ml-0.5 inline-block opacity-70" aria-hidden="true" />
           </a>
         </div>
-        <span className="text-[10px] text-slate-600 dark:text-slate-400">Project Dementia India</span>
+        <span className="text-[10px] text-slate-600 dark:text-slate-300">Project Dementia India</span>
       </div>
     </div>
   );
