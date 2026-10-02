@@ -145,7 +145,7 @@ export const GlobalBubble: React.FC<GlobalBubbleProps> = ({ onSelectCountry }) =
     >
       <div className="flex flex-col h-full justify-between">
         {/* ECharts Canvas */}
-        <div className="h-[340px] w-full">
+        <div style={{ height: '480px', width: '100%' }}>
           <ReactECharts
             ref={chartRef}
             option={options}

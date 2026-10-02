@@ -248,7 +248,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
 
             <button
               onClick={toggleDarkMode}
-              aria-label="Toggle dark mode"
+              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               className="p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >

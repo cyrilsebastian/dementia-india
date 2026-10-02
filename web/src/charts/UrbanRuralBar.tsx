@@ -92,7 +92,7 @@ export const UrbanRuralBar: React.FC = () => {
       sourceUrl="https://iipsindia.ac.in/lasi"
       activeFilterBadges={activeBadges}
     >
-      <div className="w-full h-[220px]">
+      <div style={{ height: '400px', width: '100%' }}>
         <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
       </div>
     </ChartPanel>

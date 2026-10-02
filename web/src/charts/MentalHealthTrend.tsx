@@ -30,7 +30,7 @@ export const MentalHealthTrend: React.FC = () => {
       sourceUrl="https://cmhlp.org"
       exportable={true}
     >
-      <div className="w-full h-[280px]">
+      <div style={{ height: '280px', width: '100%' }}>
         <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
       </div>
     </ChartPanel>

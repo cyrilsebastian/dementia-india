@@ -64,7 +64,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      'echarts$': path.resolve(__dirname, './src/charts/echartsCustom.ts'),
+      'echarts$': path.resolve(__dirname, './src/lib/echarts.ts'),
     },
   },
   server: {

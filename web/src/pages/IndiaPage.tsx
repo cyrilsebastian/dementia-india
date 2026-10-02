@@ -65,15 +65,15 @@ export const IndiaPage: React.FC = () => {
         {/* Right Column: Demographic Disparities */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           <div className="flex-1">
-            <DeferredView fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Age-Onset Gradient" />}>
-              <Suspense fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Age-Onset Gradient" />}>
+            <DeferredView fallback={<ChartSkeleton heightClass="h-[320px]" title="Age-Onset Gradient" />}>
+              <Suspense fallback={<ChartSkeleton heightClass="h-[320px]" title="Age-Onset Gradient" />}>
                 <AgeOnsetBar />
               </Suspense>
             </DeferredView>
           </div>
           <div className="flex-1">
-            <DeferredView fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Urban-Rural Distribution" />}>
-              <Suspense fallback={<ChartSkeleton heightClass="h-[210px] sm:h-[220px]" title="Urban-Rural Distribution" />}>
+            <DeferredView fallback={<ChartSkeleton heightClass="h-[400px]" title="Urban-Rural Distribution" />}>
+              <Suspense fallback={<ChartSkeleton heightClass="h-[400px]" title="Urban-Rural Distribution" />}>
                 <UrbanRuralBar />
               </Suspense>
             </DeferredView>

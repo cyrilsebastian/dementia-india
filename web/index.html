@@ -47,6 +47,8 @@
     <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="LLMs-full.txt" />
 
     <!-- Resource Hints & Non-blocking Font Loading -->
+    <link rel="preload" href="/india-states.geojson" as="fetch" crossorigin="anonymous" />
+    <link rel="modulepreload" href="/src/main.tsx" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
@@ -180,12 +182,175 @@
   </style>
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased min-h-screen">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-white text-black px-4 py-2 rounded shadow-md">
+    <a href="#main-content" 
+       class="sr-only focus:not-sr-only focus:fixed 
+              focus:top-4 focus:left-4 focus:z-50 
+              focus:bg-white focus:text-black 
+              focus:px-4 focus:py-2 focus:rounded shadow-md">
       Skip to main content
     </a>
+    
     <div id="google_translate_element" style="display:none"></div>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx" defer></script>
+    <div id="root">
+      <!-- Above-fold loading skeleton visible before React loads -->
+      <div style="
+        min-height: 100vh;
+        background: #0D0D0D;
+        font-family: Arial, sans-serif;
+        color: #E0E0E0;
+      ">
+        <!-- Nav skeleton -->
+        <div style="
+          height: 56px;
+          background: #1A1A2E;
+          display: flex;
+          align-items: center;
+          padding: 0 24px;
+          border-bottom: 1px solid #333;
+        ">
+          <span style="
+            color: #16A085;
+            font-weight: bold;
+            font-size: 18px;
+          ">Dementia India</span>
+        </div>
+        
+        <!-- Stat cards skeleton -->
+        <div style="
+          max-width: 1200px;
+          margin: 32px auto;
+          padding: 0 16px;
+        ">
+          <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+          ">
+            <!-- Card 1 -->
+            <div style="
+              background: #1A1A2E;
+              border-radius: 8px;
+              padding: 20px;
+              border: 1px solid #333;
+            ">
+              <div style="font-size: 11px; color: #888; 
+                          text-transform: uppercase; 
+                          letter-spacing: 1px; 
+                          margin-bottom: 8px;">
+                INDIANS LIVING WITH DEMENTIA (60+)
+              </div>
+              <div style="font-size: 36px; font-weight: bold; 
+                          color: #E0E0E0;">
+                8.8 Million
+              </div>
+              <div style="
+                display: inline-block;
+                background: #27AE60;
+                color: white;
+                font-size: 11px;
+                padding: 2px 8px;
+                border-radius: 12px;
+                margin-top: 8px;
+              ">+100% by 2050 (17.6M)</div>
+            </div>
+            <!-- Card 2 -->
+            <div style="
+              background: #1A1A2E;
+              border-radius: 8px;
+              padding: 20px;
+              border: 1px solid #333;
+            ">
+              <div style="font-size: 11px; color: #888;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                          margin-bottom: 8px;">
+                NEUROLOGIST SPECIALIST RATIO
+              </div>
+              <div style="font-size: 36px; font-weight: bold;
+                          color: #E0E0E0;">
+                1 per 5 Million
+              </div>
+              <div style="
+                display: inline-block;
+                background: #E67E22;
+                color: white;
+                font-size: 11px;
+                padding: 2px 8px;
+                border-radius: 12px;
+                margin-top: 8px;
+              ">Extreme rural deficit</div>
+            </div>
+            <!-- Card 3 -->
+            <div style="
+              background: #1A1A2E;
+              border-radius: 8px;
+              padding: 20px;
+              border: 1px solid #333;
+            ">
+              <div style="font-size: 11px; color: #888;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                          margin-bottom: 8px;">
+                DEMENTIA DIAGNOSIS RATE
+              </div>
+              <div style="font-size: 36px; font-weight: bold;
+                          color: #E0E0E0;">
+                10 – 15%
+              </div>
+              <div style="
+                display: inline-block;
+                background: #C0392B;
+                color: white;
+                font-size: 11px;
+                padding: 2px 8px;
+                border-radius: 12px;
+                margin-top: 8px;
+              ">~85% undiagnosed</div>
+            </div>
+            <!-- Card 4 -->
+            <div style="
+              background: #1A1A2E;
+              border-radius: 8px;
+              padding: 20px;
+              border: 1px solid #333;
+            ">
+              <div style="font-size: 11px; color: #888;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                          margin-bottom: 8px;">
+                DAILY UNPAID CAREGIVER HOURS
+              </div>
+              <div style="font-size: 36px; font-weight: bold;
+                          color: #E0E0E0;">
+                6.2 Hours / Day
+              </div>
+              <div style="
+                display: inline-block;
+                background: #8E44AD;
+                color: white;
+                font-size: 11px;
+                padding: 2px 8px;
+                border-radius: 12px;
+                margin-top: 8px;
+              ">72% provided by female kin</div>
+            </div>
+          </div>
+          
+          <!-- Loading indicator -->
+          <div style="
+            text-align: center;
+            color: #555;
+            font-size: 13px;
+            padding: 40px;
+          ">
+            Loading interactive charts...
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.tsx"></script>
     <script type="text/javascript">
       // Efficient observer to enforce zero banner without CPU timer polling
       (function() {

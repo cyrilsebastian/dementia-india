@@ -140,7 +140,7 @@ export const GlobalProjections: React.FC<GlobalProjectionsProps> = () => {
       onExport={handleExport}
       activeFilterBadges={['1990–2050 Timeline', 'Solid: GBD', 'Dashed: Lancet Forecast']}
     >
-      <div className="h-[360px] w-full">
+      <div style={{ height: '320px', width: '100%' }}>
         <ReactECharts
           ref={chartRef}
           option={options}

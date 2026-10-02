@@ -22,7 +22,7 @@ export const NmhpUtilisationBar: React.FC = () => {
       sourceUrl="https://theprint.in/health/gross-underspend-cripples-indias-community-level-mental-health-battle-states-spent-50-funds-for-5-yrs/2878442/"
       exportable={true}
     >
-      <div className="w-full h-[320px]">
+      <div style={{ height: '280px', width: '100%' }}>
         <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
       </div>
     </ChartPanel>

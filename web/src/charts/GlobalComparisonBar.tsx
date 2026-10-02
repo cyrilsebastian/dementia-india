@@ -206,7 +206,7 @@ export const GlobalComparisonBar: React.FC<GlobalComparisonBarProps> = ({ onSele
         </div>
 
         {/* ECharts Canvas */}
-        <div className="h-[340px] w-full">
+        <div style={{ height: '360px', width: '100%' }}>
           <ReactECharts
             ref={chartRef}
             option={options}

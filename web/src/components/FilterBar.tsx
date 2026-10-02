@@ -208,12 +208,14 @@ export const FilterBar: React.FC = () => {
           {/* [Sex] */}
           <div className="shrink-0" style={groupStyle}>
             <span style={labelStyle}>Sex</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '2px', alignSelf: 'center' }}>
+            <div role="radiogroup" aria-label="Filter by sex" style={{ display: 'flex', alignItems: 'center', gap: '2px', alignSelf: 'center' }}>
               {(['Both', 'Male', 'Female'] as const).map((s) => {
                 const isActive = sex === s;
                 return (
                   <button
                     key={s}
+                    role="radio"
+                    aria-checked={isActive}
                     onClick={() => setSex(s)}
                     aria-label={`Filter by sex: ${s}`}
                     aria-pressed={isActive}
@@ -246,12 +248,14 @@ export const FilterBar: React.FC = () => {
           {/* [Area] */}
           <div className="shrink-0" style={groupStyle}>
             <span style={labelStyle}>Area</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '2px', alignSelf: 'center' }}>
+            <div role="radiogroup" aria-label="Filter by area" style={{ display: 'flex', alignItems: 'center', gap: '2px', alignSelf: 'center' }}>
               {(['All', 'Rural', 'Urban'] as const).map((u) => {
                 const isActive = urban === u;
                 return (
                   <button
                     key={u}
+                    role="radio"
+                    aria-checked={isActive}
                     onClick={() => setUrban(u)}
                     aria-label={`Filter by area: ${u}`}
                     aria-pressed={isActive}
@@ -428,12 +432,14 @@ export const FilterBar: React.FC = () => {
               {/* Sex */}
               <div className="flex flex-col gap-1.5">
                 <span className="font-semibold text-slate-700 dark:text-slate-300">Sex Demographic</span>
-                <div className="grid grid-cols-3 gap-2">
+                <div role="radiogroup" aria-label="Filter by sex" className="grid grid-cols-3 gap-2">
                   {(['Both', 'Male', 'Female'] as const).map((s) => {
                     const isActive = sex === s;
                     return (
                       <button
                         key={s}
+                        role="radio"
+                        aria-checked={isActive}
                         onClick={() => setSex(s)}
                         aria-label={`Filter by sex: ${s}`}
                         aria-pressed={isActive}
@@ -453,12 +459,14 @@ export const FilterBar: React.FC = () => {
               {/* Area */}
               <div className="flex flex-col gap-1.5">
                 <span className="font-semibold text-slate-700 dark:text-slate-300">Sector (Urban / Rural)</span>
-                <div className="grid grid-cols-3 gap-2">
+                <div role="radiogroup" aria-label="Filter by area" className="grid grid-cols-3 gap-2">
                   {(['All', 'Rural', 'Urban'] as const).map((u) => {
                     const isActive = urban === u;
                     return (
                       <button
                         key={u}
+                        role="radio"
+                        aria-checked={isActive}
                         onClick={() => setUrban(u)}
                         aria-label={`Filter by area: ${u}`}
                         aria-pressed={isActive}

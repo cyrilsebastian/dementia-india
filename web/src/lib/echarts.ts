@@ -1,40 +1,46 @@
 import * as echarts from 'echarts/core';
 import {
-  MapChart,
   BarChart,
   LineChart,
   ScatterChart,
+  MapChart,
   PieChart,
+  CustomChart,
 } from 'echarts/charts';
 import {
   TitleComponent,
   TooltipComponent,
-  LegendComponent,
   GridComponent,
+  LegendComponent,
   GeoComponent,
   VisualMapComponent,
   DataZoomComponent,
   ToolboxComponent,
+  MarkLineComponent,
+  MarkAreaComponent,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
 echarts.use([
-  MapChart,
   BarChart,
   LineChart,
   ScatterChart,
+  MapChart,
   PieChart,
+  CustomChart,
   TitleComponent,
   TooltipComponent,
-  LegendComponent,
   GridComponent,
+  LegendComponent,
   GeoComponent,
   VisualMapComponent,
   DataZoomComponent,
   ToolboxComponent,
+  MarkLineComponent,
+  MarkAreaComponent,
   CanvasRenderer,
 ]);
 
+export default echarts;
 export * from 'echarts/core';
 export { echarts };
-export default echarts;

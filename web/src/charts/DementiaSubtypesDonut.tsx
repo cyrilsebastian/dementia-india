@@ -128,7 +128,7 @@ export const DementiaSubtypesDonut: React.FC = () => {
     >
       <div className="flex flex-col h-full justify-between space-y-4">
         {/* Donut Chart Canvas */}
-        <div className="h-[260px] w-full">
+        <div style={{ height: '280px', width: '100%' }}>
           <ReactECharts
             ref={chartRef}
             option={options}

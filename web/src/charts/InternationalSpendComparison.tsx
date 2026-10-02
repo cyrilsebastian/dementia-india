@@ -22,7 +22,7 @@ export const InternationalSpendComparison: React.FC = () => {
       sourceUrl="https://www.who.int/data/gho/data/themes/topics/dementia"
       exportable={true}
     >
-      <div className="w-full h-[280px]">
+      <div style={{ height: '240px', width: '100%' }}>
         <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
       </div>
     </ChartPanel>

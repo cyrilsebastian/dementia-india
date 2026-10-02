@@ -7,42 +7,7 @@
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import ReactECharts from 'echarts-for-react';
-import * as echarts from 'echarts/core';
-import {
-  MapChart,
-  BarChart,
-  LineChart,
-  ScatterChart,
-  PieChart,
-} from 'echarts/charts';
-import {
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  GridComponent,
-  GeoComponent,
-  VisualMapComponent,
-  DataZoomComponent,
-  ToolboxComponent,
-} from 'echarts/components';
-import { CanvasRenderer } from 'echarts/renderers';
-
-echarts.use([
-  MapChart,
-  BarChart,
-  LineChart,
-  ScatterChart,
-  PieChart,
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  GridComponent,
-  GeoComponent,
-  VisualMapComponent,
-  DataZoomComponent,
-  ToolboxComponent,
-  CanvasRenderer,
-]);
+import * as echarts from '../lib/echarts';
 import { useCSV } from '../data/useCSV';
 import { CountryRecord, PolicyRecord } from '../types/data';
 import { ChartPanel } from '../components/ChartPanel';
@@ -231,7 +196,7 @@ export const GlobalChoropleth: React.FC<GlobalChoroplethProps> = ({ onSelectCoun
         </div>
 
         {/* ECharts Canvas */}
-        <div className="h-[360px] w-full">
+        <div style={{ height: '480px', width: '100%' }}>
           <ReactECharts
             ref={chartRef}
             option={options}

@@ -6,42 +6,7 @@
 
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import ReactECharts from 'echarts-for-react';
-import * as echarts from 'echarts/core';
-import {
-  MapChart,
-  BarChart,
-  LineChart,
-  ScatterChart,
-  PieChart,
-} from 'echarts/charts';
-import {
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  GridComponent,
-  GeoComponent,
-  VisualMapComponent,
-  DataZoomComponent,
-  ToolboxComponent,
-} from 'echarts/components';
-import { CanvasRenderer } from 'echarts/renderers';
-
-echarts.use([
-  MapChart,
-  BarChart,
-  LineChart,
-  ScatterChart,
-  PieChart,
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  GridComponent,
-  GeoComponent,
-  VisualMapComponent,
-  DataZoomComponent,
-  ToolboxComponent,
-  CanvasRenderer,
-]);
+import * as echarts from '../lib/echarts';
 import { useCSV } from '../data/useCSV';
 import { StateRecord } from '../types/data';
 import { useFilters } from '../context/FilterContext';
