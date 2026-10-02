@@ -72,9 +72,9 @@ export const StatCards: React.FC = () => {
           className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm hover:shadow-md transition-all relative overflow-hidden group"
         >
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
               {stat.label}
-            </h2>
+            </span>
             <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800 group-hover:scale-110 transition-transform">
               {getIcon(stat.metric_id)}
             </div>
@@ -85,11 +85,11 @@ export const StatCards: React.FC = () => {
             </span>
           </div>
           <div className="mt-2 flex items-center justify-between text-xs">
-            <span className="font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
+            <span className="font-semibold text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
               {stat.change_pct}
             </span>
           </div>
-          <p className="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-snug line-clamp-2" title={stat.notes}>
+          <p className="mt-2 text-xs text-slate-700 dark:text-slate-300 leading-snug line-clamp-2" title={stat.notes}>
             {stat.notes}
           </p>
         </article>

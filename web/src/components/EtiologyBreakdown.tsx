@@ -87,13 +87,13 @@ export const EtiologyBreakdown: React.FC = () => {
         <div>
           <div className="flex items-center space-x-2">
             <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-500">
-              <Brain className="w-5 h-5" />
+              <Brain className="w-5 h-5" aria-hidden="true" />
             </div>
-            <h3 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight">
+            <h2 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight">
               Clinical Etiology Disaggregation: Alzheimer's vs. Dementia Subtypes
-            </h3>
+            </h2>
           </div>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
             Dementia is an umbrella syndrome. In India, Alzheimer's Disease accounts for ~65% of all clinical caseloads, followed by Vascular and Lewy Body etiologies.
           </p>
         </div>
@@ -194,7 +194,7 @@ export const EtiologyBreakdown: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[10px] text-slate-500 dark:text-slate-400">
+              <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[10px] text-slate-600 dark:text-slate-300">
                 <span className="font-semibold">Key drivers:</span> {st.primaryRisk}
               </div>
             </div>

@@ -103,9 +103,9 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
         </div>
 
         <div>
-          <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight">
             {title}
-          </h3>
+          </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
             {subtitle}
           </p>
@@ -130,7 +130,11 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
             <span>You are already subscribed to the monthly newsletter with this email address.</span>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-3">
+          <form
+            onSubmit={handleSubmit}
+            {...({ toolname: 'subscribe_newsletter', tooldescription: 'Subscribe email to receive monthly epidemiological research summaries and caregiver resources' } as any)}
+            className="space-y-3"
+          >
             <div className="flex flex-col sm:flex-row gap-2.5 max-w-md mx-auto">
               <label htmlFor="subscribe-newsletter-email" className="sr-only">
                 Email address
@@ -139,6 +143,7 @@ export const SubscribeForm: React.FC<SubscribeFormProps> = ({
                 id="subscribe-newsletter-email"
                 type="email"
                 aria-label="Email address for monthly dispatch"
+                {...({ toolparamdescription: 'Subscriber email address' } as any)}
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ email: e.target.value })}

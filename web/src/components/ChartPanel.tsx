@@ -37,7 +37,7 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
             {title}
           </h3>
           {subtitle && (
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed">
               {subtitle}
             </p>
           )}
@@ -48,7 +48,7 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
               {activeFilterBadges.map((badge, idx) => (
                 <span
                   key={idx}
-                  className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium"
+                  className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-[11px] font-semibold"
                 >
                   {badge}
                 </span>
@@ -60,11 +60,13 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
         {/* Optional Export Action */}
         {exportable && onExport && (
           <button
+            type="button"
             onClick={onExport}
-            className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 text-xs flex items-center space-x-1 shrink-0 transition-colors"
+            className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 text-xs flex items-center space-x-1 shrink-0 transition-colors"
             title="Export chart image (PNG)"
+            aria-label={`Export ${title} as PNG image`}
           >
-            <Download className="w-3.5 h-3.5" />
+            <Download className="w-3.5 h-3.5" aria-hidden="true" />
             <span className="hidden sm:inline">Export</span>
           </button>
         )}
@@ -76,20 +78,20 @@ export const ChartPanel: React.FC<ChartPanelProps> = ({
       </div>
 
       {/* Footer Citation */}
-      <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400">
+      <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-600 dark:text-slate-300">
         <div className="flex items-center space-x-1">
           <span>Source:</span>
           <a
             href={sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-emerald-600 dark:text-emerald-400 hover:underline flex items-center space-x-0.5"
+            className="font-medium text-emerald-700 dark:text-emerald-400 hover:underline flex items-center space-x-0.5"
           >
             <span>{sourceLabel}</span>
-            <ExternalLink className="w-2.5 h-2.5 ml-0.5 inline-block opacity-70" />
+            <ExternalLink className="w-2.5 h-2.5 ml-0.5 inline-block opacity-70" aria-hidden="true" />
           </a>
         </div>
-        <span className="text-[10px] text-slate-400 dark:text-slate-500">Project Dementia India</span>
+        <span className="text-[10px] text-slate-600 dark:text-slate-400">Project Dementia India</span>
       </div>
     </div>
   );

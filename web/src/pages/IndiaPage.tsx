@@ -51,6 +51,7 @@ export const IndiaPage: React.FC = () => {
 
       {/* Main Visualisation Grid */}
       <section aria-label="Visualizations: National Prevalence and Demographics" className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <h2 className="sr-only">Prevalence Maps and Demographic Disparities</h2>
         {/* Left Column: Interactive Map */}
         <div className="lg:col-span-7 flex flex-col">
           <Suspense fallback={<ChartSkeleton heightClass="h-[380px] sm:h-[460px]" title="State Prevalence Map" />}>

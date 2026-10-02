@@ -7,15 +7,15 @@
   --border-strong: #cbd5e1;
   --surface-2: #f1f5f9;
   --text-primary: #0f172a;
-  --text-secondary: #64748b;
+  --text-secondary: #334155;
 }
 
 .dark {
   --border: #334155;
   --border-strong: #475569;
-  --surface-2: #334155;
+  --surface-2: #1e293b;
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --text-secondary: #cbd5e1;
 }
 
 @layer base {

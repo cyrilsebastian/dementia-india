@@ -4,6 +4,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import './i18n';
 import './index.css';
+import { registerWebMCPTools } from './webmcp';
+
+registerWebMCPTools();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -12,3 +15,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </HelmetProvider>
   </React.StrictMode>
 );
+
